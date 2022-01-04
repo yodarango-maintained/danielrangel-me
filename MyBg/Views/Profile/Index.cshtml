@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+
+    IEnumerable<FollowerModel> followers = ViewData["Followers"] as IEnumerable<FollowerModel>;
+    IEnumerable<BlogModel> blogs = ViewData["Blogs"] as IEnumerable<BlogModel>;
+    IEnumerable<FavoriteModel> favortites = ViewData["Favorites"] as IEnumerable<FavoriteModel>;
+    UserAdminModel userAdmin = ViewData["UserAdmin"] as UserAdminModel;
+
+    }
+
+<h1>Index</h1>
+
+<div>
+    <h4>FollowerModel</h4>
+    @foreach (FollowerModel follower in followers)
+    {
+        <p>@follower.Follower_Name</p>
+    }
+    @foreach (FavoriteModel favorite in favortites)
+    {
+        <p>@favorite.Title</p>
+    }
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

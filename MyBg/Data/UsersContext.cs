@@ -66,6 +66,42 @@ namespace MyBg.Data
             return user;
         }
 
+        public List<FollowerModel> GetFollowers()
+        {
+            List<FollowerModel> followers = new List<FollowerModel>();
+
+            using(MySqlConnection connection = GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand("SELECT * FROM followers ORDER BY ID DESC", connection);
+
+                try
+                {
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if(reader.HasRows)
+                    {
+                        while(reader.Read())
+                        {
+                            FollowerModel follower = new FollowerModel();
+                            follower.ID = reader.GetInt32(0);
+                            follower.Follower_Name = reader.GetString(1);
+                            follower.Email = reader.GetString(2);
+                            follower.Date_Subscribed = reader.GetDateTime(3);
+                            follower.Not_A_Bot = reader.GetBoolean(4);
+
+                            followers.Add(follower);
+                        }
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    Console.WriteLine(e);
+                }
+
+                return followers;
+            }
+        }
     }
 }
 
