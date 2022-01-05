@@ -16,6 +16,7 @@ namespace MyBg.Controllers
             return View("Index", context.GetBlogs());
         }
 
+        [Route("Blogs/{id:int}")]
         public IActionResult Post(int id)
         {
             PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;

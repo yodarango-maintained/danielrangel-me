@@ -128,9 +128,12 @@ C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Favorites\P
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Blogs\Post.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Blogs\Index.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Tools\Index.cshtml.g.cs
-C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Index.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Posts\Index.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Favorites\New.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Favorites\Edit.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Blogs\New.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Blogs\Edit.cshtml.g.cs
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Blogs.cshtml.g.cs
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Favorites.cshtml.g.cs
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Index.cshtml.g.cs
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Followers.cshtml.g.cs

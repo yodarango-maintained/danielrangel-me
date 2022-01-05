@@ -28,7 +28,7 @@ namespace MyBg.Data
             UserAdminModel user = new UserAdminModel();
             using (MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("select * from useradmin where id = 1", connection);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM useradmin ORDER BY ID DESC LIMIT 1", connection);
 
                 try
                 {
@@ -70,7 +70,7 @@ namespace MyBg.Data
         {
             List<FollowerModel> followers = new List<FollowerModel>();
 
-            using(MySqlConnection connection = GetConnection())
+            using (MySqlConnection connection = GetConnection())
             {
                 MySqlCommand command = new MySqlCommand("SELECT * FROM followers ORDER BY ID DESC", connection);
 
@@ -79,9 +79,9 @@ namespace MyBg.Data
                     connection.Open();
                     MySqlDataReader reader = command.ExecuteReader();
 
-                    if(reader.HasRows)
+                    if (reader.HasRows)
                     {
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             FollowerModel follower = new FollowerModel();
                             follower.ID = reader.GetInt32(0);
@@ -101,6 +101,73 @@ namespace MyBg.Data
 
                 return followers;
             }
+        }
+
+        // -------------------------------------- Post Routes ------------------------------------------ //
+        public void EditUserAdmin(UserAdminModel admin)
+        {
+            using (MySqlConnection connection = GetConnection())
+            {
+
+                MySqlCommand command = new MySqlCommand("UPDATE UserAdmin SET About_Me = @About_Me, YouVersion_Url = @YouVersion_Url, Github_Url = @Github_Url, Instagram_Url = @Instagram_Url, Reddit_Url = @Reddit_Url, Goodreads_url = @Goodreads_url, Youtube_url = @Youtube_url, Twitter_url = @Twitter_url, LinkedIn_url = @LinkedIn_url, Strava_url = @Strava_url, Categories = @Categories WHERE ID  = @ID", connection);
+
+                command.Parameters.Add("@ID", MySqlDbType.Int32).Value = admin.ID;
+                command.Parameters.Add("@About_Me", MySqlDbType.String).Value = admin.About_Me;
+                command.Parameters.Add("@YouVersion_Url", MySqlDbType.String).Value = admin.YouVersion_Url;
+                command.Parameters.Add("@Github_Url", MySqlDbType.String).Value = admin.Github_Url;
+                command.Parameters.Add("@Instagram_Url", MySqlDbType.String).Value = admin.Instagram_Url;
+                command.Parameters.Add("@Reddit_Url", MySqlDbType.String).Value = admin.Reddit_Url;
+                command.Parameters.Add("@Goodreads_url", MySqlDbType.String).Value = admin.Goodreads_url;
+                command.Parameters.Add("@Youtube_url", MySqlDbType.String).Value = admin.Youtube_url;
+                command.Parameters.Add("@Twitter_url", MySqlDbType.String).Value = admin.Twitter_url;
+                command.Parameters.Add("@LinkedIn_url", MySqlDbType.String).Value = admin.LinkedIn_url;
+                command.Parameters.Add("@Strava_url", MySqlDbType.String).Value = admin.Strava_url;
+                command.Parameters.Add("@Categories", MySqlDbType.String).Value = admin.Categories;
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (MySqlException e)
+                {
+                    Console.WriteLine(e);
+                    Console.ReadKey();
+                }
+
+            }
+        }
+
+        public int GetFollowerCount()
+        {
+            int followers = 0;
+
+            using (MySqlConnection connection = GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand("SELECT COUNT(*) FROM followers", connection);
+
+                try
+                {
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            followers = reader.FieldCount;
+                        }
+                    }
+                    reader.Close();
+                }
+                catch (MySqlException e)
+                {
+                    Console.WriteLine(e);
+                }
+                connection.Close();
+            }
+
+            return followers;
         }
     }
 }

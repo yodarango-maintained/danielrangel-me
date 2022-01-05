@@ -267,7 +267,6 @@ namespace MyBg.Data
                     Console.WriteLine(e);
                     return e.ToString();
                 }
-                connection.Close();
             }
         }
 

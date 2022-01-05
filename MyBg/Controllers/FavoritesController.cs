@@ -27,6 +27,7 @@ namespace MyBg.Controllers
             return View("New");
         }
 
+        [Route("Favorites/{id:int}")]
         public IActionResult Edit(int id)
         {
             PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
