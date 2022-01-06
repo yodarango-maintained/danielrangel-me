@@ -21,8 +21,14 @@ namespace MyBg.Controllers
 
         public IActionResult Index()
         {
-            UsersContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.UsersContext)) as UsersContext;
-            return View("Index", context.Getindexdata());
+            UsersContext usersContext = HttpContext.RequestServices.GetService(typeof(MyBg.Data.UsersContext)) as UsersContext;
+            PostsContext postContext = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+
+            ViewData["User"] = usersContext.Getindexdata();
+            ViewData["FollowerCount"] = usersContext.GetFollowerCount();
+            ViewData["Posts"] = postContext.GetAllPosts();
+
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

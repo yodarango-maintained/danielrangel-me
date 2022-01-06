@@ -189,6 +189,47 @@ namespace MyBg.Data
             return blog;
         }
 
+
+        public List<PostsViewModel> GetAllPosts()
+        {
+            List<PostsViewModel> allPosts = new List<PostsViewModel>();
+
+            using(MySqlConnection connection = GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand("(SELECT ID, Title, Description, Tumbnails, Categories, DatePosted FROM blogs ORDER BY ID DESC) UNION ALL (SELECT ID, Title, Description, Tumbnails, Categories, DatePosted FROM favorites ORDER BY ID DESC) ORDER BY DatePosted;", connection);
+                
+                try
+                {
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if(reader.HasRows)
+                    {
+                        while(reader.Read())
+                        {
+                            PostsViewModel post = new PostsViewModel();
+
+                            post.ID = reader.GetInt32(0);
+                            post.Title = reader.GetString(1);
+                            post.Description = reader.GetString(2);
+                            post.Tumbnail = reader.GetString(3);
+                            post.DatePosted = reader.GetDateTime(5);
+
+                            allPosts.Add(post);
+                        }
+                    }
+                    reader.Close();
+
+                }
+                catch(MySqlException e)
+                {
+                    Console.WriteLine(e);
+                }
+                connection.Close();
+            }
+
+            return allPosts;
+        }
         // ------------------------------------------------------------ Post Routes ------------------------------------------- //
 
         public void NewFavorite(FavoriteModel favorite)
