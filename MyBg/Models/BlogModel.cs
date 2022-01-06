@@ -18,8 +18,11 @@ namespace MyBg.Models
         [Required]
         public string Categories { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime DatePosted { get; set; }
+
         [Required]
         public string HTML { get; set; }
+
+        public string PostType { get; set; }
     }
 }

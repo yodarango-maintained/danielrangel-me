@@ -4,63 +4,35 @@
     ViewData["Title"] = Model.Title;
 }
 
-<h1>Favorite</h1>
+<div class="main-wrapper main-wrapper_favorites">
+    <a asp-action="Index" asp-controller="Favorites">Back to All</a>
 
-<div>
-    <h4>FavoriteModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tumbnails)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tumbnails)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Categories)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categories)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DatePosted)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DatePosted)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Link)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Link)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HTML)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HTML)
-        </dd>
-    </dl>
+    <section>
+        <span class="post-type post-type_favorite"></span>
+        <h1>👈 FAVORITES</h1>
+        <p class="std-quiet-p">@Model.DatePosted</p>
+    </section>
+
+    <div class="tag-footer">
+        <div class="category-wrapper">
+            @if (!String.IsNullOrEmpty(Model.Categories))
+            {
+                string[] tags = Model.Categories.Split(" ");
+                foreach (string tag in tags)
+                {
+                    <span class="category-tag">@tag</span>
+                }
+            }
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_Carrousel", Model);
+
+    <a href="@Model.Link">Check It out</a>
+
+    <p class="std-p">
+        @Html.Raw(Model.HTML);
+    </p>
+
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>
+

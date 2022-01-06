@@ -40,12 +40,18 @@ namespace MyBg.Data
                         while (reader.Read())
                         {
                             FavoriteModel favorite = new FavoriteModel();
+
                             favorite.ID = reader.GetInt32(0);
                             favorite.Title = reader.GetString(1);
                             favorite.Description = reader.GetString(2);
                             favorite.Tumbnails = reader.GetString(3);
                             favorite.Categories = reader.GetString(4);
                             favorite.DatePosted = reader.GetDateTime(5);
+                            favorite.Link = reader.GetString(6);
+                            favorite.HTML = reader.GetString(7);
+                            favorite.PostType = reader.GetString(8);
+
+
                             if (!reader.IsDBNull(6))
                             {
                                 favorite.Link = reader.GetString(6);
@@ -94,6 +100,10 @@ namespace MyBg.Data
                             favorite.Tumbnails = reader.GetString(3);
                             favorite.Categories = reader.GetString(4);
                             favorite.DatePosted = reader.GetDateTime(5);
+                            favorite.Link = reader.GetString(6);
+                            favorite.HTML = reader.GetString(7);
+                            favorite.PostType = reader.GetString(8);
+
                             if (!reader.IsDBNull(6))
                             {
                                 favorite.Link = reader.GetString(6);
@@ -130,13 +140,15 @@ namespace MyBg.Data
                         while(reader.Read())
                         {
                             BlogModel blog = new BlogModel();
+
                             blog.ID = reader.GetInt32(0);
                             blog.Title = reader.GetString(1);
                             blog.Description = reader.GetString(2);
                             blog.Tumbnails = reader.GetString(3);
                             blog.Categories = reader.GetString(4);
-                            blog.Date = reader.GetDateTime(5);
+                            blog.DatePosted = reader.GetDateTime(5);
                             blog.HTML = reader.GetString(6);
+                            blog.PostType = reader.GetString(7);
 
                             blogs.Add(blog);
                         }
@@ -170,13 +182,16 @@ namespace MyBg.Data
                     {
                         while(reader.Read())
                         {
+
                             blog.ID = reader.GetInt32(0);
                             blog.Title = reader.GetString(1);
                             blog.Description = reader.GetString(2);
                             blog.Tumbnails = reader.GetString(3);
                             blog.Categories = reader.GetString(4);
-                            blog.Date = reader.GetDateTime(5);
+                            blog.DatePosted = reader.GetDateTime(5);
                             blog.HTML = reader.GetString(6);
+                            blog.PostType = reader.GetString(7);
+
                         }
                     }
                     reader.Close();
@@ -196,7 +211,7 @@ namespace MyBg.Data
 
             using(MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("(SELECT ID, Title, Description, Tumbnails, Categories, DatePosted FROM blogs ORDER BY ID DESC) UNION ALL (SELECT ID, Title, Description, Tumbnails, Categories, DatePosted FROM favorites ORDER BY ID DESC) ORDER BY DatePosted;", connection);
+                MySqlCommand command = new MySqlCommand("(SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM blogs ORDER BY ID DESC) UNION ALL (SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM favorites ORDER BY ID DESC) ORDER BY DatePosted;", connection);
                 
                 try
                 {
@@ -213,7 +228,9 @@ namespace MyBg.Data
                             post.Title = reader.GetString(1);
                             post.Description = reader.GetString(2);
                             post.Tumbnail = reader.GetString(3);
+                            post.Categories = reader.GetString(4);
                             post.DatePosted = reader.GetDateTime(5);
+                            post.PostType = reader.GetString(6);
 
                             allPosts.Add(post);
                         }
@@ -230,13 +247,48 @@ namespace MyBg.Data
 
             return allPosts;
         }
+
+        public List<CategoryModel> GetCategoryTags()
+        {
+
+            List<CategoryModel> tags = new List<CategoryModel>();
+
+            using(MySqlConnection connection = GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand("SELECT * FROM categories ORDER By Category ASC", connection);
+
+                try {
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if(reader.HasRows)
+                    {
+                        while(reader.Read())
+                        {
+                            CategoryModel tag = new CategoryModel();
+
+                            tag.ID = reader.GetInt32(0);
+                            tag.Category = reader.GetString(1);
+
+                            tags.Add(tag);
+                        }
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+            return tags;
+        }
         // ------------------------------------------------------------ Post Routes ------------------------------------------- //
 
         public void NewFavorite(FavoriteModel favorite)
         {
             using(MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("INSERT INTO favorites(Title, Description, Tumbnails, Categories, Link, HTML) VALUES(@Title, @Description, @Tumbnails, @Categories, @Link, @HTML)", connection);
+                MySqlCommand command = new MySqlCommand("INSERT INTO favorites(PostType, Title, Description, Tumbnails, Categories, Link, HTML) VALUES(Favorite, @Title, @Description, @Tumbnails, @Categories, @Link, @HTML)", connection);
+
                 command.Parameters.Add("@Title", MySqlDbType.String).Value = favorite.ID;
                 command.Parameters.Add("@Description", MySqlDbType.String).Value = favorite.Description;
                 command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = favorite.Tumbnails;
@@ -262,7 +314,7 @@ namespace MyBg.Data
         {
             using (MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("INSERT INTO blogs(Title, Description, Tumbnails, Categories, HTML) VALUES(@Title, @Description, @Tumbnails, @Categories, @HTML)", connection);
+                MySqlCommand command = new MySqlCommand("INSERT INTO blogs(PostType, Title, Description, Tumbnails, Categories, HTML) VALUES(Blog, @Title, @Description, @Tumbnails, @Categories, @HTML)", connection);
                 command.Parameters.Add("@Title", MySqlDbType.String).Value = blog.ID;
                 command.Parameters.Add("@Description", MySqlDbType.String).Value = blog.Description;
                 command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = blog.Tumbnails;

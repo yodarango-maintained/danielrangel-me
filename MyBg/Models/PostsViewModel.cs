@@ -16,5 +16,9 @@ namespace MyBg.Models
         public string Tumbnail { get; set; }
 
         public DateTime DatePosted { get; set; }
+
+        public string PostType { get; set; }
+
+        public string Categories { get; set; }
     }
 }

@@ -26,5 +26,7 @@ namespace MyBg.Models
 
         #nullable disable
         public string HTML { get; set; }
+
+        public string PostType { get; set; }
     }
 }

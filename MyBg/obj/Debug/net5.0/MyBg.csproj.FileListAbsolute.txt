@@ -137,3 +137,4 @@ C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Blo
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Favorites.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Index.cshtml.g.cs
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Profile\Followers.cshtml.g.cs
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\Razor\Views\Shared\_Carrousel.cshtml.g.cs

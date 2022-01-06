@@ -2,76 +2,74 @@
 
 @{
     ViewData["Title"] = "My Favorites";
+    IEnumerable<CategoryModel> allTags = ViewData["Tags"] as IEnumerable<CategoryModel>;
 }
 
-<h1>View</h1>
+<div class="main-wrapper main-type_favorite">
+    <section>
+        <span class="post-type post-type_header"></span>
+        <h1>FAVORITES</h1>
+    </section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tumbnails)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categories)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatePosted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Link)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HTML)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tumbnails)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categories)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatePosted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Link)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HTML)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Posts", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "DeleteFavorite", new { id = item.ID })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p class="std-p">
+    This is my very dummy description for now! ustry. 
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+    when an unknown printer took a galley of type and scrambled it to make 
+    a type specimen book. It has survived not only five centuries, 
+    but also the leap into electronic typesetting, remaining 
+    essentially unchanged. It was popularised in the 1960s with 
+    the release of Letraset sheets containing Lorem Ipsum passages, 
+    and more recently with desktop publishing software like 
+    Aldus PageMaker including versions of Lorem Ipsu
+    </p>
+
+    <div>
+        @foreach(CategoryModel tag in allTags)
+            {
+                <span class="category-tag">#@tag.Category</span>
+            }
+    </div>
+
+    @foreach (var post in Model)
+    {
+        <div class="favorite-post-wrapper">
+            <aside class="favorite-post-info-wrapper">
+                <a asp-action="Post" asp-controller="Favorites" asp-route-id="@post.ID">
+                    <h3 class="std-header-h3 header-h3_favorite">@post.Title</h3>
+                    <p class="std-quiet-p">@post.DatePosted</p>
+
+                    <div class="tag-footer">
+
+                        @if (post.PostType == "Favorite")
+                        {
+                            <span class="post-type type_favorite">favorite</span>
+                        }
+
+                        @if (post.PostType == "Blog")
+                        {
+                            <span class="post-type type_blog">blog</span>
+                        }
+                        <div class="category-wrapper">
+                            @if (!String.IsNullOrEmpty(post.Categories))
+                            {
+                                string[] tags = post.Categories.Split(" ");
+                                foreach (string tag in tags)
+                                {
+                                    <span class="category-tag">@tag</span>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </a>
+                <p class="std-p std-p_favorite-desc">
+                    @post.Description
+                </p>
+            </aside>
+        </div>
+    }
+</div>
+
+
+
+

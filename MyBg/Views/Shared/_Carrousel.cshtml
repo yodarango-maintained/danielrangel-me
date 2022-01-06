@@ -1,0 +1,11 @@
+﻿@model FavoriteModel
+<div class="image-carrousel">
+    @{ 
+        string[] images = Model.Tumbnails.Split(" ");
+
+        foreach(string image in images)
+        {
+           <img src="@image" alt="thumbnail for a post about @Model.Title"/>
+        }
+    }
+</div>

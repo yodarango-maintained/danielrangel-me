@@ -6,7 +6,7 @@
     IEnumerable<PostsViewModel> posts = ViewData["Posts"] as IEnumerable<PostsViewModel>;
 }
 
-<div class="main-wrapper">
+<div class="main-wrapper main-wrapper_index">
     <section class="indexp-upper-half">
         <h1 class="std-header-h1">
             MY TITLE
@@ -16,30 +16,30 @@
 
         <div class="social-media-section">
             <h3 class="std-header-h3">Find Me On</h3>
-            <div>
-                <a href="@admin.YouVersion_Url">
-                    <span></span>
+            <div class="sm-links-wrapper">
+                <a href="@admin.YouVersion_Url" class="sm-link">
+                    <span>youversion</span>
                 </a>
-                <a href="@admin.Instagram_Url">
-                    <span></span>
+                <a href="@admin.Instagram_Url" class="sm-link">
+                    <span>inst</span>
                 </a>
-                <a href="@admin.Github_Url">
-                    <span></span>
+                <a href="@admin.Github_Url" class="sm-link">
+                    <span>git</span>
                 </a>
-                <a href="@admin.Goodreads_url">
-                    <span></span>
+                <a href="@admin.Goodreads_url" class="sm-link">
+                    <span>goodr</span>
                 </a>
-                <a href="@admin.Youtube_url">
-                    <span></span>
+                <a href="@admin.Youtube_url" class="sm-link">
+                    <span>youtbe</span>
                 </a>
-                <a href="@admin.Reddit_Url">
-                    <span></span>
+                <a href="@admin.Reddit_Url" class="sm-link">
+                    <span>redd</span>
                 </a>
-                <a href="@admin.Twitter_url">
-                    <span></span>
+                <a href="@admin.Twitter_url" class="sm-link">
+                    <span>twitt</span>
                 </a>
-                <a href="@admin.Strava_url">
-                    <span></span>
+                <a href="@admin.Strava_url" class="sm-link">
+                    <span>srav</span>
                 </a>
             </div>
         </div>
@@ -54,6 +54,29 @@
                     <img src="" />
                     <h4 class="std-header-h4">@post.Title</h4>
                     <p class="std-quiet-p">@post.DatePosted</p>
+                    <div class="tag-footer">
+
+                        @if (post.PostType == "Favorite")
+                        {
+                            <span class="post-type type_favorite">favorite</span>
+                        }
+
+                        @if (post.PostType == "Blog")
+                        {
+                            <span class="post-type type_blog">blog</span>
+                        }
+                        <div class="category-wrapper">
+                            @if (!String.IsNullOrEmpty(post.Categories))
+                            {
+                                string[] tags = post.Categories.Split(" ");
+                                foreach (string tag in tags)
+                                {
+                                    <span class="category-tag">@tag</span>
+                                }
+
+                            }
+                        </div>
+                    </div>
 
                 </div>
             }
