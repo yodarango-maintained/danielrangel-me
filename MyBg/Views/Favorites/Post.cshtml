@@ -5,11 +5,11 @@
 }
 
 <div class="main-wrapper main-wrapper_favorites">
-    <a asp-action="Index" asp-controller="Favorites">Back to All</a>
+    <a asp-action="Index" asp-controller="Favorites" class="std-button">👈 BACK TO ALL</a>
 
-    <section>
-        <span class="post-type post-type_favorite"></span>
-        <h1>👈 FAVORITES</h1>
+    <section class="main-title-wrapper">
+        <span class="post-type type_favorite"></span>
+        <h1 class="std-header-h1 header-h1_favorite">@Model.Title</h1>
         <p class="std-quiet-p">@Model.DatePosted</p>
     </section>
 

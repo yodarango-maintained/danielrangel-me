@@ -2,70 +2,66 @@
 
 @{
     ViewData["Title"] = "Index";
+    IEnumerable<CategoryModel> allTags = ViewData["Tags"] as IEnumerable<CategoryModel>;
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tumbnails)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categories)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatePosted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HTML)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tumbnails)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categories)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatePosted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HTML)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Posts", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "DeleteBlog", new { id = item.ID })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="main-wrapper main-type_favorite">
+    <section>
+        <span class="post-type post-type_header"></span>
+        <h1>BLOGS</h1>
+    </section>
+
+    <p class="std-p">
+        This is my very dummy description for now! ustry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five centuries,
+        but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with
+        the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like
+        Aldus PageMaker including versions of Lorem Ipsu
+    </p>
+
+    <div>
+        @foreach (CategoryModel tag in allTags)
+        {
+            <span class="category-tag">#@tag.Category</span>
+        }
+    </div>
+
+    @foreach (BlogModel post in Model)
+    {
+<div class="blog-post-wrapper">
+    @await Html.PartialAsync("_Carrousel", post);
+    <aside class="blog-post-info-wrapper">
+        <a asp-action="Post" asp-controller="Blogs" asp-route-id="@post.ID">
+            <h3 class="std-header-h3 header-h3_favorite">@post.Title</h3>
+            <p class="std-quiet-p">@post.DatePosted</p>
+
+            <div class="tag-footer">
+
+                <span class="post-type type_blog"></span>
+
+                <div class="category-wrapper">
+                    @if (!String.IsNullOrEmpty(post.Categories))
+                    {
+                        string[] tags = post.Categories.Split(" ");
+                        foreach (string tag in tags)
+                        {
+                            <span class="category-tag">@tag</span>
+                        }
+
+                    }
+                </div>
+            </div>
+        </a>
+        <p class="std-p std-p_favorite-desc">
+            @post.Description
+        </p>
+    </aside>
+</div>
+    }
+</div>
+

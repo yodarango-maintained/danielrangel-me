@@ -89,6 +89,7 @@ namespace MyBg.Data
                             follower.Email = reader.GetString(2);
                             follower.Date_Subscribed = reader.GetDateTime(3);
                             follower.Not_A_Bot = reader.GetBoolean(4);
+                            follower.Avatar = reader.GetString(5);
 
                             followers.Add(follower);
                         }

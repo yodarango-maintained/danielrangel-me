@@ -21,6 +21,8 @@ namespace MyBg.Models
         [Required]
         public bool Not_A_Bot { get; set; }
 
+        [Required]
+        public string Avatar { get; set; }
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿@*@model MyBg.Models.UserAdminModel*@
 @{
     ViewData["Title"] = "Welcome to My Blog";
-    UserAdminModel admin=  ViewData["User"] as UserAdminModel;
+    UserAdminModel admin = ViewData["User"] as UserAdminModel;
     string followersCount = ViewData["FollowerCount"].ToString();
     IEnumerable<PostsViewModel> posts = ViewData["Posts"] as IEnumerable<PostsViewModel>;
 }
@@ -11,7 +11,7 @@
         <h1 class="std-header-h1">
             MY TITLE
         </h1>
-        <img src="~/images/logo.jfif" class="intro-logo"/>
+        <img src="~/images/logo.jfif" class="intro-logo" />
         <p class="std-parragraph">@admin.About_Me</p>
 
         <div class="social-media-section">
@@ -41,14 +41,17 @@
                 <a href="@admin.Strava_url" class="sm-link">
                     <span>srav</span>
                 </a>
+                <a href="@admin.LinkedIn_url" class="sm-link">
+                    <span>LinkedIn</span>
+                </a>
             </div>
         </div>
     </section>
 
     <section class="indexp-lower-half">
         <h2 class="std-header-h2">MOST RECENT</h2>
-        <div class="posts-wrapper">
-            @foreach(PostsViewModel post in posts)
+        <section class="posts-wrapper">
+            @foreach (PostsViewModel post in posts)
             {
                 <div class="individual-post-wrapper">
                     <img src="" />
@@ -80,7 +83,7 @@
 
                 </div>
             }
-        </div>
+        </section>
     </section>
 
 </div>

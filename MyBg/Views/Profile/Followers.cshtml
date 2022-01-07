@@ -4,56 +4,26 @@
     ViewData["Title"] = "Followers";
 }
 
-<h1>Followers</h1>
+<div class="main-wrapper">
+    <section class="main-title-wrapper">
+        <span class="post-type type_new"></span>
+        <h1 class="std-header-h1 header-h1_favorite">FAVORITES</h1>
+    </section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Follower_Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date_Subscribed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Not_A_Bot)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Follower_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date_Subscribed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Not_A_Bot)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <section class="posts-wrapper">
+        @foreach (FollowerModel follower in Model)
+        {
+            <div class="followeriwrapper">
+                <img src="@follower.Avatar" class="profile-icon" />
+                <h3 class="std-header-h3">@follower.Follower_Name</h3>
+                <p class="std-bright-p">@follower.Email</p>
+                <p class="std-quiet-p">@follower.Date_Subscribed</p>
+            </div>
+
+            <section class="admin-actions-wrapper">
+                <a asp-action="DeleteFollower" , asp-controller="profile" asp-route-id="@follower.ID">Delete</a>
+            </section>
+        }
+    </section>
+
+</div>

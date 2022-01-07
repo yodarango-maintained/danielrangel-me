@@ -4,68 +4,46 @@
     ViewData["Title"] = "Blogs";
 }
 
-<h1>Blogs</h1>
+<div class="main-wrapper">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tumbnails)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categories)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatePosted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HTML)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tumbnails)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categories)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatePosted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HTML)
-            </td>
-            <td>
-                <a asp-action="Edit" , asp-controller="Blogs" asp-route-id="@item.ID">Edit</a>
-                <a asp-action="Blog" , asp-controller="Blogs" asp-route-id="@item.ID">Read</a>
-                <a asp-action="DeleteBlog" , asp-controller="Blogs" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <a asp-action="New" asp-controller="Blogs">New</a>
+
+        <section class="main-title-wrapper">
+            <span class="post-type type_new"></span>
+            <h1 class="std-header-h1 header-h1_favorite">BLOGS</h1>
+        </section>
+
+        <section class="posts-wrapper">
+            @foreach (BlogModel post in Model)
+            {
+                <div class="individual-post-wrapper">
+                    <img src="" />
+                    <h4 class="std-header-h4">@post.Title</h4>
+                    <p class="std-quiet-p">@post.DatePosted</p>
+                    <div class="tag-footer">
+
+
+                        <span class="post-type type_blog">blog</span>
+
+                        <div class="category-wrapper">
+                            @if (!String.IsNullOrEmpty(post.Categories))
+                            {
+                                string[] tags = post.Categories.Split(" ");
+                                foreach (string tag in tags)
+                                {
+                                    <span class="category-tag">@tag</span>
+                                }
+
+                            }
+                        </div>
+                    </div>
+
+                    <section class="admin-actions-wrapper">
+                        <a asp-action="Edit" , asp-controller="Blogs" asp-route-id="@post.ID">Edit</a>
+                        <a asp-action="Blog" , asp-controller="Blogs" asp-route-id="@post.ID">Read</a>
+                        <a asp-action="DeleteBlog" , asp-controller="Blogs" asp-route-id="@post.ID">Delete</a>
+                    </section>
+                </div>
+            }
+            </section>
+</div>

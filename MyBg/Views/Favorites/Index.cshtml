@@ -12,27 +12,28 @@
     </section>
 
     <p class="std-p">
-    This is my very dummy description for now! ustry. 
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    when an unknown printer took a galley of type and scrambled it to make 
-    a type specimen book. It has survived not only five centuries, 
-    but also the leap into electronic typesetting, remaining 
-    essentially unchanged. It was popularised in the 1960s with 
-    the release of Letraset sheets containing Lorem Ipsum passages, 
-    and more recently with desktop publishing software like 
-    Aldus PageMaker including versions of Lorem Ipsu
+        This is my very dummy description for now! ustry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five centuries,
+        but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with
+        the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like
+        Aldus PageMaker including versions of Lorem Ipsu
     </p>
 
     <div>
-        @foreach(CategoryModel tag in allTags)
-            {
-                <span class="category-tag">#@tag.Category</span>
-            }
+        @foreach (CategoryModel tag in allTags)
+        {
+            <span class="category-tag">#@tag.Category</span>
+        }
     </div>
 
-    @foreach (var post in Model)
+    @foreach (FavoriteModel post in Model)
     {
         <div class="favorite-post-wrapper">
+            @await Html.PartialAsync("_Carrousel", post);
             <aside class="favorite-post-info-wrapper">
                 <a asp-action="Post" asp-controller="Favorites" asp-route-id="@post.ID">
                     <h3 class="std-header-h3 header-h3_favorite">@post.Title</h3>
@@ -40,15 +41,8 @@
 
                     <div class="tag-footer">
 
-                        @if (post.PostType == "Favorite")
-                        {
-                            <span class="post-type type_favorite">favorite</span>
-                        }
+                        <span class="post-type type_favorite"></span>
 
-                        @if (post.PostType == "Blog")
-                        {
-                            <span class="post-type type_blog">blog</span>
-                        }
                         <div class="category-wrapper">
                             @if (!String.IsNullOrEmpty(post.Categories))
                             {

@@ -6,86 +6,93 @@
     string followerCount = ViewData["FollowerCount"].ToString();
 }
 
-<h1>Index</h1>
+<div class="main-wrapper main-wrapper_edit-favorite">
 
-<h4>Count: @followerCount</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditUserAdmin" asp-controller="Profile">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ID" class="control-label"></label>
-                <input asp-for="ID" class="form-control" />
-                <span asp-validation-for="ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="About_Me" class="control-label"></label>
-                <input asp-for="About_Me" class="form-control" />
-                <span asp-validation-for="About_Me" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YouVersion_Url" class="control-label"></label>
-                <input asp-for="YouVersion_Url" class="form-control" />
+    <a asp-action="Index" asp-controller="Home" class="std-button">👈 HOME</a>
+
+    <section class="main-title-wrapper">
+        <span class="post-type type_favorite"></span>
+        <h1 class="std-header-h1 header-h1_favorite">PROFILE</h1>
+    </section>
+
+    <form asp-action="EditUserAdmin" asp-controller="Profile" class="std-form form-profile">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="my-form-group">
+            <input asp-for="About_Me" class="form-input" value="@Model.About_Me" />
+            <span asp-validation-for="About_Me" class="text-danger"></span>
+        </div>
+
+        <section class="std-form_find-me-on">
+            <div class="my-form-group link-group">
+                <span class="post-type type_link-uversion"></span>
+                <input asp-for="YouVersion_Url" class="form-input" value="@Model.YouVersion_Url" />
                 <span asp-validation-for="YouVersion_Url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Github_Url" class="control-label"></label>
-                <input asp-for="Github_Url" class="form-control" />
+
+            <div class="my-form-group link-group">
+                <span class="post-type type_link-github"></span>
+                <textarea asp-for="Github_Url" class="form-input">@Model.Github_Url</textarea>
                 <span asp-validation-for="Github_Url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Instagram_Url" class="control-label"></label>
-                <input asp-for="Instagram_Url" class="form-control" />
+
+            <div class="my-form-group link-group">
+                <span class="post-type type_link-instagram"></span>
+                <input asp-for="Instagram_Url" class="form-input" value="@Model.Instagram_Url" />
                 <span asp-validation-for="Instagram_Url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Reddit_Url" class="control-label"></label>
-                <input asp-for="Reddit_Url" class="form-control" />
+
+            <div class="my-form-group link-group">
+                <input asp-for="Reddit_Url" class="form-input" value="@Model.Reddit_Url" />
                 <span asp-validation-for="Reddit_Url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Goodreads_url" class="control-label"></label>
-                <input asp-for="Goodreads_url" class="form-control" />
+
+            <div class="my-form-group link-group">
+                <span class="post-type type_link-goodreads"></span>
+                <textarea asp-for="Goodreads_url" class="form-textarea">@Model.Goodreads_url</textarea>
                 <span asp-validation-for="Goodreads_url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Youtube_url" class="control-label"></label>
-                <input asp-for="Youtube_url" class="form-control" />
-                <span asp-validation-for="Youtube_url" class="text-danger"></span>
+
+            <div class="my-form-group link-group">
+                <span class="post-type type_link-youtube"></span>
+                <input asp-for="Youtube_url" class="form-input" value="@Model.Youtube_url" />
+                <span asp-validation-for="Instagram_Url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Twitter_url" class="control-label"></label>
-                <input asp-for="Twitter_url" class="form-control" />
+
+            <div class="my-form-group link-group">
+                <span class="post-type type_link-twitter"></span>
+                <input asp-for="Twitter_url" class="form-input" value="@Model.Twitter_url" />
                 <span asp-validation-for="Twitter_url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="LinkedIn_url" class="control-label"></label>
-                <input asp-for="LinkedIn_url" class="form-control" />
+
+            <div class="my-form-group link-group">
+                <span class="post-type type_link-linkedin"></span>
+                <textarea asp-for="LinkedIn_url" class="form-textarea">@Model.LinkedIn_url</textarea>
                 <span asp-validation-for="LinkedIn_url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Strava_url" class="control-label"></label>
-                <input asp-for="Strava_url" class="form-control" />
-                <span asp-validation-for="Strava_url" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Categories" class="control-label"></label>
-                <input asp-for="Categories" class="form-control" />
-                <span asp-validation-for="Categories" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </section>
 
-        <a asp-action="Blogs" asp-controller="Profile">Blogs</a>
-        <a asp-action="Favorites" asp-controller="Profile">Favorites</a>
-        <a asp-action="Followers" asp-controller="Profile">Followers</a>
-    </div>
+        <div class="buttons-wrapper">
+            <button type="submit" class="std-button">SAVE</button>
+        </div>
+
+    </form>
+
+    <section class="buttons-wrapper">
+        <a asp-action="Favorites" asp-controller="Profile" class="content-button favorites">
+            <span class="post-type type_favorite"></span>
+            <p class="std-bright-p">Favorites</p>
+        </a>
+        <a asp-action="Blogs" asp-controller="Profile" class="content-button blogs">
+            <span class="post-type type_blog"></span>
+            <p class="std-bright-p">Blogs</p>
+        </a>
+        <a asp-action="Followers" asp-controller="Profile" class="content-button followers">
+            <span class="post-type type_followers">Followers</span>
+            <p class="std-bright-p"></p>
+        </a>
+    </section>
+
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 

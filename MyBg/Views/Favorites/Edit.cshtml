@@ -4,57 +4,52 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="main-wrapper main-wrapper_edit-favorite">
 
-<h4>FavoriteModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditFavorite" asp-controller="Favorites">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ID" class="control-label"></label>
-                <input asp-for="ID" class="form-control" value="@Model.ID" />
-                <span asp-validation-for="ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" value="@Model.Title"/>
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" value="@Model.Description"/>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tumbnails" class="control-label"></label>
-                <input asp-for="Tumbnails" class="form-control" value="@Model.Tumbnails"/>
-                <span asp-validation-for="Tumbnails" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Categories" class="control-label"></label>
-                <input asp-for="Categories" class="form-control" value="@Model.Categories"/>
-                <span asp-validation-for="Categories" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Link" class="control-label"></label>
-                <input asp-for="Link" class="form-control" value="@Model.Link"/>
-                <span asp-validation-for="Link" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HTML" class="control-label"></label>
-                <input asp-for="HTML" class="form-control" value="@Model.HTML" />
-                <span asp-validation-for="HTML" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <button type="submit" value="Save" class="btn btn-primary" >SAVE</button>
-            </div>
-        </form>
-    </div>
+    <a asp-action="index" asp-controller="Profile" class="std-button">👈 PROFILE</a>
+
+    <section class="main-title-wrapper">
+        <span class="post-type type_favorite"></span>
+        <h1 class="std-header-h1 header-h1_favorite">@Model.Title</h1>
+    </section>
+
+    <form asp-action="EditFavorite" asp-controller="Favorites" class="std-form form-favorite">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="my-form-group">
+            <input asp-for="Title" class="form-input" value="@Model.Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="my-form-group">
+            <input asp-for="Description" class="form-input" value="@Model.Description" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="my-form-group">
+            <textarea asp-for="Tumbnails" class="form-input">@Model.Tumbnails</textarea>
+            <span asp-validation-for="Tumbnails" class="text-danger"></span>
+        </div>
+
+        <div class="my-form-group">
+            <input asp-for="Categories" class="form-input" value="@Model.Categories" />
+            <span asp-validation-for="Categories" class="text-danger"></span>
+        </div>
+
+        <div class="my-form-group">
+            <input asp-for="Link" class="form-input" value="@Model.Link" />
+            <span asp-validation-for="Link" class="text-danger"></span>
+        </div>
+
+        <div class="my-form-group">
+            <textarea asp-for="HTML" class="form-textarea">@Model.HTML</textarea>
+            <span asp-validation-for="HTML" class="text-danger"></span>
+        </div>
+
+        <div class="buttons-wrapper">
+            <button type="submit" class="std-button">SAVE</button>
+        </div>
+
+    </form>
+
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
