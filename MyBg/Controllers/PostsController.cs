@@ -19,5 +19,12 @@ namespace MyBg.Controllers
             return View("Index");
         }
 
+        public IActionResult Posts(string tag)
+        {
+
+
+            return View();
+        }
+
     }
 }

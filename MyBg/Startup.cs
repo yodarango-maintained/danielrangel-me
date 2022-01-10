@@ -52,6 +52,10 @@ namespace MyBg
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapControllerRoute("Posts",
+                //             "Posts/{tag}/",
+                //             defaults: new { controller = "Posts", action = "Posts" });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

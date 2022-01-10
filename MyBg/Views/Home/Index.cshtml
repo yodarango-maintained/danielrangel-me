@@ -62,17 +62,17 @@
                 <div class="most-recent-post-wrapper">
                     <img src="" class="most-recent-post_thumbnail"/>
                     <h3 class="std-h3 most-recent-post_title" >@post.Title</h3>
-                    <p class="important-text most-recent-post_thumbnail">@post.DatePosted</p>
+                    <p class="std-text-quiet most-recent-post_date">@post.DatePosted</p>
                     <div class="tag-footer">
 
                         @if (post.PostType == "Favorite")
                         {
-                            <span class="post-type type_favorite">favorite</span>
+                            <span class="std-icon  type_favorite">favorite</span>
                         }
 
                         @if (post.PostType == "Blog")
                         {
-                            <span class="post-type type_blog">blog</span>
+                            <span class="std-icon type_blog">blog</span>
                         }
                         <div class="category-wrapper">
                             @if (!String.IsNullOrEmpty(post.Categories))
@@ -80,7 +80,7 @@
                                 string[] tags = post.Categories.Split(" ");
                                 foreach (string tag in tags)
                                 {
-                                    <span class="category-tag">@tag</span>
+                                    <a href="/posts/@tag.Replace("#", "")" class="category-tag">@tag</a>
                                 }
 
                             }

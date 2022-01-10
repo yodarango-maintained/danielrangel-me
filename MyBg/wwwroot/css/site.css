@@ -12,6 +12,7 @@
     --main-parragraph: 400 1.25rem sans-serif;
     --secondary-parragrah: 400 1rem sans-serif;
     --important-text: 600 1.25rem sans-serif;
+    --quiet-text: 600 1rem sans-serif;
     --button-text: 800 1.25rem serif;
     /* --------------------- spacings ------------------- */
     /*********** Mobile *********/
@@ -93,8 +94,8 @@ body {
     background-position: center;
 }
 
-    .menu-button.home {
-    }
+.menu-button.home {
+}
 
 .menu.favorites {
 }
@@ -169,22 +170,26 @@ std-button_gradient-text {
     text-align: left
 }
 
-.post-type{
-   background-size: 100%;
-   background-position: center;
+.std-text-quiet {
+    color: white;
+    opacity: .6;
+    text-align: left;
+    width: 100%;
+    font: var(--quiet-text);
+}
+
+.std-icon {
+    background-size: 100%;
+    background-position: center;
+    height: 2.5rem;
+    height: 2.5rem;
+    margin: var(--small-spacing-mobile)
 } 
-
-.type_favorite{
-    background-image: url("/images/favorite.png");
-}
-
-.type_blog {
-    background-image: url("/images/blog.png");
-}
 /* --------------------------- LAYOUT ----------------------*/
 .main-wrapper {
     width: 90%;
     height: 100%;
+    max-width: 37.5rem;
     margin: var(--medium-spacing-mobile) auto;
 }
 
@@ -198,7 +203,7 @@ std-button_gradient-text {
     width: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
 }
 
 .intro-title {
@@ -223,17 +228,18 @@ std-button_gradient-text {
     width: 100%;
     grid-column: 1/2;
     grid-row: 3/4;
+    text-align: center;
     margin: var(--medium-spacing-mobile) auto var(--large-spacing-mobile);
 }
 .social-media-section {
     grid-column: 1/2;
-    grid-row: 3/4;
+    grid-row: 4/5;
     display: flex;
-    width: 80%;
+    width: 100%;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin: var(--medium-spacing-mobile) auto;
+    margin: var(--large-spacing-mobile) auto;
 }
 
 .sm-section-title {
@@ -358,10 +364,12 @@ std-button_gradient-text {
  /************************** Lower half of index ******/
 .indexp-lower-half {
     width: 100%;
+    margin: var(--large-spacing-desktop) auto;
 }
 
 .most-recent-h2{
-    text-align: left;
+    text-align: center;
+    margin: var(--medium-spacing-mobile) auto;
 }
 
 .posts-wrapper {
@@ -374,26 +382,76 @@ std-button_gradient-text {
 
 .most-recent-post-wrapper {
     width: 100%;
-    max-width: 28.125rem;
     border-radius: var(--std-radius-mobile);
     background-color: var(--third-color);
     display: grid;
-    grid-template-columns: 25% 65%;
-    grid-template-rows: 40% 25% 35%;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto auto auto;
+    margin: var(--small-spacing-mobile) auto;
+    padding: var(--small-spacing-mobile);
 }
 
 .most-recent-post_thumbnail{
-
+    object-fit: cover;
+    object-position: center;
+    grid-column: 1/2;
+    grid-row: 1/4;
 }
 
-.most-recent-post_title{
-
+.most-recent-post_title {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin: var(--xsmall-spacing-mobile) auto;
 }
 
-.most-recent-post_date{
-
+.most-recent-post_date {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    text-align: left;
+    margin: var(--xsmall-spacing-mobile) auto;
 }
 
-.tag-footer{
+.tag-footer {
+    width: 100%;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    margin: var(--xsmall-spacing-mobile) auto;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: auto;
+}
 
+.category-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.type_favorite {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-left: 0; 
+    background-image: url("/images/favorite.png");
+}
+
+.type_blog {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-left: 0;
+    background-image: url("/images/blog.png");
+}
+
+.category-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    margin: var(--small-spacing-mobile) var(--xsmall-spacing-mobile) 0 0;
+    padding: var(--xsmall-spacing-mobile);
 }
