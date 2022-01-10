@@ -50,7 +50,9 @@ namespace MyBg.Data
                             user.Twitter_url = reader.GetString(8);
                             user.LinkedIn_url = reader.GetString(9);
                             user.Strava_url = reader.GetString(10);
-                            user.Categories = reader.GetString(11);
+                            user.Discord_url = reader.GetString(11);
+                            user.Codepen_url = reader.GetString(12);
+                            user.Categories = reader.GetString(13);
                         }
 
                     }
@@ -110,7 +112,7 @@ namespace MyBg.Data
             using (MySqlConnection connection = GetConnection())
             {
 
-                MySqlCommand command = new MySqlCommand("UPDATE UserAdmin SET About_Me = @About_Me, YouVersion_Url = @YouVersion_Url, Github_Url = @Github_Url, Instagram_Url = @Instagram_Url, Reddit_Url = @Reddit_Url, Goodreads_url = @Goodreads_url, Youtube_url = @Youtube_url, Twitter_url = @Twitter_url, LinkedIn_url = @LinkedIn_url, Strava_url = @Strava_url, Categories = @Categories WHERE ID  = @ID", connection);
+                MySqlCommand command = new MySqlCommand("UPDATE UserAdmin SET About_Me = @About_Me, YouVersion_Url = @YouVersion_Url, Github_Url = @Github_Url, Instagram_Url = @Instagram_Url, Reddit_Url = @Reddit_Url, Goodreads_url = @Goodreads_url, Youtube_url = @Youtube_url, Twitter_url = @Twitter_url, LinkedIn_url = @LinkedIn_url, Strava_url = @Strava_url, Discord_url = @Discord_url, Codepen_url = @Codepen_url, Categories = @Categories WHERE ID  = @ID", connection);
 
                 command.Parameters.Add("@ID", MySqlDbType.Int32).Value = admin.ID;
                 command.Parameters.Add("@About_Me", MySqlDbType.String).Value = admin.About_Me;
@@ -123,6 +125,8 @@ namespace MyBg.Data
                 command.Parameters.Add("@Twitter_url", MySqlDbType.String).Value = admin.Twitter_url;
                 command.Parameters.Add("@LinkedIn_url", MySqlDbType.String).Value = admin.LinkedIn_url;
                 command.Parameters.Add("@Strava_url", MySqlDbType.String).Value = admin.Strava_url;
+                command.Parameters.Add("@Discord_url", MySqlDbType.String).Value = admin.Discord_url;
+                command.Parameters.Add("@Codepen_url", MySqlDbType.String).Value = admin.Codepen_url;
                 command.Parameters.Add("@Categories", MySqlDbType.String).Value = admin.Categories;
 
                 try

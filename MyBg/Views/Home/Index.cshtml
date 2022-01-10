@@ -8,55 +8,61 @@
 
 <div class="main-wrapper main-wrapper_index">
     <section class="indexp-upper-half">
-        <h1 class="std-header-h1">
+        <h1 class="std-h1 intro-title">
             MY TITLE
         </h1>
         <img src="~/images/logo.jfif" class="intro-logo" />
-        <p class="std-parragraph">@admin.About_Me</p>
+        <p class="std-p intro-text">@admin.About_Me</p>
 
         <div class="social-media-section">
-            <h3 class="std-header-h3">Find Me On</h3>
+            <h3 class="std-h3 sm-section-title">Find Me On</h3>
             <div class="sm-links-wrapper">
-                <a href="@admin.YouVersion_Url" class="sm-link">
-                    <span>youversion</span>
+                <a href="@admin.YouVersion_Url" class="sm-link youversion">
+                    <span class="youversion-icon"></span>
                 </a>
-                <a href="@admin.Instagram_Url" class="sm-link">
-                    <span>inst</span>
+                <a href="@admin.Instagram_Url" class="sm-link insta">
+                    <span class="insta-icon"></span>
                 </a>
-                <a href="@admin.Github_Url" class="sm-link">
-                    <span>git</span>
+                <a href="@admin.Github_Url" class="sm-link github">
+                    <span class="github-icon"></span>
                 </a>
-                <a href="@admin.Goodreads_url" class="sm-link">
-                    <span>goodr</span>
+                <a href="@admin.Goodreads_url" class="sm-link goodreads">
+                    <span class="goodreads-icon"></span>
                 </a>
-                <a href="@admin.Youtube_url" class="sm-link">
-                    <span>youtbe</span>
+                <a href="@admin.Youtube_url" class="sm-link youtube">
+                    <span class="youtube-icon"></span>
                 </a>
-                <a href="@admin.Reddit_Url" class="sm-link">
-                    <span>redd</span>
+                <a href="@admin.Reddit_Url" class="sm-link reddit">
+                    <span class="reddit-icon"></span>
                 </a>
-                <a href="@admin.Twitter_url" class="sm-link">
-                    <span>twitt</span>
+                <a href="@admin.Twitter_url" class="sm-link twitter">
+                    <span class="twitter-icon"></span>
                 </a>
-                <a href="@admin.Strava_url" class="sm-link">
-                    <span>srav</span>
+                <a href="@admin.Strava_url" class="sm-link strava">
+                    <span class="strava-icon"></span>
                 </a>
-                <a href="@admin.LinkedIn_url" class="sm-link">
-                    <span>LinkedIn</span>
+                <a href="@admin.LinkedIn_url" class="sm-link linkedin">
+                    <span class="linkedin-icon"></span>
+                </a>
+                <a href="@admin.Discord_url" class="sm-link discord">
+                    <span class="discord-icon"></span>
+                </a>
+                <a href="@admin.Codepen_url" class="sm-link codepen">
+                    <span class="codepen-icon"></span>
                 </a>
             </div>
         </div>
     </section>
 
     <section class="indexp-lower-half">
-        <h2 class="std-header-h2">MOST RECENT</h2>
+        <h2 class="std-h2 most-recent-h2">MOST RECENT</h2>
         <section class="posts-wrapper">
             @foreach (PostsViewModel post in posts)
             {
-                <div class="individual-post-wrapper">
-                    <img src="" />
-                    <h4 class="std-header-h4">@post.Title</h4>
-                    <p class="std-quiet-p">@post.DatePosted</p>
+                <div class="most-recent-post-wrapper">
+                    <img src="" class="most-recent-post_thumbnail"/>
+                    <h3 class="std-h3 most-recent-post_title" >@post.Title</h3>
+                    <p class="important-text most-recent-post_thumbnail">@post.DatePosted</p>
                     <div class="tag-footer">
 
                         @if (post.PostType == "Favorite")

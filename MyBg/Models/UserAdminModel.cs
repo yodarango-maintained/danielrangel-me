@@ -39,6 +39,8 @@ namespace MyBg.Models
 
         [Display(Name = "Strava")]
         public string Strava_url { get; set; }
+        public string Discord_url { get; set; }
+        public string Codepen_url { get; set; }
 
         public string Categories { get; set; }
     }
