@@ -14,6 +14,15 @@
     --important-text: 600 1.25rem sans-serif;
     --quiet-text: 600 1rem sans-serif;
     --button-text: 800 1.25rem serif;
+    /*********** Desktop *********/
+    --main-title-desktop: 800 3.125rem sans-serif;
+    --sub-title-desktop: 600 2.5rem sans-serif;
+    --small-title-desktop: 600 1.875rem sans-serif;
+    --main-parragraph-desktop: 400 1.563rem sans-serif;
+    --secondary-parragrah-desktop: 400 1.125rem sans-serif;
+    --important-text-desktop: 600 1.438rem sans-serif;
+    --quiet-text-desktop: 600 1.125rem sans-serif;
+    --button-text-desktop: 800 1.563rem serif;
     /* --------------------- spacings ------------------- */
     /*********** Mobile *********/
     --std-radius-mobile: .6rem;
@@ -70,7 +79,7 @@ body {
 
 .nav-wrapper {
     width: 100%;
-    height: 5rem;
+    height: 3.5rem;
     position: fixed;
     bottom: 0;
     background-color: var(--secondary-color);
@@ -88,24 +97,32 @@ body {
 }
 
 .menu-button {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background-size: 100%;
     background-position: center;
+    filter: grayscale(1);
 }
 
 .menu-button.home {
+    background-image: url("/images/menu-icons/home.png");
 }
 
-.menu.favorites {
+.menu-button.favorites {
+    background-image: url("/images/menu-icons/favorites.png");
 }
 
-menu.blog {
+.menu-button.blog {
+    background-image: url("/images/menu-icons/blogs.png");
 }
 
-menu.tools {
+.menu-button.tools {
+    background-image: url("/images/menu-icons/tools.png");
 }
 
+.view-home, .view-favorites, .view-blogs, .view-tools{
+    filter: grayscale(0);
+}
 /*---------------------------- Standards --------------------- */
 .std-button {
     padding: var(--xlarge-spacing-mobile);
@@ -189,7 +206,7 @@ std-button_gradient-text {
 .main-wrapper {
     width: 90%;
     height: 100%;
-    max-width: 37.5rem;
+    max-width: 43.75rem;
     margin: var(--medium-spacing-mobile) auto;
 }
 
@@ -250,22 +267,29 @@ std-button_gradient-text {
 .sm-links-wrapper {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, auto);
     grid-template-rows: auto auto auto;
     margin: var(--xsmall-spacing-mobile) auto var(--medium-spacing-mobile);
 }
 
+.sm-links-wrapper .sm-link {
+    display: block;
+    transform: translateY(0px);
+}
+
 .sm-links-wrapper .sm-link span {
-    width: 3.125rem;
-    height: 3.125rem;
+    width: 3rem;
+    height: 3rem;
     background-size: 100%;
     background-position: center;
     display: block;
 }
 
+/************************* Social Media Icons *******************/
 .sm-link.youversion {
     grid-column: 1/2;
     grid-row: 1/2;
+    animation: firstUD 4000ms linear infinite;
 }
 
 .youversion-icon {
@@ -275,6 +299,7 @@ std-button_gradient-text {
 .sm-link.insta {
     grid-column: 3/4;
     grid-row: 1/2;
+    animation: firstUD 4100ms linear 500ms infinite;
 }
 
 .insta-icon {
@@ -284,6 +309,7 @@ std-button_gradient-text {
 .sm-link.github {
     grid-column: 5/6;
     grid-row: 1/2;
+    animation: firstUD 3800ms linear 300ms infinite;
 }
 .github-icon {
     background-image: url("/images/github.png");
@@ -292,6 +318,7 @@ std-button_gradient-text {
 .sm-link.goodreads {
     grid-column: 7/8;
     grid-row: 1/2;
+    animation: firstUD 4200ms linear 700ms infinite;
 }
 
 .goodreads-icon {
@@ -301,6 +328,7 @@ std-button_gradient-text {
 .sm-link.youtube {
     grid-column: 2/3;
     grid-row: 2/3;
+    animation: firstUD 3800ms linear 200ms infinite;
 }
 
 .youtube-icon {
@@ -310,6 +338,7 @@ std-button_gradient-text {
 .sm-link.reddit {
     grid-column: 4/5;
     grid-row: 2/3;
+    animation: firstUD 4500ms linear 300ms infinite;
 }
 
 .reddit-icon {
@@ -319,6 +348,7 @@ std-button_gradient-text {
 .sm-link.twitter {
     grid-column: 6/7;
     grid-row: 2/3;
+    animation: firstUD 3800ms linear 50ms infinite;
 }
 
 .twitter-icon {
@@ -328,6 +358,7 @@ std-button_gradient-text {
 .sm-link.strava {
     grid-column: 1/2;
     grid-row: 3/4;
+    animation: firstUD 4200ms linear 350ms infinite;
 }
 
 .strava-icon {
@@ -337,6 +368,7 @@ std-button_gradient-text {
 .sm-link.linkedin {
     grid-column: 3/4;
     grid-row: 3/4;
+    animation: firstUD 4000ms linear 150ms infinite;
 }
 
 .linkedin-icon {
@@ -346,6 +378,7 @@ std-button_gradient-text {
 .sm-link.discord {
     grid-column: 5/6;
     grid-row: 3/4;
+    animation: firstUD 3900ms linear 400ms infinite
 }
 
 .discord-icon {
@@ -355,10 +388,100 @@ std-button_gradient-text {
 .sm-link.codepen {
     grid-column: 7/8;
     grid-row: 3/4;
+    animation: firstUD 4100ms linear 230ms infinite;
 }
 
 .codepen-icon {
     background-image: url("/images/codepen.webp");
+}
+
+
+@keyframes firstUD {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(0.5rem);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-.5rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes secondUD {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(0.-3rem);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(.6rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes thirdUD {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(0.4rem);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(.-3rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fourthUD {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(0.-6rem);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(.6rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
  /************************** Lower half of index ******/
@@ -380,32 +503,49 @@ std-button_gradient-text {
     flex-wrap: wrap;
 }
 
+
+/************************** Individuals Posts ******/
+
 .most-recent-post-wrapper {
     width: 100%;
     border-radius: var(--std-radius-mobile);
     background-color: var(--third-color);
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 30% 5% 60%;
     grid-template-rows: auto auto auto;
     margin: var(--small-spacing-mobile) auto;
     padding: var(--small-spacing-mobile);
 }
 
-.most-recent-post_thumbnail{
+.post-anchor-wrapper{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.most-recent-post_thumbnail {
     object-fit: cover;
     object-position: center;
     grid-column: 1/2;
     grid-row: 1/4;
+    width: 100%;
+    height: 100%;
 }
 
 .most-recent-post_title {
-    grid-column: 2/3;
+    width: 100%;
+    grid-column: 3/4;
     grid-row: 1/2;
     margin: var(--xsmall-spacing-mobile) auto;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
+
 .most-recent-post_date {
-    grid-column: 2/3;
+    width: 100%;
+    grid-column: 3/4;
     grid-row: 2/3;
     text-align: left;
     margin: var(--xsmall-spacing-mobile) auto;
@@ -413,7 +553,7 @@ std-button_gradient-text {
 
 .tag-footer {
     width: 100%;
-    grid-column: 2/3;
+    grid-column: 3/4;
     grid-row: 3/4;
     margin: var(--xsmall-spacing-mobile) auto;
     display: grid;
@@ -426,8 +566,8 @@ std-button_gradient-text {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    overflow-x: scroll;
     flex-wrap: nowrap;
+    overflow-x: scroll;
     grid-column: 2/3;
     grid-row: 1/2;
 }
@@ -454,4 +594,289 @@ std-button_gradient-text {
     color: var(--font-color);
     margin: var(--small-spacing-mobile) var(--xsmall-spacing-mobile) 0 0;
     padding: var(--xsmall-spacing-mobile);
+}
+
+/* ---------------------------------------------------------------- DESKTOP STYLES -------------------------------------- */
+@media (min-width: 900px) {
+
+/*------------------------------ shared ---------------------------*/
+    .nav-wrapper {
+        display: none;
+    }
+
+
+    .menu-button {
+        width: 3rem;
+        height: 3rem;
+        filter: none;
+    }
+
+    /*---------------------------- Standards --------------------- */
+    .std-button {
+        padding: var(--xlarge-spacing-desktop);
+        min-width: 7.5rem;
+        max-width: 11.25rem;
+        border-radius: var(--std-radius-desktop);
+    }
+
+    std-button_gradient-text {
+        font: var(--button-text-desktop);
+    }
+
+    .std-h1 {
+        font: var(--main-title-desktop);
+        margin: var(--medium-spacing-desktop) auto;
+    }
+
+    .std-h2 {
+        font: var(--sub-title-desktop);
+        margin: var(--small-spacing-desktop) auto;
+    }
+
+    .std-h3 {
+        font: var(--small-title-desktop);
+        margin: var(--small-spacing-desktop) auto;
+    }
+
+    .std-p {
+        font: var(--main-parragraph-desktop);
+        margin: var(--medium-spacing-desktop) auto;
+    }
+
+    .std-a {
+        font: var(--important-text-desktop);
+    }
+
+    .std-text-quiet {
+        font: var(--quiet-text-desktop);
+    }
+
+    .std-icon {
+        height: 2.8rem;
+        height: 2.8rem;
+        margin: var(--small-spacing-desktop)
+    }
+
+    /* --------------------------- LAYOUT ----------------------*/
+    .main-wrapper {
+        width: 90%;
+        height: 100%;
+        max-width: 56.25rem;
+        margin: var(--medium-spacing-desktop) auto;
+    }
+
+    /* --------------------------- INDEX PAGE ----------------------*/
+    /************************** upper  half of index ******/
+    .main-wrapper_index {
+        margin: var(--medium-spacing-desktop) auto;
+        position: relative;
+    }
+
+    .indexp-upper-half {
+        width: 100%;
+        max-width: 50rem;
+        display: block;
+        margin: auto;
+    }
+
+    .intro-title {
+        text-align: center;
+        margin: var(--medium-spacing-desktop) auto;
+    }
+
+    .intro-logo {
+        width: 80%;
+        max-width: 31.25rem;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        margin: var(--medium-spacing-desktop) auto;
+    }
+
+    .intro-text {
+        margin: var(--medium-spacing-desktop) auto var(--large-spacing-desktop);
+    }
+
+    .social-media-section {
+        display: none;
+    }
+
+    .sm-link span {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        display: block;
+        margin: var(--xsmall-spacing-desktop) 0;
+        transition: 300ms ease-in;
+    }
+
+    .sm-link span:hover {
+        cursor: pointer;
+        border: .2rem solid var(--font-color);
+        box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
+    }
+
+
+    /************************* Social Media Icons *******************/
+
+    .social-media-section--dp-left .sm-link span
+    .sm-link.youversion {
+        animation: none;
+    }
+
+    .social-media-section--dp-left, .social-media-section--dp-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        position: fixed;
+        top: 5rem;
+        left: 0;
+    }
+    .social-media-section--dp-right {
+        right: 0;
+        left: auto;
+    }
+    /************************** Lower half of index ******/
+    .indexp-lower-half {
+        width: 100%;
+        margin: var(--large-spacing-desktop) auto;
+        grid-column: 3/4;
+        grid-row: 1/2;
+        border-bottom: .2rem solid var(--third-color);
+        padding: 0 var(--small-spacing-desktop);
+    }
+
+    .most-recent-h2 {
+        text-align: center;
+        margin: var(--medium-spacing-desktop) auto;
+    }
+
+    .posts-wrapper {
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+
+    /************************** Individuals Posts ******/
+
+    .most-recent-post-wrapper {
+        width: 95%;
+        border-radius: var(--std-radius-desktop);
+        display: grid;
+        grid-template-columns: 30% 5% 60%;
+        grid-template-rows: auto auto auto;
+        margin: var(--small-spacing-desktop) auto;
+        padding: var(--small-spacing-desktop);
+        transition: 300ms ease-in;
+    }
+
+    .most-recent-post-wrapper:hover{
+        transform: scale(.98);
+        cursor: pointer;
+        border: .2rem solid var(--font-color);
+        box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
+    }
+
+    .most-recent-post_thumbnail {
+        object-fit: cover;
+        object-position: center;
+        grid-column: 1/2;
+        grid-row: 1/4;
+        width: 100%;
+        height: 100%;
+    }
+
+    .most-recent-post_title {
+        width: 100%;
+        grid-column: 3/4;
+        grid-row: 1/2;
+        margin: var(--xsmall-spacing-mobile) auto;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+
+    .most-recent-post_date {
+        width: 100%;
+        grid-column: 3/4;
+        grid-row: 2/3;
+        text-align: left;
+        margin: var(--xsmall-spacing-mobile) auto;
+    }
+
+    .tag-footer {
+        width: 100%;
+        grid-column: 3/4;
+        grid-row: 3/4;
+        margin: var(--xsmall-spacing-mobile) auto;
+        display: grid;
+        grid-template-columns: 15% 85%;
+        grid-template-rows: auto;
+    }
+
+    .category-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    .type_favorite {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        margin-left: 0;
+        background-image: url("/images/favorite.png");
+    }
+
+    .type_blog {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        margin-left: 0;
+        background-image: url("/images/blog.png");
+    }
+
+    .category-tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--secondary-color);
+        color: var(--font-color);
+        margin: var(--small-spacing-mobile) var(--xsmall-spacing-mobile) 0 0;
+        padding: var(--xsmall-spacing-mobile);
+    }
+
+}
+
+@media (min-width: 1100px){
+    .social-media-section--dp-left, .social-media-section--dp-right {
+        top: 5rem;
+        left: 5%;
+    }
+
+    .social-media-section--dp-right {
+        right: 5%;
+        left: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .social-media-section--dp-left, .social-media-section--dp-right {
+        top: 5rem;
+        left: 10%;
+    }
+
+    .social-media-section--dp-right {
+        right: 10%;
+        left: auto;
+    }
 }

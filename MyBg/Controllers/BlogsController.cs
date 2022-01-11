@@ -13,6 +13,8 @@ namespace MyBg.Controllers
         public IActionResult Index()
         {
             PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+            ViewData["Tags"] = context.GetCategoryTags();
+
             return View("Index", context.GetBlogs());
         }
 
