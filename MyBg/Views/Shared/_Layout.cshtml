@@ -15,34 +15,34 @@
     </main>
 
     @* ------------------------------  Menu --------------------------  *@
-@{string currViewHome="";
-    string currViewBlogs = "";
-    string currViewFavorites = "";
-    string currViewTools = "";
+    @{string currViewHome = "";
+        string currViewBlogs = "";
+        string currViewFavorites = "";
+        string currViewTools = "";
 
-    string viewDataHome = ViewData["Title"].ToString();
-    if (viewDataHome.Contains("Welcome"))
-    {
-        currViewHome = "view-home";
-    }
-    else if(viewDataHome.Contains("Favorite"))
-    {
-        currViewBlogs = "view-favorites";
-    }
-    else if (viewDataHome.Contains("Blog"))
-    {
-        currViewFavorites = "view-blogs";
-    }
-    else if (viewDataHome.Contains("Tools"))
-    {
-        currViewTools = "view-tools";
-    }
+        string viewDataHome = ViewData["Title"].ToString();
+        if (viewDataHome.Contains("Welcome"))
+        {
+            currViewHome = "view-home";
+        }
+        else if (viewDataHome.Contains("Favorite"))
+        {
+            currViewBlogs = "view-favorites";
+        }
+        else if (viewDataHome.Contains("Blog"))
+        {
+            currViewFavorites = "view-blogs";
+        }
+        else if (viewDataHome.Contains("Tools"))
+        {
+            currViewTools = "view-tools";
+        }
 
-    string newClassHome = currViewHome;
-    string newClassBlog = currViewBlogs;
-    string newClassFavorite = currViewFavorites;
-    string newClassTool = currViewTools;
-}
+        string newClassHome = currViewHome;
+        string newClassBlog = currViewBlogs;
+        string newClassFavorite = currViewFavorites;
+        string newClassTool = currViewTools;
+    }
     <section class="nav-wrapper">
         <nav class="menu">
             <a asp-controller="Home" asp-action="Index" class="menu-button home @newClassHome"></a>
@@ -52,6 +52,28 @@
         </nav>
     </section>
 
+    @* ------------------------------ desktop menu --------------------------  *@
+    <button class="menu-button-desktop--trigger" id="menu-button"></button>
+    <div class="std-bkg-layer" id="dark-layer"></div>
+        <nav class="menu--desktop" id="menu-wrapper">
+            <a asp-controller="Home" asp-action="Index">
+                <span class="menu-button menu-button-desktop home @newClassHome"></span>
+                <h4 class="std-h4 menu-button--home">HOME</h4>
+            </a>
+            <a asp-controller="Favorites" asp-action="Index">
+                <span class="menu-button menu-button-desktop favorites @newClassBlog"></span>
+                <h4 class="std-h4 menu-button--favorite">FAVORITES</h4>
+            </a>
+            <a asp-controller="Blogs" asp-action="Index">
+                <span class="menu-button menu-button-desktop blog @newClassFavorite"></span>
+                <h4 class="std-h4 menu-button--blogs">BLOGS</h4>
+            </a>
+            <a asp-controller="Tools" asp-action="Index">
+                <span class="menu-button menu-button-desktop tools @newClassTool"></span>
+                <h4 class="std-h4 menu-button--tools">TOOLS</h4>
+            </a>
+        </nav>
+
     @* ------------------------------ Footer --------------------------  *@
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -60,7 +82,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/global.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
