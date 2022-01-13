@@ -5,13 +5,13 @@
     IEnumerable<CategoryModel> allTags = ViewData["Tags"] as IEnumerable<CategoryModel>;
 }
 
-<div class="main-wrapper main-type_favorite">
-    <section>
-        <span class="post-type post-type_header"></span>
-        <h1 class="std-h1">FAVORITES</h1>
+<div class="main-wrapper main-wrapper_favorite">
+    <section class="post-title-wrapper wrapper-favorite">
+        <span class="post-type post-type_header--favorite std-icon"></span>
+        <h1 class="std-h1 favorites-title">FAVORITES</h1>
     </section>
 
-    <p class="std-p">
+    <p class="std-p favorites-parrgraph">
         This is my very dummy description for now! ustry.
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
         when an unknown printer took a galley of type and scrambled it to make
@@ -23,45 +23,49 @@
         Aldus PageMaker including versions of Lorem Ipsu
     </p>
 
-    <div>
+    <div class="category-wrapper category-wrapper--favoites">
+        <h3 class="std-h3">Filter By Tag</h3>
         @foreach (CategoryModel tag in allTags)
         {
             <span class="category-tag">#@tag.Category</span>
         }
     </div>
 
-    @foreach (FavoriteModel post in Model)
-    {
-        <div class="favorite-post-wrapper">
-            @await Html.PartialAsync("_Carrousel", post);
-            <aside class="favorite-post-info-wrapper">
-                <a asp-action="Post" asp-controller="Favorites" asp-route-id="@post.ID">
-                    <h3 class="std-header-h3 header-h3_favorite">@post.Title</h3>
-                    <p class="std-quiet-p">@post.DatePosted</p>
+    <div class="posts-wrapper posts-wrapper--favorite">
+        @foreach (FavoriteModel post in Model)
+        {
+            <div class="favorite-post-wrapper">
+                @await Html.PartialAsync("_Carrousel", post);
+                <div class="std-blurr-layer"></div>
+                <aside class="favorite-post-info-wrapper">
+                    <a asp-action="Post" asp-controller="Favorites" asp-route-id="@post.ID">
+                        <h3 class="std-h3 header-h3--favorite">@post.Title</h3>
+                        <p class="std-quiet-p">@post.DatePosted</p>
 
-                    <div class="tag-footer">
+                        <div class="tag-footer">
 
-                        <span class="post-type type_favorite"></span>
+                            <span class="post-type type_favorite"></span>
 
-                        <div class="category-wrapper">
-                            @if (!String.IsNullOrEmpty(post.Categories))
-                            {
-                                string[] tags = post.Categories.Split(" ");
-                                foreach (string tag in tags)
+                            <div class="category-wrapper">
+                                @if (!String.IsNullOrEmpty(post.Categories))
                                 {
-                                    <span class="category-tag">@tag</span>
-                                }
+                                    string[] tags = post.Categories.Split(" ");
+                                    foreach (string tag in tags)
+                                    {
+                                        <span class="category-tag">@tag</span>
+                                    }
 
-                            }
+                                }
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <p class="std-p std-p_favorite-desc">
-                    @post.Description
-                </p>
-            </aside>
-        </div>
-    }
+                    </a>
+                    <p class="std-p std-p_favorite-desc">
+                        @post.Description
+                    </p>
+                </aside>
+            </div>
+        }
+    </div>
 </div>
 
 
