@@ -66,6 +66,10 @@ body {
 }
 
 /*-------------------- Shared ---------------------*/
+.bottom-spacer {
+    height: 7rem;
+    width: 100%;
+}
 .page-wrapper {
     width: 100vw;
     height: 100vh;
@@ -183,7 +187,7 @@ body {
 
 .clock {
     border-radius: 60px;
-    border: 3px solid #fff;
+    border: 3px solid #ECFCD2;
     height: 80px;
     width: 80px;
     position: relative;
@@ -195,20 +199,20 @@ body {
     left: calc(50% - 43px);
 }
 
-    .clock:after {
-        content: "";
-        position: absolute;
-        background-color: #fff;
-        top: 2px;
-        left: 48%;
-        height: 38px;
-        width: 4px;
-        border-radius: 5px;
-        -webkit-transform-origin: 50% 97%;
-        transform-origin: 50% 97%;
-        -webkit-animation: grdAiguille 2s linear infinite;
-        animation: grdAiguille 2s linear infinite;
-    }
+.clock:after {
+    content: "";
+    position: absolute;
+    background-color: #ECFCD2;
+    top: 2px;
+    left: 48%;
+    height: 38px;
+    width: 4px;
+    border-radius: 5px;
+    -webkit-transform-origin: 50% 97%;
+    transform-origin: 50% 97%;
+    -webkit-animation: grdAiguille 2s linear infinite;
+    animation: grdAiguille 2s linear infinite;
+}
 
 @-webkit-keyframes grdAiguille {
     0% {
@@ -1100,7 +1104,7 @@ margin-bottom: var(--xsmall-spacing-mobile);
 }
 
 /* *************************************************************************************************************************/
-/* ****************************************************** TOOLS LINK PAGE **************************************************/
+/* ****************************************************** READ SPEED PAGE **************************************************/
 /* *************************************************************************************************************************/
 
 .reader-wrapper{
@@ -1172,6 +1176,20 @@ margin-bottom: var(--xsmall-spacing-mobile);
     color: var(--font-color);
 }
 
+@media (min-width: 550px) {
+    .botton-wrapper {
+        justify-content: space-around;
+    }
+
+    .botton-wrapper > * {
+        width: 30%;
+    }
+}
+
+.reader-topic-icon.active {
+    box-shadow: .1rem .1rem 1rem .1rem rgb(236, 252, 210), -.1rem -.1rem 1rem .1rem rgb(236, 252, 210);
+}
+
 .read-reset, .read-start, .read-stop {
     display: block;
     margin: 0;
@@ -1185,6 +1203,14 @@ margin-bottom: var(--xsmall-spacing-mobile);
 .read-stop {
     background-image: url("/images/utilities/stop-icon.png");
 }
+
+.reading-result-wrapper{
+    display: none;
+    padding: var(--small-spacing-desktop);
+    width: 100%;
+    background-color: var(--third-color);
+    border-radius: var(--std-radius-mobile);
+}
 /* ---------------------------------------------------------------- DESKTOP STYLES -------------------------------------- */
 @media (min-width: 900px) {
     /*------------------------------ shared ---------------------------*/
@@ -1192,6 +1218,10 @@ margin-bottom: var(--xsmall-spacing-mobile);
         display: none;
     }
 
+    .bottom-spacer{
+        height: 3rem;
+        width: 100%;
+    }
 
     .menu-button {
         width: 3rem;
