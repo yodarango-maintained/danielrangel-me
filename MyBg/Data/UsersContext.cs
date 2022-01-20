@@ -28,7 +28,7 @@ namespace MyBg.Data
             UserAdminModel user = new UserAdminModel();
             using (MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("SELECT * FROM useradmin ORDER BY ID DESC LIMIT 1", connection);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM UserAdmin ORDER BY ID DESC LIMIT 1", connection);
 
                 try
                 {
@@ -52,7 +52,7 @@ namespace MyBg.Data
                             user.Strava_url = reader.GetString(10);
                             user.Discord_url = reader.GetString(11);
                             user.Codepen_url = reader.GetString(12);
-                            user.Categories = reader.GetString(13);
+                            // user.Categories = reader.GetString(13);
                         }
 
                     }

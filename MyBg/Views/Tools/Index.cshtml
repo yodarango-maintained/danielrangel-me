@@ -2,4 +2,31 @@
 @{
     ViewData["Title"] = "Tools";
 }
-<h1>Tools</h1>
+<div class="main-wrapper tools-wrap">
+    <section class="post-title-wrapper wrapper-favorite">
+        <span class="post-type post-type_header--tools std-icon"></span>
+        <h1 class="std-h1 favorites-title">JUST SOME FUN TOOLS</h1>
+    </section>
+
+    <div class="tool-links-wrapper">
+        <section class="tool-wrapper">
+            <a asp-action="ReadingSpeed" asp-controller="Tools">
+                <div class="tool-wrapper-header"><h3 class="std-h3 h3-tools-title">CHECK YOUR READING SPEED</h3></div>
+                <img src="/images/tools/reading-speed-thumbnail.png" alt="reading speed tool thumbnail" class="tool-cover-img" />
+                <div class="tool-wrapper-info-section">
+                    This fun tool that will measure your reading speed!⚡️
+                </div>
+            </a>
+        </section>
+        <section class="tool-wrapper">
+            <a asp-action="CitationMachine" asp-controller="Tools">
+                <div class="tool-wrapper-header"><h3 class="std-h3 h3-tools-title">CITATION MACHINE</h3></div>
+                <img src=" /images/tools/citation-machine-thumbnail.png" alt="citation machine tool thumbnail" class="tool-cover-img" />
+                <div class="tool-wrapper-info-section">
+                    Citating a source cna be tricky. <br />
+                    Let me do that for you! 📄
+                </div>
+            </a>
+        </section>
+    </div>
+</div>

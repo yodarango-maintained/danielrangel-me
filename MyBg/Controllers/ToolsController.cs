@@ -12,5 +12,15 @@ namespace MyBg.Controllers
         {
             return View();
         }
+
+        public IActionResult ReadingSpeed()
+        {
+            return View("Reading_Speed");
+        }
+
+        public IActionResult CitationMachine()
+        {
+            return View("Citation_Machine");
+        }
     }
 }

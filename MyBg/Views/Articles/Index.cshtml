@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MyBg.Models.ArticleModel>
+
+@{
+    ViewData["Title"] = "Blog";
+    IEnumerable<CategoryModel> allTags = ViewData["Tags"] as IEnumerable<CategoryModel>;
+}
+
+
+<div class="main-wrapper main-wrapper_favorite">
+    <section class="post-title-wrapper wrapper-favorite">
+        <span class="post-type post-type_header--blog std-icon"></span>
+        <h1 class="std-h1 favorites-title">ARTICLES</h1>
+    </section>
+
+    <p class="std-p favorites-parrgraph">
+        This is my very dummy description for now! ustry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five centuries,
+        but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with
+        the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like
+        Aldus PageMaker including versions of Lorem Ipsu
+    </p>
+
+    <div class="category-wrapper category-wrapper--favoites">
+        <h3 class="std-h3">Filter By Tag</h3>
+        @foreach (CategoryModel tag in allTags)
+        {
+            <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag.Category" class="category-tag">#@tag.Category</a>
+        }
+    </div>
+
+    <div class="posts-wrapper posts-wrapper--favorite">
+        @foreach (ArticleModel post in Model)
+        {
+            <div class="blog-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
+                @await Html.PartialAsync("_Carrousel_Blog", post);
+                <div class="std-blurr-layer blog-blurr-layer"></div>
+                <aside class="blog-post-info-wrapper">
+                    <div>
+                        <h3 class="std-h3 header-h3--blog">@post.Title</h3>
+                        <p class="std-text-quiet quiet-post-info">@post.DatePosted</p>
+
+                        <div class="tag-footer">
+
+                            <span class="post-type type_blog"></span>
+
+                            <div class="category-wrapper">
+                                @if (!String.IsNullOrEmpty(post.Categories))
+                                {
+                                    string[] tags = post.Categories.Split(" ");
+                                    foreach (string tag in tags)
+                                    {
+                                        <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag" class="category-tag">@tag</a>
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <p class="std-p std-p_blog-desc">
+                        @post.Description
+                    </p>
+                </aside>
+            </div>
+        }
+    </div>
+</div>
+

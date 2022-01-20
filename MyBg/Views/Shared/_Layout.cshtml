@@ -45,10 +45,10 @@
     }
     <section class="nav-wrapper">
         <nav class="menu">
-            <a asp-controller="Home" asp-action="Index" class="menu-button home @newClassHome"></a>
-            <a asp-controller="Favorites" asp-action="Index" class="menu-button favorites @newClassBlog"></a>
-            <a asp-controller="Blogs" asp-action="Index" class="menu-button blog @newClassFavorite"></a>
-            <a asp-controller="Tools" asp-action="Index" class="menu-button tools @newClassTool"></a>
+            <a asp-controller="Home" asp-action="Index" class="menu-button home @newClassHome" id="mobile-menu-bttn"></a>
+            <a asp-controller="Favorites" asp-action="Index" class="menu-button favorites @newClassBlog" id="mobile-menu-bttn"></a>
+            <a asp-controller="Articles" asp-action="Index" class="menu-button blog @newClassFavorite" id="mobile-menu-bttn"></a>
+            <a asp-controller="Tools" asp-action="Index" class="menu-button tools @newClassTool" id="mobile-menu-bttn"></a>
         </nav>
     </section>
 
@@ -64,9 +64,9 @@
                 <span class="menu-button menu-button-desktop favorites @newClassBlog"></span>
                 <h4 class="std-h4 menu-button--favorite">FAVORITES</h4>
             </a>
-            <a asp-controller="Blogs" asp-action="Index">
+            <a asp-controller="Articles" asp-action="Index">
                 <span class="menu-button menu-button-desktop blog @newClassFavorite"></span>
-                <h4 class="std-h4 menu-button--blogs">BLOGS</h4>
+                <h4 class="std-h4 menu-button--blogs">ARTICLES</h4>
             </a>
             <a asp-controller="Tools" asp-action="Index">
                 <span class="menu-button menu-button-desktop tools @newClassTool"></span>

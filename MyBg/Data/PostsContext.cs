@@ -30,7 +30,7 @@ namespace MyBg.Data
 
             using (MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("SELECT * FROM favorites ORDER BY ID DESC LIMIT 10;", connection);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM Favorites ORDER BY ID DESC LIMIT 10;", connection);
                 try
                 {
                     connection.Open();
@@ -81,7 +81,7 @@ namespace MyBg.Data
 
             using(MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("SELECT * FROM favorites WHERE ID = @ID", connection);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM Favorites WHERE ID = @ID", connection);
 
                 command.Parameters.Add("@ID", MySqlDbType.Int32).Value = ID;
 
@@ -123,13 +123,13 @@ namespace MyBg.Data
         }
 
         //------------------------------------------------ Get Blogs //
-        public List<BlogModel> GetBlogs()
+        public List<ArticleModel> GetBlogs()
         {
-            List<BlogModel> blogs = new List<BlogModel>();
+            List<ArticleModel> blogs = new List<ArticleModel>();
 
             using (MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("SELECT * FROM blogs ORDER BY ID DESC LIMIT 10", connection);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM Blogs ORDER BY ID DESC LIMIT 10", connection);
                 try
                 {
                     connection.Open();
@@ -139,7 +139,7 @@ namespace MyBg.Data
                     {
                         while(reader.Read())
                         {
-                            BlogModel blog = new BlogModel();
+                            ArticleModel blog = new ArticleModel();
 
                             blog.ID = reader.GetInt32(0);
                             blog.Title = reader.GetString(1);
@@ -163,14 +163,14 @@ namespace MyBg.Data
         }
 
         // get one blog
-        public BlogModel GetOneBlog(int ID)
+        public ArticleModel GetOneBlog(int ID)
         {
 
-            BlogModel blog = new BlogModel();
+            ArticleModel blog = new ArticleModel();
 
             using(MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("SELECT * FROM blogs WHERE ID = @ID", connection);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM Blogs WHERE ID = @ID", connection);
                 command.Parameters.Add("@ID", MySqlDbType.Int32).Value = ID;
 
                 try
@@ -211,7 +211,7 @@ namespace MyBg.Data
 
             using(MySqlConnection connection = GetConnection())
             {
-                MySqlCommand command = new MySqlCommand("(SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM blogs ORDER BY ID DESC) UNION ALL (SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM favorites ORDER BY ID DESC) ORDER BY DatePosted;", connection);
+                MySqlCommand command = new MySqlCommand("(SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM Blogs ORDER BY ID DESC) UNION ALL (SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM Favorites ORDER BY ID DESC) ORDER BY DatePosted LIMIT 10;", connection);
                 
                 try
                 {
@@ -227,7 +227,7 @@ namespace MyBg.Data
                             post.ID = reader.GetInt32(0);
                             post.Title = reader.GetString(1);
                             post.Description = reader.GetString(2);
-                            post.Tumbnail = reader.GetString(3);
+                            post.Tumbnails = reader.GetString(3);
                             post.Categories = reader.GetString(4);
                             post.DatePosted = reader.GetDateTime(5);
                             post.PostType = reader.GetString(6);
@@ -239,6 +239,51 @@ namespace MyBg.Data
 
                 }
                 catch(MySqlException e)
+                {
+                    Console.WriteLine(e);
+                }
+                connection.Close();
+            }
+
+            return allPosts;
+        }
+
+        public List<PostsViewModel> GetPostsByTag(string tag)
+        {
+            List<PostsViewModel> allPosts = new List<PostsViewModel>();
+
+            using (MySqlConnection connection = GetConnection())
+            {
+                MySqlCommand command = new MySqlCommand("(SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM Blogs WHERE Categories LIKE '%" + @tag + "%' ORDER BY ID DESC) UNION ALL (SELECT ID, Title, Description, Tumbnails, Categories, DatePosted, PostType FROM Favorites WHERE Categories LIKE '%" + @tag + "%' ORDER BY ID DESC) ORDER BY DatePosted;", connection);
+                command.Parameters.Add("@tag", MySqlDbType.String).Value = tag;
+
+                try
+                {
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            PostsViewModel post = new PostsViewModel();
+
+                            post.ID = reader.GetInt32(0);
+                            post.Title = reader.GetString(1);
+                            post.Description = reader.GetString(2);
+                            post.Tumbnails = reader.GetString(3);
+                            post.Categories = reader.GetString(4);
+                            post.DatePosted = reader.GetDateTime(5);
+                            post.PostType = reader.GetString(6);
+
+                            allPosts.Add(post);
+                        }
+                    }
+
+                    reader.Close();
+
+                }
+                catch (MySqlException e)
                 {
                     Console.WriteLine(e);
                 }
@@ -281,155 +326,156 @@ namespace MyBg.Data
             }
             return tags;
         }
+
         // ------------------------------------------------------------ Post Routes ------------------------------------------- //
 
-        public void NewFavorite(FavoriteModel favorite)
-        {
-            using(MySqlConnection connection = GetConnection())
-            {
-                MySqlCommand command = new MySqlCommand("INSERT INTO favorites(PostType, Title, Description, Tumbnails, Categories, Link, HTML) VALUES(Favorite, @Title, @Description, @Tumbnails, @Categories, @Link, @HTML)", connection);
+        //public void NewFavorite(FavoriteModel favorite)
+        //{
+        //    using(MySqlConnection connection = GetConnection())
+        //    {
+        //        MySqlCommand command = new MySqlCommand("INSERT INTO Favorites(PostType, Title, Description, Tumbnails, Categories, Link, HTML) VALUES(Favorite, @Title, @Description, @Tumbnails, @Categories, @Link, @HTML)", connection);
 
-                command.Parameters.Add("@Title", MySqlDbType.String).Value = favorite.ID;
-                command.Parameters.Add("@Description", MySqlDbType.String).Value = favorite.Description;
-                command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = favorite.Tumbnails;
-                command.Parameters.Add("@Categories", MySqlDbType.String).Value = favorite.Categories;
-                command.Parameters.Add("@Link", MySqlDbType.String).Value = favorite.Link;
-                command.Parameters.Add("@HTML", MySqlDbType.String).Value = favorite.HTML;
+        //        command.Parameters.Add("@Title", MySqlDbType.String).Value = favorite.ID;
+        //        command.Parameters.Add("@Description", MySqlDbType.String).Value = favorite.Description;
+        //        command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = favorite.Tumbnails;
+        //        command.Parameters.Add("@Categories", MySqlDbType.String).Value = favorite.Categories;
+        //        command.Parameters.Add("@Link", MySqlDbType.String).Value = favorite.Link;
+        //        command.Parameters.Add("@HTML", MySqlDbType.String).Value = favorite.HTML;
 
-                try
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch(MySqlException e)
-                {
-                    Console.WriteLine(e);
-                }
-                connection.Close();
-            }
-        }
-
-
-        public void NewBlog(BlogModel blog)
-        {
-            using (MySqlConnection connection = GetConnection())
-            {
-                MySqlCommand command = new MySqlCommand("INSERT INTO blogs(PostType, Title, Description, Tumbnails, Categories, HTML) VALUES(Blog, @Title, @Description, @Tumbnails, @Categories, @HTML)", connection);
-                command.Parameters.Add("@Title", MySqlDbType.String).Value = blog.ID;
-                command.Parameters.Add("@Description", MySqlDbType.String).Value = blog.Description;
-                command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = blog.Tumbnails;
-                command.Parameters.Add("@Categories", MySqlDbType.String).Value = blog.Categories;
-                command.Parameters.Add("@HTML", MySqlDbType.String).Value = blog.HTML;
-
-                try
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    Console.WriteLine(e);
-                }
-                connection.Close();
-            }
-        }
+        //        try
+        //        {
+        //            connection.Open();
+        //            command.ExecuteNonQuery();
+        //        }
+        //        catch(MySqlException e)
+        //        {
+        //            Console.WriteLine(e);
+        //        }
+        //        connection.Close();
+        //    }
+        //}
 
 
-        // ------------------------------------------------------------ Edit Routes ------------------------------------------- //
-        public string EditFavorite(FavoriteModel favorite)
-        {
-            using (MySqlConnection connection = GetConnection())
-            {
-                MySqlCommand command = new MySqlCommand("UPDATE favorites SET Title = @Title, Description = @Description, Tumbnails = @Tumbnails, Categories = @Categories, Link = @Link, HTML = @HTML WHERE ID = @ID", connection);
-                command.Parameters.Add("@ID", MySqlDbType.Int32).Value = favorite.ID;
-                command.Parameters.Add("@Title", MySqlDbType.String).Value = favorite.Title;
-                command.Parameters.Add("@Description", MySqlDbType.String).Value = favorite.Description;
-                command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = favorite.Tumbnails;
-                command.Parameters.Add("@Categories", MySqlDbType.String).Value = favorite.Categories;
-                command.Parameters.Add("@Link", MySqlDbType.String).Value = favorite.Link;
-                command.Parameters.Add("@HTML", MySqlDbType.String).Value = favorite.HTML;
+        //public void NewBlog(ArticleModel blog)
+        //{
+        //    using (MySqlConnection connection = GetConnection())
+        //    {
+        //        MySqlCommand command = new MySqlCommand("INSERT INTO blogs(PostType, Title, Description, Tumbnails, Categories, HTML) VALUES(Blog, @Title, @Description, @Tumbnails, @Categories, @HTML)", connection);
+        //        command.Parameters.Add("@Title", MySqlDbType.String).Value = blog.ID;
+        //        command.Parameters.Add("@Description", MySqlDbType.String).Value = blog.Description;
+        //        command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = blog.Tumbnails;
+        //        command.Parameters.Add("@Categories", MySqlDbType.String).Value = blog.Categories;
+        //        command.Parameters.Add("@HTML", MySqlDbType.String).Value = blog.HTML;
 
-                try
-                {
-                    connection.Open();
-                    string resp = "this rows were affectd: ";
-                    return resp + command.ExecuteNonQuery().ToString();
-                }
-                catch (MySqlException e)
-                {
-                    Console.WriteLine(e);
-                    return e.ToString();
-                }
-            }
-        }
-
-        public void EditBlog(BlogModel blog)
-        {
-            using (MySqlConnection connection = GetConnection())
-            {
-                MySqlCommand command = new MySqlCommand("UPDATE blogs SET Title = @Title, Description = @Description, Tumbnails = @Tumbnails, Categories = @Categories, HTML = @HTML WHERE ID = @ID", connection);
-                command.Parameters.Add("@ID", MySqlDbType.Int32).Value = blog.ID;
-                command.Parameters.Add("@Title", MySqlDbType.String).Value = blog.Title;
-                command.Parameters.Add("@Description", MySqlDbType.String).Value = blog.Description;
-                command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = blog.Tumbnails;
-                command.Parameters.Add("@Categories", MySqlDbType.String).Value = blog.Categories;
-                command.Parameters.Add("@HTML", MySqlDbType.String).Value = blog.HTML;
-
-                try
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    Console.WriteLine(e);
-                }
-                connection.Close();
-            }
-        }
-
-        // ------------------------------------------ Delete Routes ------------------------------------------------------ //
-        public void DeleteFavorite(int ID)
-        {
-            using (MySqlConnection connection = GetConnection())
-            {
-                try
-                {
-                    connection.Open();
-
-                    MySqlCommand command = new MySqlCommand("DELETE FROM favorites WHERE ID = @ID", connection);
-                    command.Parameters.Add("@ID", MySqlDbType.Int32).Value = ID;
-
-                    command.ExecuteNonQuery();
-                }
-                catch(MySqlException e)
-                {
-                    Console.WriteLine(e);
-                }
-                connection.Close();
-            }
-        }
-
-        public void DeleteBlog(int ID)
-        {
-            using (MySqlConnection connection = GetConnection())
-            {
-                try
-                {
-                    connection.Open();
-
-                    MySqlCommand command = new MySqlCommand("DELETE FROM blogs WHERE ID = @ID", connection);
-                    command.Parameters.Add("@ID", MySqlDbType.Int32).Value = ID;
+        //        try
+        //        {
+        //            connection.Open();
+        //            command.ExecuteNonQuery();
+        //        }
+        //        catch (MySqlException e)
+        //        {
+        //            Console.WriteLine(e);
+        //        }
+        //        connection.Close();
+        //    }
+        //}
 
 
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    Console.WriteLine(e);
-                }
-                connection.Close();
-            }
-        }
+        //// ------------------------------------------------------------ Edit Routes ------------------------------------------- //
+        //public string EditFavorite(FavoriteModel favorite)
+        //{
+        //    using (MySqlConnection connection = GetConnection())
+        //    {
+        //        MySqlCommand command = new MySqlCommand("UPDATE Favorites SET Title = @Title, Description = @Description, Tumbnails = @Tumbnails, Categories = @Categories, Link = @Link, HTML = @HTML WHERE ID = @ID", connection);
+        //        command.Parameters.Add("@ID", MySqlDbType.Int32).Value = favorite.ID;
+        //        command.Parameters.Add("@Title", MySqlDbType.String).Value = favorite.Title;
+        //        command.Parameters.Add("@Description", MySqlDbType.String).Value = favorite.Description;
+        //        command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = favorite.Tumbnails;
+        //        command.Parameters.Add("@Categories", MySqlDbType.String).Value = favorite.Categories;
+        //        command.Parameters.Add("@Link", MySqlDbType.String).Value = favorite.Link;
+        //        command.Parameters.Add("@HTML", MySqlDbType.String).Value = favorite.HTML;
+
+        //        try
+        //        {
+        //            connection.Open();
+        //            string resp = "this rows were affectd: ";
+        //            return resp + command.ExecuteNonQuery().ToString();
+        //        }
+        //        catch (MySqlException e)
+        //        {
+        //            Console.WriteLine(e);
+        //            return e.ToString();
+        //        }
+        //    }
+        //}
+
+        //public void EditBlog(ArticleModel blog)
+        //{
+        //    using (MySqlConnection connection = GetConnection())
+        //    {
+        //        MySqlCommand command = new MySqlCommand("UPDATE Blogs SET Title = @Title, Description = @Description, Tumbnails = @Tumbnails, Categories = @Categories, HTML = @HTML WHERE ID = @ID", connection);
+        //        command.Parameters.Add("@ID", MySqlDbType.Int32).Value = blog.ID;
+        //        command.Parameters.Add("@Title", MySqlDbType.String).Value = blog.Title;
+        //        command.Parameters.Add("@Description", MySqlDbType.String).Value = blog.Description;
+        //        command.Parameters.Add("@Tumbnails", MySqlDbType.String).Value = blog.Tumbnails;
+        //        command.Parameters.Add("@Categories", MySqlDbType.String).Value = blog.Categories;
+        //        command.Parameters.Add("@HTML", MySqlDbType.String).Value = blog.HTML;
+
+        //        try
+        //        {
+        //            connection.Open();
+        //            command.ExecuteNonQuery();
+        //        }
+        //        catch (MySqlException e)
+        //        {
+        //            Console.WriteLine(e);
+        //        }
+        //        connection.Close();
+        //    }
+        //}
+
+        //// ------------------------------------------ Delete Routes ------------------------------------------------------ //
+        //public void DeleteFavorite(int ID)
+        //{
+        //    using (MySqlConnection connection = GetConnection())
+        //    {
+        //        try
+        //        {
+        //            connection.Open();
+
+        //            MySqlCommand command = new MySqlCommand("DELETE FROM Favorites WHERE ID = @ID", connection);
+        //            command.Parameters.Add("@ID", MySqlDbType.Int32).Value = ID;
+
+        //            command.ExecuteNonQuery();
+        //        }
+        //        catch(MySqlException e)
+        //        {
+        //            Console.WriteLine(e);
+        //        }
+        //        connection.Close();
+        //    }
+        //}
+
+        //public void DeleteBlog(int ID)
+        //{
+        //    using (MySqlConnection connection = GetConnection())
+        //    {
+        //        try
+        //        {
+        //            connection.Open();
+
+        //            MySqlCommand command = new MySqlCommand("DELETE FROM Blogs WHERE ID = @ID", connection);
+        //            command.Parameters.Add("@ID", MySqlDbType.Int32).Value = ID;
+
+
+        //            command.ExecuteNonQuery();
+        //        }
+        //        catch (MySqlException e)
+        //        {
+        //            Console.WriteLine(e);
+        //        }
+        //        connection.Close();
+        //    }
+        //}
     }
 }

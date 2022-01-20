@@ -4,17 +4,17 @@
     ViewData["Title"] = Model.Title;
 }
 
-<div class="main-wrapper main-wrapper_favorites">
-    <a asp-action="Index" asp-controller="Favorites" class="std-button">👈 BACK TO ALL</a>
+<div class="main-wrapper_favorite-single">
+<div class="post-top-single-wrapper">
+    <a asp-action="Index" asp-controller="Favorites" class="std-button back-to-all">👈 BACK TO ALL</a>
 
-    <section class="main-title-wrapper">
-        <span class="post-type type_favorite"></span>
-        <h1 class="std-header-h1 header-h1_favorite">@Model.Title</h1>
-        <p class="std-quiet-p">@Model.DatePosted</p>
-    </section>
+    @*<section class="main-title-wrapper">
+        <h1 class="std-h1 header-h1_favorite">@Model.Title</h1>
+        <p class="std-text-quiet quiet-post-info">@Model.DatePosted</p>
+    </section>*@
 
     <div class="tag-footer">
-        <div class="category-wrapper">
+        <div class="category-wrapper category-wrapper--single--post">
             @if (!String.IsNullOrEmpty(Model.Categories))
             {
                 string[] tags = Model.Categories.Split(" ");
@@ -26,13 +26,12 @@
         </div>
     </div>
 
-    @await Html.PartialAsync("_Carrousel", Model);
+    @*@await Html.PartialAsync("_Carrousel", Model);*@
 
-    <a href="@Model.Link">Check It out</a>
-
-    <p class="std-p">
+    @*<a href="@Model.Link" class="std-link">Check It out</a>*@
+    </div>
+    <div class="std-medium-spacer"></div>
         @Html.Raw(Model.HTML);
-    </p>
 
 </div>
 

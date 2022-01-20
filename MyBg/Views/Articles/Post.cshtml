@@ -1,0 +1,36 @@
+﻿@model MyBg.Models.ArticleModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="main-wrapper_favorite-single">
+<div class="post-top-single-wrapper">
+    <a asp-action="Index" asp-controller="Articles" class="std-button back-to-all">👈 BACK TO ALL</a>
+
+    @*<section class="main-title-wrapper">
+        <h1 class="std-h1 header-h1_favorite">@Model.Title</h1>
+        <p class="std-text-quiet quiet-post-info">@Model.DatePosted</p>
+    </section>*@
+
+    <div class="tag-footer">
+        <div class="category-wrapper category-wrapper--single--post">
+            @if (!String.IsNullOrEmpty(Model.Categories))
+            {
+                string[] tags = Model.Categories.Split(" ");
+                foreach (string tag in tags)
+                {
+                    <span class="category-tag">@tag</span>
+                }
+            }
+        </div>
+    </div>
+
+    @*@await Html.PartialAsync("_Carrousel", Model);*@
+
+    @*<a href="@Model.Link" class="std-link">Check It out</a>*@
+    </div>
+    <div class="std-medium-spacer"></div>
+        @Html.Raw(Model.HTML);
+
+</div>
+

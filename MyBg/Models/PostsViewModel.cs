@@ -13,7 +13,7 @@ namespace MyBg.Models
 
         public string Description { get; set; }
 
-        public string Tumbnail { get; set; }
+        public string Tumbnails { get; set; }
 
         public DateTime DatePosted { get; set; }
 

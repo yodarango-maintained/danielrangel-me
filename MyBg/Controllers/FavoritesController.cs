@@ -26,43 +26,43 @@ namespace MyBg.Controllers
             return View("Post", context.GetOneFavorite(id));
         }
 
-        public IActionResult New()
-        {
-            return View("New");
-        }
+        //public IActionResult New()
+        //{
+        //    return View("New");
+        //}
 
-        public IActionResult Edit(int id)
-        {
-            PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+        //public IActionResult Edit(int id)
+        //{
+        //    PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
 
-            return View("Edit", context.GetOneFavorite(id));
-        }
+        //    return View("Edit", context.GetOneFavorite(id));
+        //}
 
-        //----------------------------------  post routes ----------------------------
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public void NewFavorite(FavoriteModel favorite)
-        {
-            PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
-            context.NewFavorite(favorite); 
-        }
+        ////----------------------------------  post routes ----------------------------
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public void NewFavorite(FavoriteModel favorite)
+        //{
+        //    PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+        //    context.NewFavorite(favorite); 
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public string EditFavorite(FavoriteModel favorite)
-        {
-            PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
-            return context.EditFavorite(favorite);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public string EditFavorite(FavoriteModel favorite)
+        //{
+        //    PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+        //    return context.EditFavorite(favorite);
+        //}
 
-        //----------------------------------  delete routes ----------------------------
+        ////----------------------------------  delete routes ----------------------------
 
-        public IActionResult DeleteFavorite(int id)
-        {
-            PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
-            context.DeleteFavorite(id);
+        //public IActionResult DeleteFavorite(int id)
+        //{
+        //    PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+        //    context.DeleteFavorite(id);
 
-            return View("Index", context.GetFavorites());
-        }
+        //    return View("Index", context.GetFavorites());
+        //}
     }
 }

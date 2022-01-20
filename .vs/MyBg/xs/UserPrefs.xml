@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{82BAA2F4-A40C-46A8-91DA-569E7F7526C8}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyBg/appsettings.json">
+    <Files>
+      <File FileName="MyBg/Views/Shared/_Layout.cshtml" Line="51" Column="102" />
+      <File FileName="MyBg/Views/Tools/Index.cshtml" />
+      <File FileName="MyBg/wwwroot/css/site.css" />
+      <File FileName="MyBg/Views/Tools/Reading_Speed.cshtml" Line="79" Column="1" />
+      <File FileName="MyBg/Views/Tools/Citation_Machine.cshtml" />
+      <File FileName="MyBg/Controllers/ToolsController.cs" />
+      <File FileName="MyBg/.gitignore" Line="1" Column="1" />
+      <File FileName="MyBg/appsettings.json" Line="3" Column="97" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MyBg" expanded="True">
+            <Node name="MyBg" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Articles" expanded="True" />
+                <Node name="Posts" expanded="True" />
+                <Node name="Shared" expanded="True" />
+                <Node name="Tools" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MyBg PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/dr/Library/Mobile Documents/com~apple~CloudDocs/2. Business/1. Web Design/danielrangel.me/danielrangel-me/MyBg/Controllers/PostsController.cs" relfile="MyBg/Controllers/PostsController.cs" line="17" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

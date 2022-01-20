@@ -1,9 +1,84 @@
 ﻿
+@model IEnumerable<MyBg.Models.PostsViewModel>
+
 @{
-    ViewData["Title"] = "Index";
-    IEnumerable<FavoriteModel> favorites = ViewData["Favorites"] as IEnumerable<FavoriteModel>;
-    IEnumerable<BlogModel> blogs = ViewData["Blogs"] as IEnumerable<BlogModel>;
+    ViewData["Title"] = "All Posts";
 }
 
-<h1>Index</h1>
+<div class="main-wrapper main-wrapper_favorite">
 
+    <section class="post-title-wrapper wrapper-favorite">
+        <h1 class="std-h1 favorites-title">@ViewData["Tag"]</h1>
+    </section>
+
+    @foreach (PostsViewModel post in Model)
+    {
+        if (post.PostType == "Favorite")
+        {
+            <div class="favorite-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
+                @await Html.PartialAsync("_Carrousel", post);
+                <div class="std-blurr-layer"></div>
+                <aside class="favorite-post-info-wrapper">
+                    <div>
+                        <h3 class="std-h3 header-h3--favorite">@post.Title</h3>
+                        <p class="std-text-quiet quiet-post-info">@post.DatePosted</p>
+
+                        <div class="tag-footer">
+
+                            <span class="post-type type_favorite"></span>
+
+                            <div class="category-wrapper">
+                                @if (!String.IsNullOrEmpty(post.Categories))
+                                {
+                                    string[] tags = post.Categories.Split(" ");
+                                    foreach (string tag in tags)
+                                    {
+                                        <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag" class="category-tag">@tag</a>
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    @*<p class="std-p std-p_favorite-desc">
+                            @post.Description
+                        </p>*@
+                </aside>
+            </div>
+        }
+        else if (post.PostType == "Article")
+        {
+            <div class="blog-post-wrapper by-tag-blog" onclick="redirectToPost('@post.ID', '@post.PostType')">
+                @await Html.PartialAsync("_Carrousel_Blog", post);
+                <div class="std-blurr-layer blog-blurr-layer"></div>
+                <aside class="blog-post-info-wrapper">
+                    <div>
+                        <h3 class="std-h3 header-h3--blog">@post.Title</h3>
+                        <p class="std-text-quiet quiet-post-info">@post.DatePosted</p>
+
+                        <div class="tag-footer">
+
+                            <span class="post-type type_blog"></span>
+
+                            <div class="category-wrapper">
+                                @if (!String.IsNullOrEmpty(post.Categories))
+                                {
+                                    string[] tags = post.Categories.Split(" ");
+                                    foreach (string tag in tags)
+                                    {
+                                        <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag" class="category-tag">@tag</a>
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <p class="std-p std-p_blog-desc">
+                        @post.Description
+                    </p>
+                </aside>
+            </div>
+        }
+    }
+
+</div>

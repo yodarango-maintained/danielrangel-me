@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Tools - Citation Machine";
+}
+<div class="main-wrapper">
+    <section class="reader-wrapper">
+        <div class="reader-header">
+            <h3 class="std-h3 h3-reader-title">Select an animal to read about</h3>
+            <div class="topics-wrapper">
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('wolf')">wolf🐺</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('eagle')">Eagle 🦅</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('rhino')">Rhino 🦏</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('bison')">Bison 🦬</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('mammoth')">Mammoth 🦣</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('biper')">Biper 🐍</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('shark')">Shark 🦈</span>
+            </div>
+        </div>
+        <p class="reader-text-box"></p>
+        <div class="botton-wrapper">
+            <a asp-action="ReadingSpeed" asp-controller="Tools" class="reset-button"> <span class="read-reset std-icon"></span>RESET</a>
+            <button class="reset-button" onclick="startReading()"> <span class="read-start std-icon"></span>START</button>
+            <button class="reset-button" onclick="stopReading()"><span class="read-stop std-icon"></span>STOP</button>
+        </div>
+        <div class="container">
+            <div class="box">
+                <div class="clock"></div>
+            </div>
+        </div>
+        <h4 class="std-h4 reading-time-result" id="reading-time-result"></h4>
+    </section>
+
+</div>
+
+<script>
+    const readerTextBox = document.querySelector(".reader-text-box");
+    const clockContainer = document.querySelector(".container");
+    const totalTimeElapsedMsg = document.querySelector(".reading-time-result");
+
+    let startTime;
+
+    const choseTopic = (topic) => {
+
+        startTime = Date.now()
+        readerTextBox.style.display = "none";
+        clockContainer.style.display = "none";
+
+        if (topic === 'wolf') {
+            readerTextBox.innerHTML = 'this is a wolf'
+        } else if (topic === 'eagle') {
+            readerTextBox.innerHTML = 'this is an eagle'
+        }
+        else if (topic === 'rhino') {
+            readerTextBox.innerHTML = 'this is an rhino'
+        }
+        else if (topic === 'bison') {
+            readerTextBox.innerHTML = 'this is an bison'
+        }
+        else if (topic === 'mammoth') {
+            readerTextBox.innerHTML = 'this is an mammoth'
+        }
+        else if (topic === 'biper') {
+            readerTextBox.innerHTML = 'this is an biper'
+        }
+        else if (topic === 'shark') {
+            readerTextBox.innerHTML = 'this is an shark'
+        }
+    }
+
+    const startReading = () => {
+
+        readerTextBox.style.display = "block";
+        clockContainer.style.display = "flex";
+    }
+
+    const stopReading = () => {
+
+        const elapsedTime = (Date.now() - startTime) / 1000;
+        const wordsPerMinute = Math.floor(200 / elapsedTime);
+
+
+        clockContainer.style.display = "none";
+        totalTimeElapsedMsg.textContent = `Your results is in ${wordsPerMinute}`
+
+    }
+</script>

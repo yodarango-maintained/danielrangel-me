@@ -1,0 +1,10 @@
+﻿<div class="std-image-carrousel carrousel-blog">
+    @{
+        string[] images = Model.Tumbnails.Split(" ");
+
+        foreach (string image in images)
+        {
+            <img src="@image" class="carrousel-image" alt="thumbnail for a post about @Model.Title" />
+        }
+    }
+</div>

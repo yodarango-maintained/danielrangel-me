@@ -1,6 +1,7 @@
 ﻿const menuButton = document.querySelector("#menu-button");
 const darkLayer = document.querySelector("#dark-layer");
 const menuWrapper = document.querySelector("#menu-wrapper");
+const audioFile = new Audio("/sounds/click.mp3")
 
 let menuOpen = false;
 
@@ -50,3 +51,9 @@ const redirectToPost = (id, postType) => {
     }
 
 }
+
+ // ----------------------------- CLICK EFFECT -------------------------- //
+const playAudio = () => {
+    audioFile.play()
+}
+menuButton.addEventListener("click", playAudio)
