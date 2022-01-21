@@ -1,7 +1,10 @@
-﻿const menuButton = document.querySelector("#menu-button");
+﻿// click mp3
+const audioFile = new Audio("/sounds/click.mp3");
+
+// menu elements
+const menuButton = document.querySelector("#menu-button");
 const darkLayer = document.querySelector("#dark-layer");
 const menuWrapper = document.querySelector("#menu-wrapper");
-const audioFile = new Audio("/sounds/click.mp3")
 
 let menuOpen = false;
 

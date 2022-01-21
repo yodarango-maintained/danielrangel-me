@@ -88,10 +88,12 @@ const topicBook = {
 
 const readerTextBox = document.querySelector(".reader-text-box");
 const clockContainer = document.querySelector(".container");
-const totalTimeElapsedMsg = document.querySelector(".reading-time-result");
+const totalTimeElapsedMsgTop = document.querySelector("#reading-time-result_top-p");
+const totalTimeElapsedMsgBottom = document.querySelector("#reading-time-result_bottom-p");
 const yourResultsWrapper = document.querySelector(".reading-result-wrapper")
 
 // buttons 
+const allButtons = document.querySelectorAll(".botton-wrapper > *");
 const wolfBtn = document.querySelector("#button-wolf");
 const eagleBtn = document.querySelector("#button-eagle");
 const rhinoBtn = document.querySelector("#button-rhino");
@@ -100,12 +102,16 @@ const mammothBtn = document.querySelector("#button-mammoth");
 const mambaBtn = document.querySelector("#button-mamba");
 const sharkBtn = document.querySelector("#button-shark");
 
+// variables 
 let startTime;
 let wordCount;
+let isTopicChosen = false;
 
+// ----------------------- Choose the Topic ------------------------ //
 const choseTopic = (topic) => {
     readerTextBox.style.display = "none";
     clockContainer.style.display = "none";
+    isTopicChosen = true;
 
     if (topic === 'wolf') {
         readerTextBox.innerHTML = topicBook.wolf.text;
@@ -199,21 +205,42 @@ const choseTopic = (topic) => {
     }
 }
 
+
+// ------------------------------- start timer ------------------------- //
 const startReading = () => {
-    yourResultsWrapper.style.display = "none"
-    startTime = Date.now()
-    readerTextBox.style.display = "block";
-    clockContainer.style.display = "flex";
+    if (isTopicChosen === true) {
+
+        yourResultsWrapper.style.display = "none"
+        startTime = Date.now()
+        readerTextBox.style.display = "block";
+        clockContainer.style.display = "flex";
+    }
 }
 
+
+//-----------------------------  stop timer --------------------------------- //
 const stopReading = () => {
+    if (isTopicChosen === true) {
+        const elapsedtime = ((Date.now() - startTime) / 1000);
+        const wordsPerMinute = Math.ceil((wordCount / elapsedtime) * 60)
+        isTopicChosen = false;
 
-    const elapsedtime = ((Date.now() - startTime) / 1000);
-    const wordsPerMinute = Math.ceil((wordCount / elapsedtime) * 60)
 
-
-    clockContainer.style.display = "none";
-    yourResultsWrapper.style.display = "block"
-    totalTimeElapsedMsg.innerHTML = `Your reading speed is ${wordsPerMinute} words per minute! 🎉 <br> The average reading speed in America is 220-250 words per minute. ⏰`
-
+        clockContainer.style.display = "none";
+        yourResultsWrapper.style.display = "block"
+        totalTimeElapsedMsgTop.innerHTML = `Your reading speed is ${wordsPerMinute} words per minute!`
+        totalTimeElapsedMsgBottom.innerHTML = `The average reading speed in America is 220-250 words per minute. ⏰`
+    }
 }
+
+
+// ------------------------------ click audio ------------------------------- //
+// click mp3
+const audioFile2 = new Audio("/sounds/keyboard_tap.mp3");
+
+const playAudio2 = () => {
+    audioFile2.play()
+}
+allButtons.forEach(button => {
+    button.addEventListener("click", playAudio2)
+})

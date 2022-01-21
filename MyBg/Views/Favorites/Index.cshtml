@@ -27,7 +27,7 @@
         <h3 class="std-h3">Filter By Tag</h3>
         @foreach (CategoryModel tag in allTags)
         {
-            <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag" class="category-tag">#@tag.Category</a>
+            <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag.Category" class="category-tag">#@tag.Category</a>
         }
     </div>
 
