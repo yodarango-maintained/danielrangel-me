@@ -229,7 +229,7 @@ const stopReading = () => {
         clockContainer.style.display = "none";
         yourResultsWrapper.style.display = "block"
         totalTimeElapsedMsgTop.innerHTML = `Your reading speed is ${wordsPerMinute} words per minute!`
-        totalTimeElapsedMsgBottom.innerHTML = `The average reading speed in America is 220-250 words per minute. ⏰`
+        totalTimeElapsedMsgBottom.innerHTML = `The average reading speed is 220-250 words per minute. ⏰`
     }
 }
 

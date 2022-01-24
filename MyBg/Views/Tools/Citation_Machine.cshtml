@@ -1,5 +1,105 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Tools - Reading Speed";
+}
+<div class="main-wrapper">
+    <section class="post-title-wrapper wrapper-favorite">
+        <span class="post-type post-type_header--cite-source std-icon"></span>
+        <h1 class="std-h1 favorites-title">CITE A COURCE</h1>
+    </section>
+
+    <section class="reader-wrapper">
+        <div class="reader-header">
+            <h3 class="std-h3 h3-reader-title">Select a citation style</h3>
+            <div class="topics-wrapper">
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('mla')" id="button-wolf">MLA</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('apa')" id="button-eagle">APA</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('chicago')" id="button-rhino">Chicago</span>
+                <span class="std-icon reader-topic-icon" onclick="choseTopic('turbian')" id="button-bison">Turbian</span>
+            </div>
+
+            <h3 class="std-h3 h3-reader-title">Select a source type</h3>
+            <div class="botton-wrapper">
+                <a asp-action="ReadingSpeed" asp-controller="Tools" class="reset-button"> <span class="citation-book-source std-icon"></span>BOOK</a>
+                <button class="reset-button" onclick="startReading()"> <span class="citation-journal-source std-icon"></span>JOURNAL</button>
+                <button class="reset-button" onclick="stopReading()"><span class="citation-website-source std-icon"></span>WEBSITE</button>
+            </div>
+        </div>
+        @* ------------------------- MLA Book --------------- *@
+        <div class="citation-form-wrapper citation-form_mla-book">
+            <div class="authors-wrapper">
+                <div class="single-author-wrap">
+                    <input type="text" class="std-form-input" placeholder="Auhthor's First Name" />
+                    <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" />
+                </div>
+                <div class="add-author-wrapper">
+                    <span class="more-icon std-icon"></span> <p class="std-text-quiet add-author">Add another author</p>
+                </div>
+            </div>
+
+            <input type="text" class="std-form-input" placeholder="Book Title" />
+            <input type="text" class="std-form-input" placeholder="Edition" />
+            <input type="text" class="std-form-input" placeholder="Publisher" />
+            <input type="text" class="std-form-input" placeholder="Year Published" />
+
+        </div>
+
+        @* ------------------------- MLA Journal --------------- *@
+        <div class="citation-form-wrapper citation-form_mla-journal">
+            <div class="authors-wrapper">
+                <div class="single-author-wrap">
+                    <input type="text" class="std-form-input" placeholder="Auhthor's First Name" />
+                    <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" />
+                </div>
+                <span class="more-icon std-icon"></span>
+            </div>
+
+            <input type="text" class="std-form-input" placeholder="Title of Article" />
+            <input type="text" class="std-form-input" placeholder="Title of Journal" />
+            <input type="text" class="std-form-input" placeholder="Voulme" />
+            <input type="text" class="std-form-input" placeholder="Issue Number" />
+            <input type="text" class="std-form-input" placeholder="Month Published" />
+            <input type="text" class="std-form-input" placeholder="Year Published" />
+            <input type="text" class="std-form-input" placeholder="Pages Used" />
+            <input type="text" class="std-form-input" placeholder="Year Published" />
+            <input type="text" class="std-form-input" placeholder="DOI or URL" />
+        </div>
+
+        @* ------------------------- MLA Website --------------- *@
+    <div class="citation-form-wrapper citation-form_mla-website">
+        <div class="authors-wrapper">
+            <div class="single-author-wrap">
+                <input type="text" class="std-form-input" placeholder="Auhthor's First Name" />
+                <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" />
+            </div>
+            <span class="more-icon std-icon"></span>
+        </div>
+
+        <input type="text" class="std-form-input" placeholder="Page Title" />
+        <input type="text" class="std-form-input" placeholder="Website title (not URL)" />
+        <input type="text" class="std-form-input" placeholder="Day Published" />
+        <input type="text" class="std-form-input" placeholder="Month Published" />
+        <input type="text" class="std-form-input" placeholder="Year Published" />
+        <input type="text" class="std-form-input" placeholder="Source URL" />
+
+    </div>
+
+        <div class="botton-wrapper">
+            <a asp-action="ReadingSpeed" asp-controller="Tools" class="reset-button"> <span class="read-reset std-icon"></span>RESET</a>
+            <button class="reset-button" onclick="startReading()"> <span class="read-start std-icon"></span>START</button>
+            <button class="reset-button" onclick="stopReading()"><span class="read-stop std-icon"></span>STOP</button>
+        </div>
+    </section>
+
+    <div class="reading-result-wrapper">
+        <h3 class="std-h3 h3-reader-title">Your results: </h3>
+        <div class="reading-results-img"></div>
+        <div class="std-p reading-time-result" id="reading-time-result">
+            <p class="reading-time-result_important" id="reading-time-result_top-p"></p>
+            <p class="std-p" id="reading-time-result_bottom-p"></p>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/js/reading-speed.js"></script>
 }

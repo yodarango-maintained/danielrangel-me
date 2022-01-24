@@ -269,6 +269,15 @@ body {
     }
 }
 
+.more-icon{
+    background-image: url("/images/utilities/more-icon.png");
+    margin: 0;
+    display: block;
+    border-radius: 50%;
+    border: .1rem solid var(--primary-color);
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
 /*---------------------------- Standards --------------------- */
 .std-button {
     padding: var(--small-spacing-mobile);
@@ -921,12 +930,12 @@ main-wrapper_favorite {
 
 /* -------------------------- Header icons -------------------------------------- */
 
-.post-type_header--favorite, .post-type_header--blog, .post-type_header--tools, .post-type_header--reading-speed {
+.post-type_header--favorite, .post-type_header--blog, .post-type_header--tools, .post-type_header--reading-speed, .post-type_header--cite-source {
     width: 3rem;
     height: 3rem;
     display: block;
     background-image: url("/images/menu-icons/favorites.png");
-    animation: firstUD 2500ms linear 230ms infinite;
+    animation: firstUD 3500ms linear 230ms infinite;
 }
 
 .post-type_header--blog {
@@ -1150,7 +1159,14 @@ margin-bottom: var(--xsmall-spacing-mobile);
     display: flex;
     align-items: center;
     justify-content: space-around;
+
 }
+
+.reader-topic-icon:hover{
+border: .1rem solid var(--font-color);
+cursor: pointer;
+}
+
 .reader-text-box{
     width: 100%;
     background-color: var(--secondary-color-dark);
@@ -1186,7 +1202,11 @@ margin-bottom: var(--xsmall-spacing-mobile);
     transition: 300ms ease-in;
 }
 
-.botton-wrapper > *:hover{
+.botton-wrapper .std-icon{
+    margin: 0;
+}
+
+.botton-wrapper > *:hover {
     box-shadow: .1rem .1rem 1rem .1rem rgb(236, 252, 210), -.1rem -.1rem 1rem .1rem rgb(236, 252, 210);
     cursor: pointer;
 }
@@ -1251,6 +1271,56 @@ margin-bottom: var(--xsmall-spacing-mobile);
     background-repeat: no-repeat;
 }
 
+/* *************************************************************************************************************************/
+/* ****************************************************** READ SPEED PAGE **************************************************/
+/* *************************************************************************************************************************/
+
+.post-type_header--cite-source {
+    background-image: url("/images/utilities/citation-icon.png");
+}
+
+.citation-book-source{
+background-image: url('/images/utilities/books-icon.png');
+}
+
+.citation-website-source {
+    background-image: url('/images/utilities/cursor-icon.png');
+}
+
+.citation-journal-source {
+    background-image: url('/images/utilities/page-icon.png');
+}
+
+.citation-form-wrapper{
+display: flex;
+align-items: flex-start;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.authors-wrapper{
+    width: 100%;
+}
+
+.add-author-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.more-icon {
+    background-size: 70%;
+    background-color: var(--primary-color);
+    margin: 0;
+}
+
+.add-author{
+    margin: 0 auto 0 var(--xsmall-spacing-mobile);
+}
+
+.citation-form-wrapper .std-form-input {
+    background-color: var(--primary-color);
+    margin: var(--small-spacing-mobile) auto;
+}
 /* ---------------------------------------------------------------- DESKTOP STYLES -------------------------------------- */
 @media (min-width: 900px) {
     /*------------------------------ shared ---------------------------*/
@@ -1654,7 +1724,7 @@ margin-bottom: var(--xsmall-spacing-mobile);
     }
 
     /* -------------------------- Header icons -------------------------------------- */
-    .post-type_header--favorite, .post-type_header--blog, post-type_header--tools, .post-type_header--reading-speed {
+    .post-type_header--favorite, .post-type_header--blog, post-type_header--tools, .post-type_header--reading-speed, .post-type_header--cite-source {
         width: 3rem;
         height: 3rem;
         display: block;
