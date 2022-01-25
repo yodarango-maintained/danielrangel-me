@@ -269,7 +269,7 @@ body {
     }
 }
 
-.more-icon{
+.more-icon, .remove-icon{
     background-image: url("/images/utilities/more-icon.png");
     margin: 0;
     display: block;
@@ -277,6 +277,10 @@ body {
     border: .1rem solid var(--primary-color);
     background-size: 70%;
     background-repeat: no-repeat;
+}
+
+.remove-icon {
+    background-image: url("/images/utilities/stop-icon.png");
 }
 /*---------------------------- Standards --------------------- */
 .std-button {
@@ -1291,11 +1295,15 @@ background-image: url('/images/utilities/books-icon.png');
     background-image: url('/images/utilities/page-icon.png');
 }
 
-.citation-form-wrapper{
-display: flex;
-align-items: flex-start;
-justify-content: center;
-flex-wrap: wrap;
+.source-button.active {
+    box-shadow: .1rem .1rem 1rem .1rem rgb(236, 252, 210), -.1rem -.1rem 1rem .1rem rgb(236, 252, 210);
+}
+
+.citation-form-wrapper {
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .authors-wrapper{
@@ -1307,11 +1315,15 @@ flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
 }
-.more-icon {
+.more-icon, .remove-icon {
     background-size: 70%;
     background-color: var(--primary-color);
     margin: 0;
 }
+
+.more-icon:hover, .remove-icon:hover{
+    cursor:pointer;
+} 
 
 .add-author{
     margin: 0 auto 0 var(--xsmall-spacing-mobile);
