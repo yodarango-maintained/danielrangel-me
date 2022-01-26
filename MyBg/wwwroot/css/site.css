@@ -1276,7 +1276,7 @@ cursor: pointer;
 }
 
 /* *************************************************************************************************************************/
-/* ****************************************************** READ SPEED PAGE **************************************************/
+/* *************************************************** CITE A SOU RCE PAGE *************************************************/
 /* *************************************************************************************************************************/
 
 .post-type_header--cite-source {
@@ -1332,6 +1332,22 @@ background-image: url('/images/utilities/books-icon.png');
 .citation-form-wrapper .std-form-input {
     background-color: var(--primary-color);
     margin: var(--small-spacing-mobile) auto;
+}
+
+.botton-wrapper.citing-buttons{
+    justify-content: flex-start;
+}
+
+.botton-wrapper.citing-buttons > * {
+    margin: var(--xsmall-spacing-mobile) var(--medium-spacing-mobile) var(--xsmall-spacing-mobile) var(--xsmall-spacing-mobile);
+}
+
+.cite-button {
+    background-image: url("/images/utilities/page-icon.png");
+}
+
+.citation-results-img {
+    background-image: url("/images/utilities/page-icon.png");
 }
 /* ---------------------------------------------------------------- DESKTOP STYLES -------------------------------------- */
 @media (min-width: 900px) {
@@ -1989,6 +2005,18 @@ background-image: url('/images/utilities/books-icon.png');
 
     .h3-tools-title {
         font-size: 1.2rem;
+    }
+
+    /* *************************************************************************************************************************/
+    /* *************************************************** CITE A SOU RCE PAGE *************************************************/
+    /* *************************************************************************************************************************/
+
+    .post-type_header--cite-source {
+        background-image: url("/images/utilities/citation-icon.png");
+    }
+
+    .botton-wrapper.citing-buttons > * {
+        margin: var(--xsmall-spacing-desktop) var(--medium-spacing-mobile) var(--xsmall-spacing-desktop) var(--small-spacing-desktop);
     }
 
 }

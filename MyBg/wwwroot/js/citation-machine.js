@@ -55,22 +55,39 @@ const turbianStyle = () => {
     turbianBtn.classList.add('active');
 }
 
-const chooseCitationStyle =(style) => {
+let isStyleChosen = {
+    isIt: false,
+    style: undefined
+};
+
+const chooseCitationStyle = (style) => {
 
     if (style === 'mla') {
         mlaStyle()
+
+        isStyleChosen.isIt = true
+        isStyleChosen.style = "mla"
     }
 
     if (style === 'apa') {
         apaStyle()
+
+        isStyleChosen.isIt = true
+        isStyleChosen.style = "apa"
     }
 
     if (style === 'chicago') {
         chicagoStyle()
+
+        isStyleChosen.isIt = true
+        isStyleChosen.style = "chicago"
     }
 
     if (style === 'turbian') {
         turbianStyle()
+
+        isStyleChosen.isIt = true
+        isStyleChosen.style = "turbian"
     }
 }
 
@@ -106,18 +123,35 @@ const websiteSource = () => {
     sourceTypeWebsite.classList.add('active')
 }
 
+let isSourceTypeChosen = {
+    isIt: false,
+    source: undefined
+};
+ 
 const SelectSourceType = (style) => {
 
-    if (style === 'book') {
-        bookSource()
-    }
+    if (isStyleChosen.isIt) {
 
-    if (style === 'journal') {
-        journalSource()
-    }
+        if (style === 'book') {
+            bookSource()
 
-    if (style === 'website') {
-        websiteSource()
+            isSourceTypeChosen.isIt = true;
+            isSourceTypeChosen.source = "book";
+        }
+
+        if (style === 'journal') {
+            journalSource()
+
+            isSourceTypeChosen.isIt = true;
+            isSourceTypeChosen.source = "journal";
+        }
+
+        if (style === 'website') {
+            websiteSource()
+
+            isSourceTypeChosen.isIt = true;
+            isSourceTypeChosen.source = "website";
+        }
     }
 }
 
@@ -135,8 +169,8 @@ addAuthorBtn.forEach(item => {
 
         newAuthorWrapper.innerHTML =
             `
-         <input type="text" class="std-form-input" placeholder="Auhthor's First Name">
-         <input type="text" class="std-form-input" placeholder="Auhthor's Last Name">
+         <input type="text" class="std-form-input" placeholder="Auhthor's First Name" id="input-second-author-fn">
+         <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" id="input-second-author-fn">
          <div class="add-author-wrapper">
          <span class="remove-icon std-icon" onclick="removeAuthor(this)"></span> <p class="std-text-quiet add-author">Remove this Author</p>
          </div>
@@ -145,6 +179,68 @@ addAuthorBtn.forEach(item => {
         parent.appendChild(newAuthorWrapper)
     })
 })
+
+
+// ------------------------------ cite a source ----------------------------- //
+// ---------------- book inputs 
+const bookFirstAuthorFN = document.querySelector("#input-first-author-fn--book")
+const bookFirstAuthorLN = document.querySelector("#input-first-author-ln--book")
+const bookTitle = document.querySelector("#input-title--book")
+const bookEdition = document.querySelector("#input-edition--book")
+const bookOublisher = document.querySelector("#input-publisher--book")
+const bookYearPub = document.querySelector("#input-yearPub--book")
+
+// ---------------- journal inputs 
+const journalFirstAuthorFN = document.querySelector("#input-first-author-fn--journal")
+const journalFirstAuthorLN = document.querySelector("#input-first-author-ln--journal")
+const journalArticleTitle = document.querySelector("#input-source-art-title--journal")
+const journalJournalTitle = document.querySelector("#input-source-jour-title--journal")
+const journalVolume = document.querySelector("#input-source-volume--journal")
+const journalIssueNum = document.querySelector("#input-source-issueNum-journal")
+const journalMonthPub = document.querySelector("#input-source-monthPub--journal")
+const journalYearPub = document.querySelector("#input-source-yearPub--journal")
+const journalSourcePages = document.querySelector("#input-source-Pages--journal")
+const journalDoi = document.querySelector("#input-source-doi--journal")
+
+
+// ---------------- website inputs 
+const websiteFirstAuthorFN = document.querySelector("#input-first-author-fn--website")
+const websiteFirstAuthorLN = document.querySelector("#input-first-author-ln--website")
+const websitePageTitle = document.querySelector("#input-pageTitle--website")
+const websiteWebsiteTitle = document.querySelector("#input-webTitle--website")
+const websiteDayPub = document.querySelector("#input-dayPub--website")
+const websiteMonthPub = document.querySelector("#input-monthPub--website")
+const websiteYearPub = document.querySelector("#input-yearPub--website")
+const websiteSourceUrl = document.querySelector("#input-sourceUrl--website")
+
+
+//------------ wrapper
+const citationWrapper = document.querySelector(".reading-result-wrapper");
+const citationResultText = document.querySelector("#citation-time-result");
+
+const citeSource = () => {
+
+    if (isSourceTypeChosen.isIt) {
+
+        citationWrapper.style.display = "block";
+
+        if (isSourceTypeChosen.source === 'book' && isStyleChosen.style === "mla") {
+            console.log(isSourceTypeChosen.source, isStyleChosen.style, bookFirstAuthorFN.value)
+
+            const FN = bookFirstAuthorLN.value != "" ? bookFirstAuthorFN.value + ". " : "";
+            const LN = bookFirstAuthorFN.value != "" ? bookFirstAuthorLN.value + ", " : "";
+            const title = bookTitle.value != "" ? `<i>${bookTitle.value}. </i>` : "";
+            const edition = bookEdition.value != "" ? bookEdition.value + ", ": "";
+            const publisher = bookOublisher.value != "" ? bookOublisher.value + ", " : "";
+            const yearPub = bookYearPub.value != "" ? bookYearPub.value + "." : "";
+
+
+            const citation = `<p class="std-p" id="citation-result-text">${LN}${FN}${title}${edition}${publisher}${yearPub}</p>`
+
+            citationResultText.innerHTML = citation;
+        }
+    }
+}
 
 // ------------------------------ click audio ------------------------------- //
 // click mp3
