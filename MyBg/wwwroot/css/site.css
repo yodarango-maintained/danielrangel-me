@@ -270,6 +270,8 @@ body {
 }
 
 .more-icon, .remove-icon{
+    min-width: 2.5rem;
+    min-height: 2.5rem;
     background-image: url("/images/utilities/more-icon.png");
     margin: 0;
     display: block;
