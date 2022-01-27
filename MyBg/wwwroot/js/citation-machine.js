@@ -170,7 +170,7 @@ addAuthorBtn.forEach(item => {
         newAuthorWrapper.innerHTML =
             `
          <input type="text" class="std-form-input" placeholder="Auhthor's First Name" id="input-second-author-fn">
-         <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" id="input-second-author-fn">
+         <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" id="input-second-author-ln">
          <div class="add-author-wrapper">
          <span class="remove-icon std-icon" onclick="removeAuthor(this)"></span> <p class="std-text-quiet add-author">Remove this Author</p>
          </div>
@@ -225,17 +225,34 @@ const citeSource = () => {
         citationWrapper.style.display = "block";
 
         if (isSourceTypeChosen.source === 'book' && isStyleChosen.style === "mla") {
-            console.log(isSourceTypeChosen.source, isStyleChosen.style, bookFirstAuthorFN.value)
+            //---------------- general inputs
+            const secondAuthorFN = document.querySelectorAll("#input-second-author-fn")
+            const secondAuthorLN = document.querySelectorAll("#input-second-author-ln")
 
-            const FN = bookFirstAuthorLN.value != "" ? bookFirstAuthorFN.value + ". " : "";
+            let FN = bookFirstAuthorLN.value != "" ? bookFirstAuthorFN.value + ". " : "";
             const LN = bookFirstAuthorFN.value != "" ? bookFirstAuthorLN.value + ", " : "";
             const title = bookTitle.value != "" ? `<i>${bookTitle.value}. </i>` : "";
             const edition = bookEdition.value != "" ? bookEdition.value + ", ": "";
             const publisher = bookOublisher.value != "" ? bookOublisher.value + ", " : "";
             const yearPub = bookYearPub.value != "" ? bookYearPub.value + "." : "";
+            let secondFN = "";
+            let secondLN = "";
 
+            if (secondAuthorFN || secondAuthorLN) {
 
-            const citation = `<p class="std-p" id="citation-result-text">${LN}${FN}${title}${edition}${publisher}${yearPub}</p>`
+                if (secondAuthorFN.length === 1 && secondAuthorLN.length === 1) {
+                    FN = bookFirstAuthorFN.value + ", "
+                    secondFN = `and ${secondAuthorFN[0].value}`
+                    secondLN = `, ${secondAuthorLN[0].value}.`
+
+                } else if (secondAuthorFN.length > 1 && secondAuthorLN.length > 1) {
+                    FN = bookFirstAuthorFN.value + ", "
+                    secondFN = "et";
+                    secondLN = " al."
+                }
+            }
+
+            const citation = `<p class="std-p" id="citation-result-text">${LN}${FN}${secondFN}${secondLN}${title}${edition}${publisher}${yearPub}</p>`
 
             citationResultText.innerHTML = citation;
         }
