@@ -363,6 +363,7 @@ body {
     text-align: left;
     line-height: 2em;
     margin: var(--medium-spacing-mobile) auto;
+    word-wrap: break-word;
 }
 
 .std-a {
@@ -1457,7 +1458,7 @@ background-image: url('/images/utilities/books-icon.png');
         }
     }
 
-    .menu--desktop a {
+    .menu--desktop div {
         width: 98%;
         margin: auto;
         display: flex;
@@ -1476,9 +1477,10 @@ background-image: url('/images/utilities/books-icon.png');
         border-bottom-left-radius: var(--std-radius-desktop);
     }
 
-    .menu--desktop a:hover {
+    .menu--desktop div:hover {
         box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
         background-color: var(--secondary-color-dark);
+        cursor: pointer;
     }
 
     .menu-button-desktop{

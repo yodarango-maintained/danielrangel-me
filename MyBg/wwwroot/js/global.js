@@ -3,6 +3,7 @@ const audioFile = new Audio("/sounds/click.mp3");
 
 // menu elements
 const menuButton = document.querySelector("#menu-button");
+const LinkButtons = document.querySelectorAll("#menu-bttn");
 const darkLayer = document.querySelector("#dark-layer");
 const menuWrapper = document.querySelector("#menu-wrapper");
 
@@ -59,4 +60,15 @@ const redirectToPost = (id, postType) => {
 const playAudio = () => {
     audioFile.play()
 }
-menuButton.addEventListener("click", playAudio)
+
+LinkButtons.forEach(button => button.addEventListener("click", playAudio))
+menuButton.addEventListener("click", playAudio);
+
+
+const menuRedirect = (location) => {
+
+    setTimeout(() => {
+        window.location.href = location
+    }, 500)
+
+}

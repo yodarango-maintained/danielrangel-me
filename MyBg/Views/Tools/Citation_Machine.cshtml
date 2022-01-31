@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Tools - Reading Speed";
 }
+
+@* **************************** Turbian citation is not going to be implemented at the moment **************************** *@
+
 <div class="main-wrapper">
     <section class="post-title-wrapper wrapper-favorite">
         <span class="post-type post-type_header--cite-source std-icon"></span>
@@ -14,7 +17,7 @@
                 <span class="std-icon reader-topic-icon" onclick="chooseCitationStyle('mla')" id="button-mla">MLA</span>
                 <span class="std-icon reader-topic-icon" onclick="chooseCitationStyle('apa')" id="button-apa">APA</span>
                 <span class="std-icon reader-topic-icon" onclick="chooseCitationStyle('chicago')" id="button-chicago">Chicago</span>
-                <span class="std-icon reader-topic-icon" onclick="chooseCitationStyle('turbian')" id="button-turbian">Turbian</span>
+                @*<span class="std-icon reader-topic-icon" onclick="chooseCitationStyle('turbian')" id="button-turbian">Turbian</span>*@
             </div>
 
             <h3 class="std-h3 h3-reader-title">Select a source type</h3>
@@ -25,47 +28,50 @@
             </div>
         </div>
         @* ------------------------- MLA Book --------------- *@
-        <div class="citation-form-wrapper citation-form_mla-book" id="mla-wrapper-book">
-            <div class="authors-wrapper">
-                <div class="single-author-wrap">
-                    <input type="text" class="std-form-input" placeholder="Auhthor's First Name" id="input-first-author-fn--book" />
-                    <input type="text" class="std-form-input" placeholder="Auhthor's Middle Name" id="input-first-author-mn--book" style="display: none"/>
-                    <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" id="input-first-author-ln--book" />
-                </div>
-                <div class="add-author-wrapper">
-                    <span class="more-icon std-icon" id="addAuthor"></span> <p class="std-text-quiet add-author">Add another author</p>
-                </div>
+    <div class="citation-form-wrapper citation-form_mla-book" id="mla-wrapper-book">
+        <div class="authors-wrapper">
+            <div class="single-author-wrap">
+                <input type="text" class="std-form-input" placeholder="Auhthor's First Name" id="input-first-author-fn--book" />
+                <input type="text" class="std-form-input" placeholder="Auhthor's Middle Name" id="input-first-author-mn--book" style="display: none" />
+                <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" id="input-first-author-ln--book" />
             </div>
-
-            <input type="text" class="std-form-input" placeholder="Book Title" id="input-title--book" />
-            <input type="text" class="std-form-input" placeholder="Edition" id="input-edition--book" />
-            <input type="text" class="std-form-input" placeholder="Publisher" id="input-publisher--book" />
-            <input type="text" class="std-form-input" placeholder="Year Published" id="input-yearPub--book" />
-
+            <div class="add-author-wrapper">
+                <span class="more-icon std-icon" id="addAuthor"></span> <p class="std-text-quiet add-author">Add another author</p>
+            </div>
         </div>
+
+        <input type="text" class="std-form-input" placeholder="Book Title" id="input-title--book" />
+        <input type="text" class="std-form-input" placeholder="Edition" id="input-edition--book" />
+        <input type="text" class="std-form-input" placeholder="Place of publicaation" id="input-publisher--book-chicago" />
+        <input type="text" class="std-form-input" placeholder="Publisher" id="input-publisher--book" />
+        <input type="text" class="std-form-input" placeholder="Year Published" id="input-yearPub--book" />
+        <input type="text" class="std-form-input" placeholder="Pages Used" id="input-pages--book" />
+
+    </div>
 
         @* ------------------------- MLA Journal --------------- *@
-        <div class="citation-form-wrapper citation-form_mla-journal" id="mla-wrapper-journal">
-            <div class="authors-wrapper">
-                <div class="single-author-wrap">
-                    <input type="text" class="std-form-input" placeholder="Auhthor's First Name" id="input-first-author-fn--journal" />
-                    <input type="text" class="std-form-input" placeholder="Auhthor's Middle Name" id="input-first-author-mn--journal" style="display: none" />
-                    <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" id="input-first-author-ln--journal" />
-                </div>
-                <div class="add-author-wrapper">
-                    <span class="more-icon std-icon" id="addAuthor"></span> <p class="std-text-quiet add-author">Add another author</p>
-                </div>
+    <div class="citation-form-wrapper citation-form_mla-journal" id="mla-wrapper-journal">
+        <div class="authors-wrapper">
+            <div class="single-author-wrap">
+                <input type="text" class="std-form-input" placeholder="Auhthor's First Name" id="input-first-author-fn--journal" />
+                <input type="text" class="std-form-input" placeholder="Auhthor's Middle Name" id="input-first-author-mn--journal" style="display: none" />
+                <input type="text" class="std-form-input" placeholder="Auhthor's Last Name" id="input-first-author-ln--journal" />
             </div>
-
-            <input type="text" class="std-form-input" placeholder="Title of Article" id="input-source-art-title--journal" />
-            <input type="text" class="std-form-input" placeholder="Title of Journal" id="input-source-jour-title--journal" />
-            <input type="text" class="std-form-input" placeholder="Voulme" id="input-source-volume--journal" />
-            <input type="text" class="std-form-input" placeholder="Issue Number" id="input-source-issueNum-journal" />
-            <input type="text" class="std-form-input" placeholder="Month Published (abbreviated)" id="input-source-monthPub--journal" style="display: none;" />
-            <input type="text" class="std-form-input" placeholder="Year Published" id="input-source-yearPub--journal" />
-            <input type="text" class="std-form-input" placeholder="Pages Used" id="input-source-Pages--journal" />
-            <input type="text" class="std-form-input" placeholder="DOI or URL" id="input-source-doi--journal" />
+            <div class="add-author-wrapper">
+                <span class="more-icon std-icon" id="addAuthor"></span> <p class="std-text-quiet add-author">Add another author</p>
+            </div>
         </div>
+
+        <input type="text" class="std-form-input" placeholder="Title of Article" id="input-source-art-title--journal" />
+        <input type="text" class="std-form-input" placeholder="Title of Journal" id="input-source-jour-title--journal" />
+        <input type="text" class="std-form-input" placeholder="Voulme" id="input-source-volume--journal" />
+        <input type="text" class="std-form-input" placeholder="Issue Number" id="input-source-issueNum-journal" />
+        <input type="text" class="std-form-input" placeholder="Month Published (abbreviated)" id="input-source-monthPub--journal" style="display: none;" />
+        <input type="text" class="std-form-input" placeholder="Month Published (non-abbreviated)" id="input-source-monthPub--journal-chicago" style="display: none;" />
+        <input type="text" class="std-form-input" placeholder="Year Published" id="input-source-yearPub--journal" />
+        <input type="text" class="std-form-input" placeholder="Pages Used" id="input-source-Pages--journal" />
+        <input type="text" class="std-form-input" placeholder="DOI or URL" id="input-source-doi--journal" />
+    </div>
 
         @* ------------------------- MLA Website --------------- *@
     <div class="citation-form-wrapper citation-form_mla-website" id="mla-wrapper-website">
@@ -84,8 +90,13 @@
         <input type="text" class="std-form-input" placeholder="Website title (not URL)" id="input-webTitle--website" />
         <input type="text" class="std-form-input" placeholder="Day Published" id="input-dayPub--website" />
         <input type="text" class="std-form-input" placeholder="Month Published (abbreviated) " id="input-monthPub--website" />
-        <input type="text" class="std-form-input" placeholder="Month Published (abbreviated) " id="input-monthPub--website-apa" style="display: none;" />
+        <input type="text" class="std-form-input" placeholder="Month Published (non-abbreviated) " id="input-monthPub--website-apa" style="display: none;" />
         <input type="text" class="std-form-input" placeholder="Year Published" id="input-yearPub--website" />
+        @* -----chicago ------- *@
+        <input type="text" class="std-form-input" placeholder="Day Accessed" id="input-dayPub--website-chi" />
+        <input type="text" class="std-form-input" placeholder="Month Accessed (non-abbreviated) " id="input-monthPub--website-chi" style="display: none;" />
+        <input type="text" class="std-form-input" placeholder="Year Accessed" id="input-yearPub--website-chi" />
+
         <input type="text" class="std-form-input" placeholder="Source URL" id="input-sourceUrl--website" />
 
     </div>

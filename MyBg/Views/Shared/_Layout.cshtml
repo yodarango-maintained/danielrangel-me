@@ -45,10 +45,10 @@
     }
     <section class="nav-wrapper">
         <nav class="menu">
-            <a asp-controller="Home" asp-action="Index" class="menu-button home @newClassHome" id="mobile-menu-bttn"></a>
-            <a asp-controller="Favorites" asp-action="Index" class="menu-button favorites @newClassBlog" id="mobile-menu-bttn"></a>
-            <a asp-controller="Articles" asp-action="Index" class="menu-button blog @newClassFavorite" id="mobile-menu-bttn"></a>
-            <a asp-controller="Tools" asp-action="Index" class="menu-button tools @newClassTool" id="mobile-menu-bttn"></a>
+            <span class="menu-button home @newClassHome" id="menu-bttn" onclick="menuRedirect('/home')"></span>
+            <span class="menu-button favorites @newClassBlog" id="menu-bttn" onclick="menuRedirect('/favorites')"></span>
+            <span class="menu-button blog @newClassFavorite" id="menu-bttn" onclick="menuRedirect('/articles')"></span>
+            <span class="menu-button tools @newClassTool" id="menu-bttn" onclick="menuRedirect('/tools')"></span>
         </nav>
     </section>
 
@@ -56,22 +56,22 @@
     <button class="menu-button-desktop--trigger" id="menu-button"></button>
     <div class="std-bkg-layer" id="dark-layer"></div>
         <nav class="menu--desktop" id="menu-wrapper">
-            <a asp-controller="Home" asp-action="Index">
-                <span class="menu-button menu-button-desktop home @newClassHome"></span>
+            <div id="menu-bttn" onclick="menuRedirect('/home')">
+                <span class="menu-button menu-button-desktop home @newClassHome" ></span>
                 <h4 class="std-h4 menu-button--home">HOME</h4>
-            </a>
-            <a asp-controller="Favorites" asp-action="Index">
+            </div>
+            <div  id="menu-bttn" onclick="menuRedirect('/favorites')">
                 <span class="menu-button menu-button-desktop favorites @newClassBlog"></span>
                 <h4 class="std-h4 menu-button--favorite">FAVORITES</h4>
-            </a>
-            <a asp-controller="Articles" asp-action="Index">
+            </div> 
+            <div  id="menu-bttn" onclick="menuRedirect('/articles')">
                 <span class="menu-button menu-button-desktop blog @newClassFavorite"></span>
                 <h4 class="std-h4 menu-button--blogs">ARTICLES</h4>
-            </a>
-            <a asp-controller="Tools" asp-action="Index">
-                <span class="menu-button menu-button-desktop tools @newClassTool"></span>
+            </div>
+            <div id="menu-bttn" onclick="menuRedirect('/tools')">
+                <span class="menu-button menu-button-desktop tools @newClassTool" ></span>
                 <h4 class="std-h4 menu-button--tools">TOOLS</h4>
-            </a>
+            </div>
         </nav>
 
     @* ------------------------------ Footer --------------------------  *@
