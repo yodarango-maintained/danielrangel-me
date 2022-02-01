@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] Daniel Rangel</title>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body id="global-wrapper" data-theme-color="default">
     <header>
     </header>
 
@@ -54,25 +54,26 @@
 
     @* ------------------------------ desktop menu --------------------------  *@
     <button class="menu-button-desktop--trigger" id="menu-button"></button>
+    <button class="theme-button" id="theme-button" onclick="openThemeSelector()"></button>
     <div class="std-bkg-layer" id="dark-layer"></div>
-        <nav class="menu--desktop" id="menu-wrapper">
-            <div id="menu-bttn" onclick="menuRedirect('/home')">
-                <span class="menu-button menu-button-desktop home @newClassHome" ></span>
-                <h4 class="std-h4 menu-button--home">HOME</h4>
-            </div>
-            <div  id="menu-bttn" onclick="menuRedirect('/favorites')">
-                <span class="menu-button menu-button-desktop favorites @newClassBlog"></span>
-                <h4 class="std-h4 menu-button--favorite">FAVORITES</h4>
-            </div> 
-            <div  id="menu-bttn" onclick="menuRedirect('/articles')">
-                <span class="menu-button menu-button-desktop blog @newClassFavorite"></span>
-                <h4 class="std-h4 menu-button--blogs">ARTICLES</h4>
-            </div>
-            <div id="menu-bttn" onclick="menuRedirect('/tools')">
-                <span class="menu-button menu-button-desktop tools @newClassTool" ></span>
-                <h4 class="std-h4 menu-button--tools">TOOLS</h4>
-            </div>
-        </nav>
+    <nav class="menu--desktop" id="menu-wrapper">
+        <div id="menu-bttn" onclick="menuRedirect('/home')">
+            <span class="menu-button menu-button-desktop home @newClassHome"></span>
+            <h4 class="std-h4 menu-button--home">HOME</h4>
+        </div>
+        <div id="menu-bttn" onclick="menuRedirect('/favorites')">
+            <span class="menu-button menu-button-desktop favorites @newClassBlog"></span>
+            <h4 class="std-h4 menu-button--favorite">FAVORITES</h4>
+        </div>
+        <div id="menu-bttn" onclick="menuRedirect('/articles')">
+            <span class="menu-button menu-button-desktop blog @newClassFavorite"></span>
+            <h4 class="std-h4 menu-button--blogs">ARTICLES</h4>
+        </div>
+        <div id="menu-bttn" onclick="menuRedirect('/tools')">
+            <span class="menu-button menu-button-desktop tools @newClassTool"></span>
+            <h4 class="std-h4 menu-button--tools">TOOLS</h4>
+        </div>
+    </nav>
 
     @* ------------------------------ Footer --------------------------  *@
     <div class="bottom-spacer"></div>

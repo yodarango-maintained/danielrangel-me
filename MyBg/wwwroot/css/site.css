@@ -69,6 +69,7 @@ body {
 .bottom-spacer {
     height: 7rem;
     width: 100%;
+    background-color: var(--primary-color);
 }
 .page-wrapper {
     width: 100vw;
@@ -284,6 +285,132 @@ body {
 .remove-icon {
     background-image: url("/images/utilities/stop-icon.png");
 }
+
+.menu-button-desktop--trigger{
+    display: none;
+}
+/*----------------------------------- Theme Settings ------------------------ */
+.theme-button {
+    box-shadow: .1rem .1rem .01rem .1rem var(--scrollbar-track-shadow-light), -.1rem -.1rem .01rem .1rem var(--scrollbar-track-shadow-dark);
+    border: none;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background-image: url("/images/utilities/brush-icon.png");
+    background-color: var(--third-color);
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    position: fixed;
+    top: 2rem;
+    right: 5rem;
+    transition: 300ms ease-in;
+    z-index: 15;
+}
+
+.theme-button:hover {
+    cursor: pointer;
+    border: .2rem solid #F365DA;
+    box-shadow: .1rem .1rem 1rem .1rem #F365DA, -.1rem -.1rem 1rem .1rem #F365DA;
+}
+
+.theme-button--open {
+    cursor: pointer;
+    border: .2rem solid #F365DA;
+    /*    background-image: url("/images/menu-icons/open-menu.png");*/
+    box-shadow: .1rem .1rem 1rem .1rem #F365DA, -.1rem -.1rem 1rem .1rem #F365DA;
+}
+
+.color-theme-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 80%;
+    max-width: 26.25rem;
+    max-height: 30rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background-color: var(--secondary-color);
+    border-radius: var(--std-radius-mobile);
+    z-index: 15;
+    animation: themeIntro 1000ms ease-in-out;
+}
+
+
+.color-theme-wrapper--open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: themeIntro 1000ms ease-in;
+}
+
+.color-theme-wrapper--close {
+    opacity: 0;
+    display: block;
+    animation: themeOutro 1000ms ease-in;
+}
+
+@keyframes themeIntro {
+    0% {
+        height: 13rem;
+        opacity: 0;
+    }
+
+    100% {
+        height: 30rem;
+        opacity: 1;
+    }
+}
+
+
+@keyframes themeOutro {
+    0% {
+        height: 30rem;
+        opacity: 1;
+    }
+
+    100% {
+        height: 13rem;
+        opacity: 0;
+    }
+}
+
+.color-theme-wrapper div{
+    padding: var(--xsmall-spacing-desktop);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.color-theme-wrapper div:hover{
+    box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
+    background-color: var(--secondary-color-dark);
+    cursor: pointer;
+}
+
+.color-theme-wrapper div span{
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+}
+
+.color-theme-wrapper div p{
+    font: var(--button-text);
+    text-align: left;
+}
+
 /*---------------------------- Standards --------------------- */
 .std-button {
     padding: var(--small-spacing-mobile);
@@ -801,7 +928,7 @@ body {
     }
 }
 
- /************************** Lower half of index ******/
+/************************** Lower half of index ******/
 .indexp-lower-half {
     width: 100%;
     margin: var(--large-spacing-desktop) auto;
@@ -1371,7 +1498,7 @@ background-image: url('/images/utilities/books-icon.png');
     }
 
     .menu-button-desktop--trigger {
-        box-shadow: .1rem .1rem .01rem .1rem #1c222c, -.1rem -.1rem .01rem .1rem rgb(70 93 129);
+        box-shadow: .1rem .1rem .01rem .1rem var(--scrollbar-track-shadow-light), -.1rem -.1rem .01rem .1rem var(--scrollbar-track-shadow-dark);
         border: none;
         width: 3.5rem;
         height: 3.5rem;
@@ -1387,6 +1514,11 @@ background-image: url('/images/utilities/books-icon.png');
         left: 5rem;
         transition: 300ms ease-in;
         z-index: 15;
+    }
+
+    .theme-button-desktop--trigger {
+        width: 3.5rem;
+        height: 3.5rem;
     }
 
     .menu-button-desktop--trigger--open {
@@ -2023,4 +2155,95 @@ background-image: url('/images/utilities/books-icon.png');
         margin: var(--xsmall-spacing-desktop) var(--medium-spacing-mobile) var(--xsmall-spacing-desktop) var(--small-spacing-desktop);
     }
 
+}
+
+[data-theme-color="default"] {
+    --primary-color: #212F45;
+    --secondary-color: #006466;
+    --third-color: #2F4364;
+    --accent-color: #D9ED92;
+    --second-accent-color: #9fbd32;
+    --font-color: rgb(236, 252, 210);
+    --secondary-color-dark: #014f50;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #444f64;
+    --primary-color-tranparent: #212f459c;
+}
+
+[data-theme-color="velvetcake"] {
+    --primary-color: #370617;
+    --secondary-color: #c9184a;
+    --third-color: #590d22;
+    --accent-color: #dc2f02;
+    --second-accent-color: #f28482;
+    --font-color: #ffbbd0;
+    --secondary-color-dark: #780000;
+    --scrollbar-track-shadow-dark: #220308;
+    --scrollbar-track-shadow-light: #7e484f;
+    --primary-color-tranparent: #370617;
+}
+
+[data-theme-color="chocolatedBananas"] {
+    --primary-color: #703a35;
+    --secondary-color: #ffc047;
+    --third-color: #5a2d29;
+    --accent-color: #ffda68;
+    --second-accent-color: #b15a53;
+    --font-color: #ebe7b9;
+    --secondary-color-dark: #42221f;
+    --scrollbar-track-shadow-dark: #2e1d1b;
+    --scrollbar-track-shadow-light: #9f6863;
+    --primary-color-tranparent: #ffffff9c;
+}
+
+[data-theme-color="blueberryCobbler"] {
+    --primary-color: #212F45;
+    --secondary-color: #006466;
+    --third-color: #2F4364;
+    --accent-color: #D9ED92;
+    --second-accent-color: #9fbd32;
+    --font-color: rgb(236, 252, 210);
+    --secondary-color-dark: #014f50;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #444f64;
+    --primary-color-tranparent: #212f459c;
+}
+
+[data-theme-color="orangeCake"] {
+    --primary-color: #212F45;
+    --secondary-color: #006466;
+    --third-color: #2F4364;
+    --accent-color: #D9ED92;
+    --second-accent-color: #9fbd32;
+    --font-color: rgb(236, 252, 210);
+    --secondary-color-dark: #014f50;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #444f64;
+    --primary-color-tranparent: #212f459c;
+}
+
+[data-theme-color="blackSapodillaIcecream"] {
+    --primary-color: #212F45;
+    --secondary-color: #006466;
+    --third-color: #2F4364;
+    --accent-color: #D9ED92;
+    --second-accent-color: #9fbd32;
+    --font-color: rgb(236, 252, 210);
+    --secondary-color-dark: #014f50;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #444f64;
+    --primary-color-tranparent: #212f459c;
+}
+
+[data-theme-color="soursopSorbet"] {
+    --primary-color: #212F45;
+    --secondary-color: #006466;
+    --third-color: #2F4364;
+    --accent-color: #D9ED92;
+    --second-accent-color: #9fbd32;
+    --font-color: rgb(236, 252, 210);
+    --secondary-color-dark: #014f50;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #444f64;
+    --primary-color-tranparent: #212f459c;
 }
