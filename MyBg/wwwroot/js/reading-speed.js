@@ -91,6 +91,8 @@ const clockContainer = document.querySelector(".container");
 const totalTimeElapsedMsgTop = document.querySelector("#reading-time-result_top-p");
 const totalTimeElapsedMsgBottom = document.querySelector("#reading-time-result_bottom-p");
 const yourResultsWrapper = document.querySelector(".reading-result-wrapper")
+const yourResultsWrapperFS = document.querySelector(".reading-result-wrapper-fulls")
+const yourResultsTextFS = document.querySelector("#reading-time-result_top-p-fulls")
 
 // buttons 
 const allButtons = document.querySelectorAll(".botton-wrapper > *");
@@ -230,6 +232,7 @@ const stopReading = () => {
         yourResultsWrapper.style.display = "block"
         totalTimeElapsedMsgTop.innerHTML = `Your reading speed is ${wordsPerMinute} words per minute!`
         totalTimeElapsedMsgBottom.innerHTML = `The average reading speed is 220-250 words per minute. ⏰`
+        yourResultsTextFS.innerHTML = `${wordsPerMinute} words per minute!`
     }
 }
 
@@ -244,3 +247,11 @@ const playAudio2 = () => {
 allButtons.forEach(button => {
     button.addEventListener("click", playAudio2)
 })
+
+const expandResults = () => {
+    yourResultsWrapperFS.classList.add('full-screen-mode')
+}
+
+const closeResults = () => {
+    yourResultsWrapperFS.classList.remove('full-screen-mode')
+}

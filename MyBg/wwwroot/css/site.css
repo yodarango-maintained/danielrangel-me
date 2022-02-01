@@ -66,6 +66,10 @@ body {
 }
 
 /*-------------------- Shared ---------------------*/
+#global-wrapper{
+    opacity: 0;
+}
+
 .bottom-spacer {
     height: 7rem;
     width: 100%;
@@ -311,15 +315,15 @@ body {
 
 .theme-button:hover {
     cursor: pointer;
-    border: .2rem solid #F365DA;
-    box-shadow: .1rem .1rem 1rem .1rem #F365DA, -.1rem -.1rem 1rem .1rem #F365DA;
+    border: .2rem solid var(--font-color);
+    box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
 }
 
 .theme-button--open {
     cursor: pointer;
-    border: .2rem solid #F365DA;
+    border: .2rem solid var(--font-color);
     /*    background-image: url("/images/menu-icons/open-menu.png");*/
-    box-shadow: .1rem .1rem 1rem .1rem #F365DA, -.1rem -.1rem 1rem .1rem #F365DA;
+    box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
 }
 
 .color-theme-wrapper {
@@ -671,7 +675,7 @@ body {
     grid-area: hder;
     grid-column: 1/2;
     grid-row: 1/2;
-    margin: var(--medium-spacing-mobile) auto;
+    margin: var(--xlarge-spacing-mobile) auto var(--medium-spacing-mobile);
 }
 
 .intro-logo {
@@ -1088,6 +1092,7 @@ main-wrapper_favorite {
 
 .std-h1.favorites-title {
     transform: scale(.9);
+    margin-top: var(--xlarge-spacing-mobile);
 }
 
 .std-text-quiet.quiet-post-info {
@@ -1381,13 +1386,45 @@ cursor: pointer;
     border-radius: var(--std-radius-mobile);
 }
 
+.reading-result-wrapper-fulls{
+    display: none;
+}
+
+.reading-result-wrapper-fulls > *{
+    text-align: center;
+    transform: scale(1.2);
+    text-align: center;
+    word-wrap: break-word;
+    width: 85%;
+    max-width: 31.25rem;
+    margin: auto;
+}
+
+.reading-result-wrapper-fulls > p {
+    margin-top: var(--xlarge-spacing-desktop);
+}
+
+.reading-result-wrapper-fulls.full-screen-mode {
+    display: block;
+    padding: var(--small-spacing-desktop);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 17;
+    padding: 15vh var(--small-spacing-desktop) 0;
+    background-color: var(--third-color);
+}
+
+.reading-result-wrapper > * {
+    text-align: center;
+    word-break: break-all;
+}
+
 .reading-time-result{
     width: 100%;
     margin: 0 auto var(--small-spacing-mobile);
-}
-
-.reading-time-result > * {
-    text-align: center;
 }
 
 .reading-time-result_important{
@@ -1405,10 +1442,13 @@ cursor: pointer;
     background-repeat: no-repeat;
 }
 
+.share-results-button{
+    margin-top: 8rem;
+}
+
 /* *************************************************************************************************************************/
 /* *************************************************** CITE A SOU RCE PAGE *************************************************/
 /* *************************************************************************************************************************/
-
 .post-type_header--cite-source {
     background-image: url("/images/utilities/citation-icon.png");
 }
@@ -2197,53 +2237,53 @@ background-image: url('/images/utilities/books-icon.png');
 }
 
 [data-theme-color="blueberryCobbler"] {
-    --primary-color: #212F45;
-    --secondary-color: #006466;
-    --third-color: #2F4364;
-    --accent-color: #D9ED92;
-    --second-accent-color: #9fbd32;
-    --font-color: rgb(236, 252, 210);
-    --secondary-color-dark: #014f50;
-    --scrollbar-track-shadow-dark: #1b1e24;
-    --scrollbar-track-shadow-light: #444f64;
-    --primary-color-tranparent: #212f459c;
+    --primary-color: #fefeff;
+    --secondary-color: #a4aefd;
+    --third-color: #5460bb;
+    --accent-color: #4d91ff;
+    --second-accent-color: #7cadff;
+    --font-color: #3a4aa1;
+    --secondary-color-dark: #0b1668;
+    --scrollbar-track-shadow-dark: #17459d;
+    --scrollbar-track-shadow-light: #bacff7;
+    --primary-color-tranparent: #ffffff9c;
 }
 
 [data-theme-color="orangeCake"] {
-    --primary-color: #212F45;
-    --secondary-color: #006466;
-    --third-color: #2F4364;
-    --accent-color: #D9ED92;
-    --second-accent-color: #9fbd32;
-    --font-color: rgb(236, 252, 210);
-    --secondary-color-dark: #014f50;
-    --scrollbar-track-shadow-dark: #1b1e24;
-    --scrollbar-track-shadow-light: #444f64;
-    --primary-color-tranparent: #212f459c;
+    --primary-color: #fdab8c;
+    --secondary-color: #ff7f61;
+    --third-color: #f58d65;
+    --accent-color: #ff4e04;
+    --second-accent-color: #ffb67c;
+    --font-color: #7c2a02;
+    --secondary-color-dark: #d35d41;
+    --scrollbar-track-shadow-dark: #683802;
+    --scrollbar-track-shadow-light: #e77e66;
+    --primary-color-tranparent: #ffffff9c;
 }
 
 [data-theme-color="blackSapodillaIcecream"] {
-    --primary-color: #212F45;
-    --secondary-color: #006466;
-    --third-color: #2F4364;
-    --accent-color: #D9ED92;
-    --second-accent-color: #9fbd32;
-    --font-color: rgb(236, 252, 210);
-    --secondary-color-dark: #014f50;
-    --scrollbar-track-shadow-dark: #1b1e24;
-    --scrollbar-track-shadow-light: #444f64;
-    --primary-color-tranparent: #212f459c;
+    --primary-color: #1a1a1a;
+    --secondary-color: #000000;
+    --third-color: #282727;
+    --accent-color: #939393;
+    --second-accent-color: #717489;
+    --font-color: #d7d7d7;
+    --secondary-color-dark: #1c1a19;
+    --scrollbar-track-shadow-dark: #000000;
+    --scrollbar-track-shadow-light: #54504f;
+    --primary-color-tranparent: #ffffff9c;
 }
 
 [data-theme-color="soursopSorbet"] {
-    --primary-color: #212F45;
-    --secondary-color: #006466;
-    --third-color: #2F4364;
-    --accent-color: #D9ED92;
-    --second-accent-color: #9fbd32;
-    --font-color: rgb(236, 252, 210);
-    --secondary-color-dark: #014f50;
-    --scrollbar-track-shadow-dark: #1b1e24;
-    --scrollbar-track-shadow-light: #444f64;
-    --primary-color-tranparent: #212f459c;
+    --primary-color: #ffffff;
+    --secondary-color: #48af4c;
+    --third-color: #efe7cb;
+    --accent-color: #45644d;
+    --second-accent-color: #73e188;
+    --font-color: #134a01;
+    --secondary-color-dark: #278d2b;
+    --scrollbar-track-shadow-dark: #014e13;
+    --scrollbar-track-shadow-light: #3bb55b;
+    --primary-color-tranparent: #ffffff9c;
 }

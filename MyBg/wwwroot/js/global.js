@@ -11,6 +11,30 @@ const globalWraper = document.querySelector("#global-wrapper");
 
 let menuOpen = false;
 
+
+// --------------------------- Check for color theme cookie ----------------- 
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+const cookie = getCookie("color-theme");
+globalWraper.setAttribute("data-theme-color", cookie);
+
+setTimeout(() => {
+    globalWraper.style.opacity = "1"
+}, 500)
+
 const handleMenuTrigger = () => {
     if (menuOpen == false) {
         menuOpen = true
@@ -75,9 +99,15 @@ const menuRedirect = (location) => {
 
 // -------------------------- CHOOSE THEME ----------------------------- //
 const switchTheme = (theme) => {
+    playAudio();
 
     globalWraper.removeAttribute("data-theme-color")
     globalWraper.setAttribute("data-theme-color", theme);
+
+    const date = Date.now() + 604800000;
+    const newDate = new Date(date);
+
+    document.cookie = `color-theme=${theme}; expires=${newDate};  path=/`
 }
 
 let themeWrapperOpen = false;
