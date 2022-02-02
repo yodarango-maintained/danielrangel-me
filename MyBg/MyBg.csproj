@@ -12,4 +12,6 @@
   <ItemGroup>
     <Content Remove="wwwroot\images\menu-icons\menu.png" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://json.schemastore.org/avro-avsc.json" /></VisualStudio></ProjectExtensions>
 </Project>

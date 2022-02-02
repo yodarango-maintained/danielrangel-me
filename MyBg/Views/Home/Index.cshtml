@@ -7,12 +7,21 @@
 }
 
 <div class="main-wrapper main-wrapper_index">
+    @if ((bool)ViewData["SubsMessage"] == true)
+    {
+        <div id="menu-wrapper" class="color-theme-wrapper color-theme-wrapper--open">
+            <h3 class="std-h3 subscribe-h3">Thank you for subscribing!</h3>
+            <button type="submit" class="std-button close-button" onclick="closeNotification()">Close</button>
+        </div>
+    }
+
     <section class="indexp-upper-half">
         <h1 class="std-h1 intro-title">
             MY TITLE
         </h1>
         <img src="~/images/logo.jfif" class="intro-logo" />
         <p class="std-p intro-text">@admin.About_Me</p>
+        <button class="std-button subscribe-button" id="subscribe-button" onclick="handleSubscribe()">Subscribe</button>
 
         <div class="social-media-section">
             <h3 class="std-h3 sm-section-title">Find Me On</h3>
@@ -100,37 +109,41 @@
         <section class="posts-wrapper">
             @foreach (PostsViewModel post in posts)
             {
-                    <div class="most-recent-post-wrapper" id="most-recent-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
-                        <img src="@post.Tumbnails" class="most-recent-post_thumbnail" />
-                        <h3 class="std-h3 most-recent-post_title">@post.Title</h3>
-                        <p class="std-text-quiet most-recent-post_date">@post.DatePosted</p>
-                        <div class="tag-footer">
+                <div class="most-recent-post-wrapper" id="most-recent-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
+                    <img src="@post.Tumbnails" class="most-recent-post_thumbnail" />
+                    <h3 class="std-h3 most-recent-post_title">@post.Title</h3>
+                    <p class="std-text-quiet most-recent-post_date">@post.DatePosted</p>
+                    <div class="tag-footer">
 
-                            @if (post.PostType == "Favorite")
-                            {
-                                <span class="std-icon  type_favorite std-icon-tag"></span>
-                            }
+                        @if (post.PostType == "Favorite")
+                        {
+                            <span class="std-icon  type_favorite std-icon-tag"></span>
+                        }
 
-                            @if (post.PostType == "Blog")
+                        @if (post.PostType == "Blog")
+                        {
+                            <span class="std-icon type_blog std-icon-tag"></span>
+                        }
+                        <div class="category-wrapper">
+                            @if (!String.IsNullOrEmpty(post.Categories))
                             {
-                                <span class="std-icon type_blog std-icon-tag"></span>
-                            }
-                            <div class="category-wrapper">
-                                @if (!String.IsNullOrEmpty(post.Categories))
+                                string[] tags = post.Categories.Split(" ");
+                                foreach (string tag in tags)
                                 {
-                                    string[] tags = post.Categories.Split(" ");
-                                    foreach (string tag in tags)
-                                    {
-                                        <a asp-controller="Posts" asp-action="Index" asp-route-tag="@tag.Replace("#", "")" class="category-tag">@tag</a>
-                                    }
-
+                                    <a asp-controller="Posts" asp-action="Index" asp-route-tag="@tag.Replace("#", "")" class="category-tag">@tag</a>
                                 }
-                            </div>
-                        </div>
 
+                            }
+                        </div>
                     </div>
+
+                </div>
             }
         </section>
     </section>
 
 </div>
+
+@section Scripts{
+    <script src="/js/Subscribe.js"></script>
+}

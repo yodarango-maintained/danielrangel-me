@@ -18,10 +18,10 @@ namespace MyBg.Models
         [Required]
         public string Email { get; set; }
 
-        [Required]
+        //[Required]
         public bool Not_A_Bot { get; set; }
 
-        [Required]
+        //[Required]
         public string Avatar { get; set; }
 
     }

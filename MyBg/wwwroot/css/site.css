@@ -1052,6 +1052,73 @@ body {
 .std-icon-tag{
     margin-left: 0;
 }
+
+/**------------------- form --------------*/
+
+.std-button.subscribe-button {
+    width: 100%;
+    max-width: 31.25rem;
+}
+
+.subscribe-h3 {
+    margin: 0 auto var(--medium-spacing-mobile);
+    text-align: center;
+}
+
+.subscriber-p {
+    margin: 0 auto var(--medium-spacing-mobile);
+    text-align: center;
+}
+
+.input-subscribe{
+    margin: 0 auto var(--medium-spacing-mobile);
+}
+
+.form-subs-wrapper{
+    padding: var(--medium-spacing-mobile);
+    max-height: 35rem;
+    align-items: flex-start;
+    display: block;
+}
+
+.std-button.submit-button, .close-button {
+    background-color: var(--third-color);
+    max-width: 21.25rem;
+    width: 100%;
+}
+
+.close-button{
+    background-color: var(--second-accent-color);
+    color: var(--secondary-color);
+}
+
+.input-subscribe::placeholder, .input-subscribe {
+    color: var(--secondary-color);
+}
+
+.form-subs-wrapper {
+    display: block;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 80%;
+    max-width: 26.25rem;
+    max-height: 38rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background-color: var(--secondary-color);
+    border-radius: var(--std-radius-mobile);
+    z-index: 15;
+    animation: themeIntro 1000ms ease-in-out;
+}
+
+.form-subs-wrapper--close {
+    opacity: 0;
+    display: block;
+    animation: themeOutro 1000ms ease-in;
+}
 /* *************************************************************************************************************************/
 /* **************************************************************** FAVORITES PAGE *****************************************/
 /* *************************************************************************************************************************/

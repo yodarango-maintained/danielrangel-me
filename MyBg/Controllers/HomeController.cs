@@ -21,6 +21,27 @@ namespace MyBg.Controllers
 
         public IActionResult Index()
         {
+            ViewData["SubsMessage"] = false;
+
+            UsersContext usersContext = HttpContext.RequestServices.GetService(typeof(MyBg.Data.UsersContext)) as UsersContext;
+            PostsContext postContext = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+
+            ViewData["User"] = usersContext.Getindexdata();
+            ViewData["FollowerCount"] = usersContext.GetFollowerCount();
+            ViewData["Posts"] = postContext.GetAllPosts();
+
+            return View("Index");
+        }
+
+
+        public IActionResult Subscribe(FollowerModel follower)
+        {
+
+            UsersContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.UsersContext)) as UsersContext;
+            context.AddFollower(follower);
+
+            ViewData["SubsMessage"] = true;
+
             UsersContext usersContext = HttpContext.RequestServices.GetService(typeof(MyBg.Data.UsersContext)) as UsersContext;
             PostsContext postContext = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
 
@@ -36,5 +57,6 @@ namespace MyBg.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

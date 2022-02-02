@@ -143,6 +143,29 @@ namespace MyBg.Data
             }
         }
 
+        public void AddFollower(FollowerModel follower)
+        {
+            using (MySqlConnection connection = GetConnection())
+            {
+
+                MySqlCommand command = new MySqlCommand("INSERT INTO followers (Email, Follower_Name) VALUES(@Email, @Follower_Name);", connection);
+
+                command.Parameters.Add("@Email", MySqlDbType.String).Value = follower.Email;
+                command.Parameters.Add("@Follower_Name", MySqlDbType.String).Value = follower.Follower_Name;
+             
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (MySqlException e)
+                {
+                    Console.WriteLine(e);
+                }
+
+            }
+        }
+
         public int GetFollowerCount()
         {
             int followers = 0;
