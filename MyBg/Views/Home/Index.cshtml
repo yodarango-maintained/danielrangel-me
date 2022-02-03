@@ -1,6 +1,24 @@
 ﻿@*@model MyBg.Models.UserAdminModel*@
 @{
-    ViewData["Title"] = "Welcome to My Blog";
+    // metatags
+    ViewData["MetaDescription"] = "Toughts, tips, tech, tools, and a little bit of everything to help your ministry and enrich your Christian walk by Daniel Rangel";
+
+    ViewData["OGTitle"] = "Tools, Tips, Thoughts, and Tech to help your Christian walk";
+    ViewData["OGUrl"] = "http://danielrangel.me";
+    ViewData["OGImage"] = "https://res.cloudinary.com/dq6prlmvh/image/upload/v1643904780/danielrangel.me/logo_lnqtd7.png";
+    ViewData["OGType"] = "website";
+    ViewData["OGDescription"] = "Toughts, tips, tech, tools, and a little bit of everything to help your ministry and enrich your Christian walk by Daniel Rangel";
+    ViewData["OGSiteName"] = "Daniel Rangel";
+
+    ViewData["TWTitle"] = "Daniel Rangel";
+    ViewData["TWDescription"] = "Toughts, tips, tech, tools, and a little bit of everything to help your ministry and enrich your Christian walk by Daniel Rangel";
+    ViewData["TWImage"] = "https://res.cloudinary.com/dq6prlmvh/image/upload/v1643904780/danielrangel.me/logo_lnqtd7.png";
+    ViewData["TWSite"] = "@Yodarango";
+    ViewData["TWCreator"] = "@Yodarango";
+
+    ViewData["Title"] = "Tools, Tips, Thoughts, and Tech to help your Christian walk";
+
+    ViewData["MenuBtnTitle"] = "Home";
     UserAdminModel admin = ViewData["User"] as UserAdminModel;
     string followersCount = ViewData["FollowerCount"].ToString();
     IEnumerable<PostsViewModel> posts = ViewData["Posts"] as IEnumerable<PostsViewModel>;
@@ -17,11 +35,11 @@
 
     <section class="indexp-upper-half">
         <h1 class="std-h1 intro-title">
-            MY TITLE
+            THOUGHTS. TIPS. TOOLS. TECH.
         </h1>
-        <img src="~/images/logo.jfif" class="intro-logo" />
+        <img src="~/images/Intro-logo.png" class="intro-logo" alt="logo of the webiste"/>
         <p class="std-p intro-text">@admin.About_Me</p>
-        <button class="std-button subscribe-button" id="subscribe-button" onclick="handleSubscribe()">Subscribe</button>
+        <button class="std-button subscribe-button" id="subscribe-button" onclick="handleSubscribe()">Follow</button>
 
         <div class="social-media-section">
             <h3 class="std-h3 sm-section-title">Find Me On</h3>

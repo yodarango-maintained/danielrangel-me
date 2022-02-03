@@ -1,4 +1,5 @@
-﻿:root {
+﻿@import url("https://use.typekit.net/gjd7jho.css");
+:root {
     --primary-color: #212F45;
     --secondary-color: #006466;
     --third-color: #2F4364;
@@ -10,23 +11,23 @@
     --scrollbar-track-shadow-light: #444f64;
     --primary-color-tranparent: #212f459c;
     /* --------------------- fonts ------------------- */
-    --main-title: 800 2.5rem sans-serif;
-    --sub-title: 600 1.875rem sans-serif;
-    --small-title: 600 1.563rem sans-serif;
-    --main-parragraph: 400 1.25rem sans-serif;
-    --secondary-parragrah: 400 1rem sans-serif;
-    --important-text: 600 1.25rem sans-serif;
-    --quiet-text: 600 1rem sans-serif;
-    --button-text: 800 1.25rem serif;
+    --main-title: 900 2.5rem kansasnew, serif;
+    --sub-title: 800 1.875rem kansasnew, serif;
+    --small-title: 800 1.563rem kansasnew, serif;
+    --main-parragraph: 400 1.25rem mostra-nuova, sans-serif;
+    --secondary-parragrah: 400 1rem mostra-nuova, sans-serif;
+    --important-text: 700 1.25rem mostra-nuova, sans-serif;
+    --quiet-text: 700 1rem mostra-nuova, sans-serif;
+    --button-text: 900 1.25rem mostra-nuova, sans-serif;
     /*********** Desktop *********/
-    --main-title-desktop: 800 3.125rem sans-serif;
-    --sub-title-desktop: 600 2.5rem sans-serif;
-    --small-title-desktop: 600 1.875rem sans-serif;
-    --main-parragraph-desktop: 400 1.563rem sans-serif;
-    --secondary-parragrah-desktop: 400 1.125rem sans-serif;
-    --important-text-desktop: 600 1.438rem sans-serif;
-    --quiet-text-desktop: 600 1.125rem sans-serif;
-    --button-text-desktop: 800 1.563rem serif;
+    --main-title-desktop: 900 3.125rem kansasnew, serif;
+    --sub-title-desktop: 800 2.5rem kansasnew, serif;
+    --small-title-desktop: 800 1.875rem kansasnew, serif;
+    --main-parragraph-desktop: 400 1.563rem mostra-nuova, sans-serif;
+    --secondary-parragrah-desktop: 400 1.125rem mostra-nuova, sans-serif;
+    --important-text-desktop: 700 1.438rem mostra-nuova, sans-serif;
+    --quiet-text-desktop: 700 1.125rem mostra-nuova, sans-serif;
+    --button-text-desktop: 900 1.563rem mostra-nuova, sans-serif;
     /* --------------------- spacings ------------------- */
     /*********** Mobile *********/
     --std-radius-mobile: .6rem;
@@ -675,7 +676,21 @@ body {
     grid-area: hder;
     grid-column: 1/2;
     grid-row: 1/2;
+    color: var(--primary-color);
     margin: var(--xlarge-spacing-mobile) auto var(--medium-spacing-mobile);
+    display: block;
+    text-shadow: 0 0 2.5px var(--second-accent-color), 0 0 10px var(--font-color);
+    will-change: filter, color;
+    filter: saturate(60%);
+ /*   animation: flicker steps(100) 5s 1s infinite;*/
+}
+
+
+@keyframes flicker {
+    50% {
+        color: #ffffff75;
+        filter: saturate(100%) hue-rotate(20deg);
+    }
 }
 
 .intro-logo {
@@ -1160,6 +1175,10 @@ main-wrapper_favorite {
 .std-h1.favorites-title {
     transform: scale(.9);
     margin-top: var(--xlarge-spacing-mobile);
+    color: var(--primary-color);
+    text-shadow: 0 0 2.5px var(--second-accent-color), 0 0 10px var(--font-color);
+    will-change: filter, color;
+    filter: saturate(60%);
 }
 
 .std-text-quiet.quiet-post-info {
@@ -1731,7 +1750,7 @@ background-image: url('/images/utilities/books-icon.png');
         filter: grayscale(0);
     }
 
-    .std-h4.menu-button--home{
+    .std-h4.menu-button--home, .std-h4.menu-button--favorite, .std-h4.menu-button--blogs, .std-h4.menu-button--tools {
         color: var(--font-color);
         font: var(--button-text);
         text-align: center;
@@ -1825,6 +1844,7 @@ background-image: url('/images/utilities/books-icon.png');
     .intro-title {
         text-align: center;
         margin: var(--medium-spacing-desktop) auto;
+        width: 80%;
     }
 
     .intro-logo {

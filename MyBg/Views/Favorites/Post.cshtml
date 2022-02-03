@@ -1,7 +1,25 @@
 ﻿@model MyBg.Models.FavoriteModel
 
 @{
+    // metatags
+    ViewData["MetaDescription"] = Model.Description;
+
+    ViewData["OGTitle"] = Model.Title;
+    ViewData["OGUrl"] = $"http://danielrangel.me/{Model.ID}";
+    ViewData["OGImage"] = Model.Tumbnails;
+    ViewData["OGType"] = "website";
+    ViewData["OGDescription"] = Model.Description;
+    ViewData["OGSiteName"] = "Daniel Rangel";
+
+    ViewData["TWTitle"] = Model.Title;
+    ViewData["TWDescription"] = Model.Description;
+    ViewData["TWImage"] = Model.Tumbnails;
+    ViewData["TWSite"] = "@Yodarango";
+    ViewData["TWCreator"] = "@Yodarango";
+
     ViewData["Title"] = Model.Title;
+
+    ViewData["MenuBtnTitle"] = "Favorite";
 }
 
 <div class="main-wrapper_favorite-single">

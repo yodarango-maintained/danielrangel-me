@@ -1,10 +1,64 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] Daniel Rangel</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords"
+          content="bible, word of God, Jesus Christ, Daniel Rangel, Christian, Theology, apologetics, Technology, Tech, Developer, Software Engineer" />
+    <meta name="description"
+          content="@ViewData["MetaDescription"] " />
+    <meta name="robots" content="index,follow" />
+    <meta name="url" content="http://www.danielrangel.me" />
+    <meta name="identifier-URL"
+          content="http://www.danielrangel.me" />
+
+    <!--Change this-->
+    <meta name="directory" content="submission" />
+    <meta name="category" content="Blog" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="rating" content="General" />
+
+    <!-- OG TAGS -->
+    <meta name="og:title" content="@ViewData["OGTitle"] " />
+    <meta property="og:url" content="@ViewData["OGUrl "] " />
+
+    <!--Change this-->
+    <meta property="og:image" content="@ViewData["OGImage"] " />
+    <!--Change this-->
+    <meta property="og:type" content="@ViewData["OGType"] " />
+    <meta property="og:description"
+          content="@ViewData["OGDescription"] " />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="og:site_name" content="@ViewData["OGSiteName"]" />
+    <meta property=”article:author” content="https://danielrangel.com/me" />
+
+    <!--Change this-->
+    <meta name="og:region" content="TN" />
+
+    <!--Change this-->
+    <meta name="og:postal-code" content="37777" />
+
+    <!--Change this-->
+    <meta name="og:country-name" content="USA" />
+
+    <!--Change this-->
+    <!-- BLOG CATALOG -->
+    <meta name="blogcatalog" />
+
+    <!--Twitter Tags-->
+    <meta name="twitter:title" content="@ViewData["TWTitle"]">
+    <meta name="twitter:description" content="@ViewData["TWDescription"]">
+    <meta name="twitter:image" content="@ViewData["TWImage"]">
+    <meta name="twitter:site" content="@ViewData["TWSite"]">
+    <meta name="twitter:creator" content="@ViewData["TWCreator"]">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1" />
+
+    <title>@ViewData["Title"] | Daniel Rangel</title>
+
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body id="global-wrapper">
     <header>
@@ -20,8 +74,8 @@
         string currViewFavorites = "";
         string currViewTools = "";
 
-        string viewDataHome = ViewData["Title"].ToString();
-        if (viewDataHome.Contains("Welcome"))
+        string viewDataHome = ViewData["MenuBtnTitle"].ToString();
+        if (viewDataHome.Contains("Home"))
         {
             currViewHome = "view-home";
         }
@@ -29,11 +83,11 @@
         {
             currViewBlogs = "view-favorites";
         }
-        else if (viewDataHome.Contains("Blog"))
+        else if (viewDataHome.Contains("Article"))
         {
             currViewFavorites = "view-blogs";
         }
-        else if (viewDataHome.Contains("Tools"))
+        else if (viewDataHome.Contains("Tool"))
         {
             currViewTools = "view-tools";
         }

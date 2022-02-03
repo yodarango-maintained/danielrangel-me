@@ -1,7 +1,25 @@
 ﻿@model IEnumerable<MyBg.Models.ArticleModel>
 
 @{
-    ViewData["Title"] = "Blog";
+    // metatags
+    ViewData["MetaDescription"] = "Sermon Notes, Articles, Thoughts and Tips to help your Christian walk and ministry";
+
+    ViewData["OGTitle"] = "Sermon Notes, Articles, Thoughts and Tips";
+    ViewData["OGUrl"] = "http://danielrangel.me/articles";
+    ViewData["OGImage"] = "https://res.cloudinary.com/dq6prlmvh/image/upload/v1643904780/danielrangel.me/logo_lnqtd7.png";
+    ViewData["OGType"] = "website";
+    ViewData["OGDescription"] = "Sermon Notes, Articles, Thoughts and Tips to help your Christian walk and ministry";
+    ViewData["OGSiteName"] = "Daniel Rangel";
+
+    ViewData["TWTitle"] = "All Articles";
+    ViewData["TWDescription"] = "Sermon Notes, Articles, Thoughts and Tips to help your Christian walk and ministry";
+    ViewData["TWImage"] = "https://res.cloudinary.com/dq6prlmvh/image/upload/v1643904780/danielrangel.me/logo_lnqtd7.png";
+    ViewData["TWSite"] = "@Yodarango";
+    ViewData["TWCreator"] = "@Yodarango";
+
+    ViewData["Title"] = "Tools, Tips, Thoughts, and Tech to help your Christian walk";
+
+    ViewData["MenuBtnTitle"] = "Article";
     IEnumerable<CategoryModel> allTags = ViewData["Tags"] as IEnumerable<CategoryModel>;
 }
 
@@ -13,15 +31,8 @@
     </section>
 
     <p class="std-p favorites-parrgraph">
-        This is my very dummy description for now! ustry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make
-        a type specimen book. It has survived not only five centuries,
-        but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with
-        the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like
-        Aldus PageMaker including versions of Lorem Ipsu
+        Welcome to the articles page where I post from sermon notes, thoughts, well-researched articles and more. If you enjoy the content here please
+        <a asp-controller="home" asp-action="index" class="std-a">follow the webiste </a>To stay updated via email! Blessings 😊
     </p>
 
     <div class="category-wrapper category-wrapper--favoites">

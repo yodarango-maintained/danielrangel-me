@@ -25,8 +25,8 @@ const handleSubscribe = () => {
     subscribeForm.setAttribute("action", "/Home/Subscribe");
 
     subscribeForm.innerHTML = `
-<h3 class="std-h3 subscribe-h3">THANK YOU FOR SUBSCRIBING</h3>
-<p class="std-p subscriber-p">Once subscribed you will get email notifiations every time new goodies come out 🍫🍬</p>
+<h3 class="std-h3 subscribe-h3">THANK YOU FOR FOLLOWING</h3>
+<p class="std-p subscriber-p">Once following you will get email notifiations every time new goodies come out 🍫🍬</p>
 <input type="text" required max-length="80" placeholder="Name" class="std-form-input input-subscribe" name="Follower_Name"/>
 <input type="email" required max-length="150"placeholder="Email" class="std-form-input input-subscribe" name="Email"/>
 <button type="submit" class="std-button submit-button">Submit</button>
