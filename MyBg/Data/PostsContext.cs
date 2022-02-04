@@ -103,6 +103,8 @@ namespace MyBg.Data
                             favorite.Link = reader.GetString(6);
                             favorite.HTML = reader.GetString(7);
                             favorite.PostType = reader.GetString(8);
+                            favorite.Likes = reader.GetInt32(9);
+                            favorite.Shares = reader.GetInt32(10);
 
                             if (!reader.IsDBNull(6))
                             {
@@ -191,6 +193,8 @@ namespace MyBg.Data
                             blog.DatePosted = reader.GetDateTime(5);
                             blog.HTML = reader.GetString(6);
                             blog.PostType = reader.GetString(7);
+                            blog.Likes = reader.GetInt32(8);
+                            blog.Shares = reader.GetInt32(9);
 
                         }
                     }
@@ -328,6 +332,94 @@ namespace MyBg.Data
         }
 
         // ------------------------------------------------------------ Post Routes ------------------------------------------- //
+
+        public void LikePost(int id, string post, int likes)
+        {
+            using (MySqlConnection connection = GetConnection())
+            {
+                if (post == "Blogs")
+                {
+                    MySqlCommand command = new MySqlCommand("UPDATE Blogs SET Likes = @Likes WHERE ID = @ID", connection);
+
+                    command.Parameters.Add("@ID", MySqlDbType.Int32).Value = id;
+                    command.Parameters.Add("@Likes", MySqlDbType.Int32).Value = likes;
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                    connection.Close();
+                }else if(post == "Favorites")
+                {
+                    MySqlCommand command = new MySqlCommand("UPDATE Favorites SET Likes = @Likes WHERE ID = @ID", connection);
+
+                    command.Parameters.Add("@ID", MySqlDbType.Int32).Value = id;
+                    command.Parameters.Add("@Likes", MySqlDbType.Int32).Value = likes;
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                    connection.Close();
+                }
+            }
+
+        }
+
+
+        public void SharePost(int id, string post, int shares)
+        {
+            using (MySqlConnection connection = GetConnection())
+            {
+                if (post == "Blogs")
+                {
+                    MySqlCommand command = new MySqlCommand("UPDATE Blogs SET Shares = @Likes WHERE ID = @ID", connection);
+
+                    command.Parameters.Add("@ID", MySqlDbType.Int32).Value = id;
+                    command.Parameters.Add("@Likes", MySqlDbType.Int32).Value = shares;
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                    connection.Close();
+                }
+                else if (post == "Favorites")
+                {
+                    MySqlCommand command = new MySqlCommand("UPDATE Favorites SET Shares = @Likes WHERE ID = @ID", connection);
+
+                    command.Parameters.Add("@ID", MySqlDbType.Int32).Value = id;
+                    command.Parameters.Add("@Likes", MySqlDbType.Int32).Value = shares;
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                    connection.Close();
+                }
+            }
+
+        }
 
         //public void NewFavorite(FavoriteModel favorite)
         //{

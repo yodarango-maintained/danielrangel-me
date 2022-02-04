@@ -269,3 +269,5 @@ C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\MyBg.dll
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\ref\MyBg.dll
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\MyBg.pdb
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Debug\net5.0\MyBg.genruntimeconfig.cache
+C:\Users\danielr\source\repos\MyBg\MyBg\bin\Debug\net5.0\MailKit.dll
+C:\Users\danielr\source\repos\MyBg\MyBg\bin\Debug\net5.0\MimeKit.dll

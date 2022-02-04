@@ -28,5 +28,9 @@ namespace MyBg.Models
         public string HTML { get; set; }
 
         public string PostType { get; set; }
+
+        public int Likes { get; set; }
+
+        public int Shares { get; set; }
     }
 }

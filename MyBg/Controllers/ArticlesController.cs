@@ -60,7 +60,7 @@ namespace MyBg.Controllers
         //    context.DeleteBlog(id);
 
         //    return View("Index", context.GetBlogs());
-        
+
         //}
     }
 }

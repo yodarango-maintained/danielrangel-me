@@ -35,6 +35,8 @@ setTimeout(() => {
     globalWraper.style.opacity = "1"
 }, 500)
 
+// ----------------------------- menu ------------------------------ //
+
 const handleMenuTrigger = () => {
     if (menuOpen == false) {
         menuOpen = true

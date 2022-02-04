@@ -13,7 +13,7 @@ namespace MyBg.Controllers
 
         public IActionResult Index(string tag)
         {
-            PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+            PostsContext context = HttpContext.RequestServices.GetService(typeof(PostsContext)) as PostsContext;
             List<PostsViewModel> posts = context.GetPostsByTag(tag);
 
             if (!String.IsNullOrEmpty(tag)) {
@@ -23,6 +23,45 @@ namespace MyBg.Controllers
             }
             return View("Index", posts);
         }
+
+        //------------------------- Handle Likes ---------------------- //
+        public class LikeObj
+        {
+            public int id { get; set; }
+            public string post { get; set; }
+            public int likes { get; set; }
+        }
+
+        public class ShareObj
+        {
+            public int id { get; set; }
+            public string post { get; set; }
+            public int shares { get; set; }
+        }
+
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public void LikePost([FromBody] LikeObj requestData)
+        {
+
+            PostsContext context = HttpContext.RequestServices.GetService(typeof(PostsContext)) as PostsContext;
+
+            context.LikePost(requestData.id, requestData.post, requestData.likes);
+
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public void sharePost([FromBody] ShareObj requestData)
+        {
+
+            PostsContext context = HttpContext.RequestServices.GetService(typeof(PostsContext)) as PostsContext;
+
+            context.SharePost(requestData.id, requestData.post, requestData.shares);
+
+        }
+
 
     }
 }

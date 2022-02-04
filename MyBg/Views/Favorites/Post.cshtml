@@ -23,33 +23,44 @@
 }
 
 <div class="main-wrapper_favorite-single">
-<div class="post-top-single-wrapper">
-    <a asp-action="Index" asp-controller="Favorites" class="std-button back-to-all">👈 BACK TO ALL</a>
+    <div class="post-top-single-wrapper">
+        <a asp-action="Index" asp-controller="Favorites" class="std-button back-to-all">👈 BACK TO ALL</a>
 
-    @*<section class="main-title-wrapper">
-        <h1 class="std-h1 header-h1_favorite">@Model.Title</h1>
-        <p class="std-text-quiet quiet-post-info">@Model.DatePosted</p>
-    </section>*@
+        @*<section class="main-title-wrapper">
+            <h1 class="std-h1 header-h1_favorite">@Model.Title</h1>
+            <p class="std-text-quiet quiet-post-info">@Model.DatePosted</p>
+        </section>*@
 
-    <div class="tag-footer">
-        <div class="category-wrapper category-wrapper--single--post">
-            @if (!String.IsNullOrEmpty(Model.Categories))
-            {
-                string[] tags = Model.Categories.Split(" ");
-                foreach (string tag in tags)
+        <div class="tag-footer">
+            <div class="category-wrapper category-wrapper--single--post">
+                @if (!String.IsNullOrEmpty(Model.Categories))
                 {
-                    <span class="category-tag">@tag</span>
+                    string[] tags = Model.Categories.Split(" ");
+                    foreach (string tag in tags)
+                    {
+                        <span class="category-tag">@tag</span>
+                    }
                 }
-            }
+            </div>
         </div>
-    </div>
 
-    @*@await Html.PartialAsync("_Carrousel", Model);*@
+        <h3 class="std-h3">Did you like this content?</h3>
+        <section class="buttons-wrapper">
 
-    @*<a href="@Model.Link" class="std-link">Check It out</a>*@
+            <button onclick="handleLike('@Model.ID', 'Favorites', @Model.Likes)" class="std-button std-button-reactions" id="love-button"> <span class="love-btn"></span>@Model.Likes</button>
+            <button onclick="handleShare('@Model.ID','Favorites', @Model.Shares)" class="std-button std-button-reactions" id="share-button"><span class="share-btn"></span>@Model.Shares</button>
+        </section>
+
+        @*@await Html.PartialAsync("_Carrousel", Model);*@
+
+        @*<a href="@Model.Link" class="std-link">Check It out</a>*@
     </div>
-    <div class="std-medium-spacer"></div>
-        @Html.Raw(Model.HTML);
+    <div class="std-medium-spacer" data-id="@Model.ID" data-route="favorite" id="post-wrapper"></div>
+    @Html.Raw(Model.HTML);
 
 </div>
 
+
+@section Scripts {
+    <script src="~/js/handlePostInteraction.js"></script>
+}

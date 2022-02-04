@@ -72,7 +72,7 @@ const citationResultText = document.querySelector("#citation-time-result");
 const mlaStyle = () => {
     apaBtn.classList.remove('active');
     chicagoBtn.classList.remove('active');
-    turbianBtn.classList.remove('active');
+    //turbianBtn.classList.remove('active');
 
     mlaBtn.classList.add('active');
 
@@ -105,7 +105,7 @@ const mlaStyle = () => {
 const apaStyle = () => {
     mlaBtn.classList.remove('active');
     chicagoBtn.classList.remove('active');
-    turbianBtn.classList.remove('active');
+    //turbianBtn.classList.remove('active');
 
     apaBtn.classList.add('active');
 
@@ -141,7 +141,7 @@ const chicagoStyle = () => {
 
     apaBtn.classList.remove('active');
     mlaBtn.classList.remove('active');
-    turbianBtn.classList.remove('active');
+    //turbianBtn.classList.remove('active');
 
     chicagoBtn.classList.add('active');
 
@@ -549,8 +549,6 @@ const citeSource = () => {
             }
 
             const citation = `<p class="std-p" id="citation-result-text">${LN}${MN}${FN}${secondLN}${year || month || day ? "(" : ""}${year}${month}${day}${year || month || day ? ")" : ""}${title}${website}${url}</p>`
-
-            citationResultText.innerHTML = citation;
         }
 
         // -------------------------------------------------------- CHICAGO ------------------------------------------------------ //
@@ -630,3 +628,27 @@ const playAudio2 = () => {
 allButtons.forEach(button => {
     button.addEventListener("click", playAudio2)
 })
+
+// ------------------------------ copy Citation ------------------------------- //
+const copyCitation = () => {
+    const citation = document.querySelector("#citation-result-text");
+
+    const dummy = document.createElement('input');
+
+    document.body.appendChild(dummy);
+    dummy.value = citation.textContent;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+
+    const themeWrapper = document.createElement("DIV");
+    themeWrapper.setAttribute("class", "notification-wrapper");
+    themeWrapper.innerHTML = `
+     <div class="theme-element"><p>Text copied to clipdoard, thank you for using this tool! ❤️</p></div>
+`
+    document.body.appendChild(themeWrapper);
+
+    setInterval(() => {
+        themeWrapper.remove();
+    }, 4000)
+}
