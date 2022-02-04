@@ -43,6 +43,10 @@
     --medium-spacing-desktop: 2.188rem;
     --large-spacing-desktop: 3.125rem;
     --xlarge-spacing-desktop: 3.75rem;
+
+    /*****************Images ***********/
+    --memu-btn: url(/images//menu-icons/menu-def.png);
+    --memu-btn-open: url(/images//menu-icons/open-menu-def.png);
 }
 
 * {
@@ -78,7 +82,7 @@ body {
 }
 .page-wrapper {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
     position: relative;
     top: 0;
     left: 0;
@@ -1117,7 +1121,7 @@ body {
     position: fixed;
     width: 80%;
     max-width: 26.25rem;
-    max-height: 38rem;
+    max-height: 42rem;
     top: 0;
     left: 0;
     bottom: 0;
@@ -1126,13 +1130,42 @@ body {
     background-color: var(--secondary-color);
     border-radius: var(--std-radius-mobile);
     z-index: 15;
-    animation: themeIntro 1000ms ease-in-out;
+    animation: SubsIntro 1000ms ease-in-out;
 }
 
 .form-subs-wrapper--close {
     opacity: 0;
     display: block;
-    animation: themeOutro 1000ms ease-in;
+    animation: SubsOutro 1000ms ease-in;
+}
+
+@keyframes SubsIntro {
+    0% {
+        height: 13rem;
+        opacity: 0;
+    }
+
+    100% {
+        height: 42rem;
+        opacity: 1;
+    }
+}
+
+
+@keyframes SubsOutro {
+    0% {
+        height: 42rem;
+        opacity: 1;
+    }
+
+    100% {
+        height: 13rem;
+        opacity: 0;
+    }
+}
+
+.thankyou-for-subs{
+    padding: var(--small-spacing-mobile);
 }
 /* *************************************************************************************************************************/
 /* **************************************************************** FAVORITES PAGE *****************************************/
@@ -1613,7 +1646,7 @@ background-image: url('/images/utilities/books-icon.png');
     }
 
     .bottom-spacer{
-        height: 3rem;
+        height: 6rem;
         width: 100%;
     }
 
@@ -1629,7 +1662,7 @@ background-image: url('/images/utilities/books-icon.png');
         width: 3.5rem;
         height: 3.5rem;
         border-radius: 50%;
-        background-image: url("/images/menu-icons/menu.png");
+        background-image: var(--memu-btn);
         background-color: var(--third-color);
         background-size: 80%;
         background-repeat: no-repeat;
@@ -1650,7 +1683,7 @@ background-image: url('/images/utilities/books-icon.png');
     .menu-button-desktop--trigger--open {
         cursor: pointer;
         border: .2rem solid var(--font-color);
-        background-image: url("/images/menu-icons/open-menu.png");
+        background-image: var(--memu-btn-open);
         box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
     }
 
@@ -1803,7 +1836,7 @@ background-image: url('/images/utilities/books-icon.png');
 
 
     .std-form-input, .std-form-textarea {
-        padding: var(--small-spacing-desktop);
+        padding: var(--small-spacing-mobile);
         border-radius: var(--std-radius-desktop);
     }
 
@@ -2308,6 +2341,9 @@ background-image: url('/images/utilities/books-icon.png');
     --scrollbar-track-shadow-dark: #220308;
     --scrollbar-track-shadow-light: #7e484f;
     --primary-color-tranparent: #370617;
+
+    --memu-btn: url(/images//menu-icons/menu-velvet.png);
+    --memu-btn-open: url(/images//menu-icons/menu-velvet-open.png);
 }
 
 [data-theme-color="chocolatedBananas"] {
@@ -2321,6 +2357,9 @@ background-image: url('/images/utilities/books-icon.png');
     --scrollbar-track-shadow-dark: #2e1d1b;
     --scrollbar-track-shadow-light: #9f6863;
     --primary-color-tranparent: #ffffff9c;
+
+    --memu-btn: url(/images//menu-icons/menu-chocolate.png);
+    --memu-btn-open: url(/images//menu-icons/menu-chocolate-open.png)
 }
 
 [data-theme-color="blueberryCobbler"] {
@@ -2334,6 +2373,9 @@ background-image: url('/images/utilities/books-icon.png');
     --scrollbar-track-shadow-dark: #17459d;
     --scrollbar-track-shadow-light: #bacff7;
     --primary-color-tranparent: #ffffff9c;
+
+    --memu-btn: url(/images//menu-icons/menu-blueberry.png);
+    --memu-btn-open: url(/images//menu-icons/menu-blueberry-open.png);
 }
 
 [data-theme-color="orangeCake"] {
@@ -2347,6 +2389,9 @@ background-image: url('/images/utilities/books-icon.png');
     --scrollbar-track-shadow-dark: #683802;
     --scrollbar-track-shadow-light: #e77e66;
     --primary-color-tranparent: #ffffff9c;
+
+    --memu-btn: url(/images//menu-icons/menu-orange.png);
+    --memu-btn-open: url(/images//menu-icons/menu-orange-open.png);
 }
 
 [data-theme-color="blackSapodillaIcecream"] {
@@ -2360,6 +2405,9 @@ background-image: url('/images/utilities/books-icon.png');
     --scrollbar-track-shadow-dark: #000000;
     --scrollbar-track-shadow-light: #54504f;
     --primary-color-tranparent: #ffffff9c;
+
+    --memu-btn: url(/images//menu-icons/menu-zapote.png);
+    --memu-btn-open: url(/images//menu-icons/menu-zapote.png);
 }
 
 [data-theme-color="soursopSorbet"] {
@@ -2373,4 +2421,7 @@ background-image: url('/images/utilities/books-icon.png');
     --scrollbar-track-shadow-dark: #014e13;
     --scrollbar-track-shadow-light: #3bb55b;
     --primary-color-tranparent: #ffffff9c;
+
+    --memu-btn: url(/images//menu-icons/menu-soursop.png);
+    --memu-btn-open: url(/images//menu-icons/menu-soursop-open.png);
 }

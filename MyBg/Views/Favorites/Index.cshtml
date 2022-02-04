@@ -30,7 +30,7 @@
     </section>
 
     <p class="std-p favorites-parrgraph">
-        Welcome to my favorites page. Here I talk about my favorite software, hardware, tools, activities, and other things that aid my productivity.\
+        Welcome to my favorites page. Here I talk about my favorite software, hardware, tools, activities, and other things that aid my productivity.
         Whether is ministry, school, or simply leisure, there is a favorite for everything! If you enjoy  the content consider
         <a asp-controller="home" asp-action="index" class="std-a">following the webiste </a>To stay updated via email! Blessings 😊
     </p>
@@ -43,41 +43,49 @@
         }
     </div>
 
-    <div class="posts-wrapper posts-wrapper--favorite">
-        @foreach (FavoriteModel post in Model)
-        {
-            <div class="favorite-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
-                @await Html.PartialAsync("_Carrousel", post);
-                <div class="std-blurr-layer"></div>
-                <aside class="favorite-post-info-wrapper">
-                    <div>
-                        <h3 class="std-h3 header-h3--favorite">@post.Title</h3>
-                        <p class="std-text-quiet quiet-post-info">@post.DatePosted</p>
 
-                        <div class="tag-footer">
+    @if (Model.Count() > 0)
+    {
+        <div class="posts-wrapper posts-wrapper--favorite">
+            @foreach (FavoriteModel post in Model)
+            {
+                <div class="favorite-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
+                    @await Html.PartialAsync("_Carrousel", post);
+                    <div class="std-blurr-layer"></div>
+                    <aside class="favorite-post-info-wrapper">
+                        <div>
+                            <h3 class="std-h3 header-h3--favorite">@post.Title</h3>
+                            <p class="std-text-quiet quiet-post-info">@post.DatePosted</p>
 
-                            <span class="post-type type_favorite"></span>
+                            <div class="tag-footer">
 
-                            <div class="category-wrapper">
-                                @if (!String.IsNullOrEmpty(post.Categories))
-                                {
-                                    string[] tags = post.Categories.Split(" ");
-                                    foreach (string tag in tags)
+                                <span class="post-type type_favorite"></span>
+
+                                <div class="category-wrapper">
+                                    @if (!String.IsNullOrEmpty(post.Categories))
                                     {
-                                        <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag" class="category-tag">@tag</a>
-                                    }
+                                        string[] tags = post.Categories.Split(" ");
+                                        foreach (string tag in tags)
+                                        {
+                                            <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag" class="category-tag">@tag</a>
+                                        }
 
-                                }
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    @*<p class="std-p std-p_favorite-desc">
-                        @post.Description
-                    </p>*@
-                </aside>
-            </div>
-        }
-    </div>
+                        @*<p class="std-p std-p_favorite-desc">
+                                @post.Description
+                            </p>*@
+                    </aside>
+                </div>
+            }
+        </div>
+    }
+    @if (Model.Count() == 0)
+    {
+        <h2 class="std-h2 not-found-h2">SEEMS LIKE I'VE BEEN SLACKIG ON MY POSTS, PLEASE CHECK BACK SOON! 😊 </h2>
+    }
 </div>
 
 

@@ -27,9 +27,9 @@
 <div class="main-wrapper main-wrapper_index">
     @if ((bool)ViewData["SubsMessage"] == true)
     {
-        <div id="menu-wrapper" class="color-theme-wrapper color-theme-wrapper--open">
+        <div id="menu-wrapper" class="color-theme-wrapper color-theme-wrapper--open thankyou-for-subs">
             <h3 class="std-h3 subscribe-h3">Thank you for subscribing!</h3>
-            <button type="submit" class="std-button close-button" onclick="closeNotification()">Close</button>
+            <a class="std-button close-button" asp-action="Index" asp-controller="Home">Close</a>
         </div>
     }
 
@@ -124,6 +124,8 @@
 
     <section class="indexp-lower-half">
         <h2 class="std-h2 most-recent-h2">MOST RECENT</h2>
+        @if(posts.Count() > 0)
+        {
         <section class="posts-wrapper">
             @foreach (PostsViewModel post in posts)
             {
@@ -138,7 +140,7 @@
                             <span class="std-icon  type_favorite std-icon-tag"></span>
                         }
 
-                        @if (post.PostType == "Blog")
+                        @if (post.PostType == "Article")
                         {
                             <span class="std-icon type_blog std-icon-tag"></span>
                         }
@@ -158,6 +160,10 @@
                 </div>
             }
         </section>
+        }
+        @if(posts.Count() == 0){
+    <h2 class="std-h2 not-found-h2">SEEMS LIKE I'VE BEEN SLACKIG ON MY POSTS, PLEASE CHECK BACK SOON! 😊 </h2>
+        }
     </section>
 
 </div>

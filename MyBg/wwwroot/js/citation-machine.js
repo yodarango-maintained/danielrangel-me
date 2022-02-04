@@ -72,7 +72,7 @@ const citationResultText = document.querySelector("#citation-time-result");
 const mlaStyle = () => {
     apaBtn.classList.remove('active');
     chicagoBtn.classList.remove('active');
-    turbianBtn.classList.remove('active');
+    //turbianBtn.classList.remove('active');
 
     mlaBtn.classList.add('active');
 
@@ -105,7 +105,7 @@ const mlaStyle = () => {
 const apaStyle = () => {
     mlaBtn.classList.remove('active');
     chicagoBtn.classList.remove('active');
-    turbianBtn.classList.remove('active');
+    //turbianBtn.classList.remove('active');
 
     apaBtn.classList.add('active');
 
@@ -141,7 +141,7 @@ const chicagoStyle = () => {
 
     apaBtn.classList.remove('active');
     mlaBtn.classList.remove('active');
-    turbianBtn.classList.remove('active');
+    //turbianBtn.classList.remove('active');
 
     chicagoBtn.classList.add('active');
 
