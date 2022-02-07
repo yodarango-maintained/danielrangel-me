@@ -33,6 +33,16 @@
         </div>
     }
 
+<form asp-action="Subscribe" asp-controller="Home" class="form-subs-wrapper--open form-subs-wrapper" id="subs-form">
+    <h3 class="std-h3 subscribe-h3">THANK YOU FOR FOLLOWING</h3>
+    <p class="std-p subscriber-p">Once following you will get email notifiations every time new goodies come out 🍫🍬</p>
+    <input type="text" required max-length="80" placeholder="Name" class="std-form-input input-subscribe" name="Follower_Name" />
+    <input type="email" required max-length="150" placeholder="Email" class="std-form-input input-subscribe" name="Email" />
+    <p class="sending-email-p std-p" id="sending-email-p"></p>
+    <button type="submit" class="std-button submit-button" onclick="sendingEmailNotification()" id="subscribe-submit-button">Submit</button>
+    <button type="submit" class="std-button close-button" onclick="closeForm()" id="subscribe-close-button">Close</button>
+</form>
+
     <section class="indexp-upper-half">
         <h1 class="std-h1 intro-title">
             THOUGHTS. TIPS. TOOLS. TECH.

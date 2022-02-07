@@ -70,6 +70,8 @@ const citationResultText = document.querySelector("#citation-time-result");
 //---------------------------- choose the citation style -------------------------- //
 //------- 1: MLA Style
 const mlaStyle = () => {
+    atuhorsWrapper.forEach(wrap => wrap.style.display = "block");
+
     apaBtn.classList.remove('active');
     chicagoBtn.classList.remove('active');
     //turbianBtn.classList.remove('active');
@@ -103,6 +105,8 @@ const mlaStyle = () => {
 
 //------- 2: APA Style
 const apaStyle = () => {
+    atuhorsWrapper.forEach(wrap => wrap.style.display = "block");
+
     mlaBtn.classList.remove('active');
     chicagoBtn.classList.remove('active');
     //turbianBtn.classList.remove('active');

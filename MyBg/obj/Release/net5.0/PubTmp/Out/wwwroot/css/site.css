@@ -71,8 +71,9 @@ body {
 }
 
 /*-------------------- Shared ---------------------*/
-#global-wrapper{
+#global-wrapper {
     opacity: 0;
+    overflow-x: hidden;
 }
 
 .bottom-spacer {
@@ -139,6 +140,7 @@ body::-webkit-scrollbar-track {
     background-size: 100%;
     background-position: center;
     filter: grayscale(1);
+    cursor: pointer;
 }
 
 .menu-button.home {
@@ -741,6 +743,7 @@ body::-webkit-scrollbar-track {
 .sm-links-wrapper .sm-link {
     display: block;
     transform: translateY(0px);
+
 }
 
 .sm-links-wrapper .sm-link span {
@@ -749,7 +752,15 @@ body::-webkit-scrollbar-track {
     background-size: 80%;
     background-position: center;
     display: block;
+    border-radius: 50%;
     background-repeat: no-repeat;
+    transition: 300ms ease-in;
+}
+
+.sm-link span:hover {
+    cursor: pointer;
+    border: .2rem solid var(--font-color);
+    box-shadow: .1rem .1rem 1rem .1rem var(--font-color), -.1rem -.1rem 1rem .1rem var(--font-color);
 }
 
 /************************* Social Media Icons *******************/
@@ -1084,7 +1095,7 @@ body::-webkit-scrollbar-track {
 .subscribe-h3 {
     margin: 0 auto var(--medium-spacing-mobile);
     text-align: center;
-    color: var(--third-color);
+    color: var(--font-color);
 }
 
 .subscriber-p {
@@ -1092,8 +1103,9 @@ body::-webkit-scrollbar-track {
     text-align: center;
 }
 
-.input-subscribe{
+.input-subscribe {
     margin: 0 auto var(--medium-spacing-mobile);
+    color: var(--font-color);
 }
 
 .std-button.submit-button, .close-button {
@@ -1107,12 +1119,12 @@ body::-webkit-scrollbar-track {
     color: var(--secondary-color);
 }
 
-.input-subscribe::placeholder, .input-subscribe {
-    color: var(--secondary-color);
+.input-subscribe::placeholder {
+    color: var(--font-color);
 }
 
 .form-subs-wrapper {
-    display: block;
+    display: none;
     flex-wrap: wrap;
     position: fixed;
     width: 80%;
@@ -1126,7 +1138,7 @@ body::-webkit-scrollbar-track {
     margin: auto;
     background-color: var(--secondary-color);
     border-radius: var(--std-radius-mobile);
-    z-index: 15;
+    z-index: 16;
     animation: SubsIntro 1000ms ease-in-out;
 }
 
@@ -2397,65 +2409,61 @@ background-image: url('/images/utilities/books-icon.png');
 }
 
 [data-theme-color="velvetcake"] {
-    --primary-color: #370617;
-    --secondary-color: #c9184a;
-    --third-color: #590d22;
-    --accent-color: #dc2f02;
-    --second-accent-color: #f28482;
-    --font-color: #ffbbd0;
-    --secondary-color-dark: #780000;
-    --scrollbar-track-shadow-dark: #220308;
-    --scrollbar-track-shadow-light: #7e484f;
-    --primary-color-tranparent: #370617;
-
+    --primary-color: #040303;
+    --secondary-color: #461111;
+    --third-color: #2e2121;
+    --accent-color: #9d5050;
+    --second-accent-color: #a13333;
+    --font-color: #e1b1b1;
+    --secondary-color-dark: #8b3131;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #3f4654;
+    --primary-color-tranparent: #04030378;
     --memu-btn: url(/images//menu-icons/menu-velvet.png);
     --memu-btn-open: url(/images//menu-icons/menu-velvet-open.png);
 }
 
 [data-theme-color="chocolatedBananas"] {
-    --primary-color: #703a35;
-    --secondary-color: #ffc047;
-    --third-color: #5a2d29;
-    --accent-color: #ffda68;
-    --second-accent-color: #b15a53;
-    --font-color: #ebe7b9;
-    --secondary-color-dark: #42221f;
-    --scrollbar-track-shadow-dark: #2e1d1b;
-    --scrollbar-track-shadow-light: #9f6863;
-    --primary-color-tranparent: #ffffff9c;
-
+    --primary-color: #F5E8C7;
+    --secondary-color: #deba9d;
+    --third-color: #d1b97e;
+    --accent-color: #b99393;
+    --second-accent-color: #9e7777;
+    --font-color: #543945;
+    --secondary-color-dark: #c39a7a;
+    --scrollbar-track-shadow-dark: #856969;
+    --scrollbar-track-shadow-light: #ad9090;
+    --primary-color-tranparent: #c5b79499;
     --memu-btn: url(/images//menu-icons/menu-chocolate.png);
     --memu-btn-open: url(/images//menu-icons/menu-chocolate-open.png)
 }
 
 [data-theme-color="blueberryCobbler"] {
-    --primary-color: #fefeff;
-    --secondary-color: #a4aefd;
-    --third-color: #5460bb;
-    --accent-color: #4d91ff;
-    --second-accent-color: #7cadff;
-    --font-color: #3a4aa1;
-    --secondary-color-dark: #0b1668;
-    --scrollbar-track-shadow-dark: #17459d;
-    --scrollbar-track-shadow-light: #bacff7;
-    --primary-color-tranparent: #ffffff9c;
-
+    --primary-color: #1B262C;
+    --secondary-color: #0F4C75;
+    --third-color: #263d4a;
+    --accent-color: #BBE1FA;
+    --second-accent-color: #3282B8;
+    --font-color: #cbe4f5;
+    --secondary-color-dark: #142850;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #3f4654;
+    --primary-color-tranparent: #1b262ca1;
     --memu-btn: url(/images//menu-icons/menu-blueberry.png);
     --memu-btn-open: url(/images//menu-icons/menu-blueberry-open.png);
 }
 
 [data-theme-color="orangeCake"] {
-    --primary-color: #fdab8c;
-    --secondary-color: #ff7f61;
-    --third-color: #f58d65;
-    --accent-color: #ff4e04;
-    --second-accent-color: #ffb67c;
-    --font-color: #7c2a02;
-    --secondary-color-dark: #d35d41;
-    --scrollbar-track-shadow-dark: #683802;
-    --scrollbar-track-shadow-light: #e77e66;
-    --primary-color-tranparent: #ffffff9c;
-
+    --primary-color: #2D2424;
+    --secondary-color: #814d34;
+    --third-color: #443737;
+    --accent-color: #b17056;
+    --second-accent-color: #b85c38;
+    --font-color: #e1c6a2;
+    --secondary-color-dark: #764933;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #3f4654;
+    --primary-color-tranparent: #2d242491;
     --memu-btn: url(/images//menu-icons/menu-orange.png);
     --memu-btn-open: url(/images//menu-icons/menu-orange-open.png);
 }
@@ -2468,26 +2476,24 @@ background-image: url('/images/utilities/books-icon.png');
     --second-accent-color: #717489;
     --font-color: #d7d7d7;
     --secondary-color-dark: #1c1a19;
-    --scrollbar-track-shadow-dark: #000000;
-    --scrollbar-track-shadow-light: #54504f;
+    --scrollbar-track-shadow-dark: #1b1e24;
+    --scrollbar-track-shadow-light: #3f4654;
     --primary-color-tranparent: #ffffff9c;
-
     --memu-btn: url(/images//menu-icons/menu-zapote.png);
     --memu-btn-open: url(/images//menu-icons/menu-zapote.png);
 }
 
 [data-theme-color="soursopSorbet"] {
-    --primary-color: #ffffff;
-    --secondary-color: #48af4c;
-    --third-color: #efe7cb;
-    --accent-color: #45644d;
-    --second-accent-color: #73e188;
-    --font-color: #134a01;
-    --secondary-color-dark: #278d2b;
-    --scrollbar-track-shadow-dark: #014e13;
-    --scrollbar-track-shadow-light: #3bb55b;
-    --primary-color-tranparent: #ffffff9c;
-
+    --primary-color: #FDFAF6;
+    --secondary-color: #e4efe7;
+    --third-color: #e9d5bd;
+    --accent-color: #608d6c;
+    --second-accent-color: 45644d;
+    --font-color: #074521;
+    --secondary-color-dark: #acc9b4;
+    --scrollbar-track-shadow-dark: #c9bdac;
+    --scrollbar-track-shadow-light: #b7ab9a;
+    --primary-color-tranparent: #bfaa8da6;
     --memu-btn: url(/images//menu-icons/menu-soursop.png);
     --memu-btn-open: url(/images//menu-icons/menu-soursop-open.png);
 }
