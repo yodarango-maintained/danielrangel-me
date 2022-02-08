@@ -1,0 +1,41 @@
+//menu
+const menuTrigger = document.querySelector(".menu-trigger");
+let toggleMenu = true;
+
+const triggerMenu = () => {
+  const topBar = document.querySelector(".menu_burger-top");
+  const middleBar = document.querySelector(".menu_burger-middle");
+  const bottomBar = document.querySelector(".menu_burger-bottom");
+  const menuContainer = document.querySelector(".menu-container");
+  const menuContainerDiv = document.querySelectorAll(".menu-container a");
+
+  if (toggleMenu === true) {
+    menuContainer.style.cssText =
+    "width: 80%; transition: width 600ms ease-in-out;";
+    topBar.style.cssText =
+    "transform: rotate(45deg);  position: relative; top: .2rem; margin: 0; transition: transform 300ms ease-in-out;";
+    middleBar.style.cssText = "display: none;";
+    bottomBar.style.cssText =
+    "transform: rotate(-45deg);  position: relative; top: .-2rem; margin: 0; transition: transform 300ms ease-in-out;";
+    menuContainerDiv.forEach(div => {
+      div.classList.remove("a-close");
+      div.classList.add("a-open");
+    });
+    toggleMenu = false;
+  } else if (toggleMenu === false) {
+    menuContainer.style.cssText =
+    "width: 0; transition: width 600ms ease-in-out;";
+    topBar.style.cssText =
+    "transform: rotate(0); transition: transform 300ms ease-in-out;";
+    middleBar.style.cssText = "display: block;";
+    bottomBar.style.cssText =
+    "transform: rotate(0); transition: transform 300ms ease-in-out;";
+    menuContainerDiv.forEach(div => {
+      div.classList.remove("a-open");
+      div.classList.add("a-close");
+    });
+
+    toggleMenu = true;
+  }
+};
+menuTrigger.addEventListener("click", triggerMenu);

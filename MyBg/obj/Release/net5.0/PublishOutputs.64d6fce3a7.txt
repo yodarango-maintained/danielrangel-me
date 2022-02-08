@@ -34,6 +34,37 @@ C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\im
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\menu-icons\open-menu-def.png
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\menu-icons\tools.png
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\reddit.png
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu.html
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\1-59ef21b0393c597a4b11.chunk.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\69186.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\algolia-9e1c0c887f4db420704b2a79926864019ef156bcecc9d5774a7e4eaa731fc5b5.svg
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\analytics_and_notifications-afa6925cbcff840929f2b7c543587d5f9d7a461af81ee7ca80631c8e37ac42f2.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\blind-top-f2681f21fdd4abda7aac4277b7be978237e2c48832b45e6a8959dd9dcb0f8e64.svg
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\blinds-e1e47297e1c0a3b8d2568baaa288d5f264e0c6495561c906a97dbfd553a8f66d.svg
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\browser_support-e442aebd85f2bb9dcd4a47cb43c7fc38efd5522ace0a675bf5e33a06413b5a28.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\CKYDVK7U.json
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\codemirror-38f6d79a9404a790a5769ae17525f1a192f3d3c9d323e1479691af1295a26d66.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\commonLibs-9baf61da2f0b1adbfdbda1a98aa009379eddc23641e45edf6d5c41f98fe361d0.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\editor-ce84559792d1fef032d25f19e7cf0e24b7e0a3308e8c697b3b8ef7cd2411b83f.css
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\emmet-codemirror-plugin-d52a9896e5f03371a6952975f3e92e5812c54903ca27e36f9c7b707444dc1e88.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\everypage-a9c0f4cab340c8a3fac2.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\everypage-bfd7c598.css
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\everypage-f84dd91ff413b23b8d1a6f7eadc615dc53c384f74f8254e068449db735b2c8cd.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\filestack.min.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\firebaseConnectLibs-134c41e91c7310a19db4.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\global-67005cab71e5a431c46c6d0796960d907cad51b6f77eed8ab271dcdd6bfb7f5e.css
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\iframeConsoleRunner-d0f3648046d2aaca07bd0037b9e061a26c74a8a999b75672ad6a638cca641472.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\index-3075a65f13c1ab350b77b7ded35b3be84f95edf7eaf890ef9e2c4919266a59df.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\index.html
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\lux.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\pen.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\privacy-048c44f7b51ade74eef277e8027a41fe1a8651c393278b25a807ad7ea79f8418.svg
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\processorRouter-f3f043444842f01f7431.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js.download
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\twilight-9eb71b6edb11814ec9302f458eb8606e9eb58d14ef36cdf785d88aca31de5447.css
+C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\Sliding Menu_files\vendor-8144879ba98ef47f8639.chunk.js.download
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\stack_overflow.png
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\strava.png
 C:\Users\danielr\source\repos\MyBg\MyBg\obj\Release\net5.0\PubTmp\Out\wwwroot\images\tools\citation-machine-thumbnail.png
