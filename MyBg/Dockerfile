@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 #COPY ["./MyBg.csproj", "src/"]
 
-RUN dotnet restore "MyBg.csproj"
+RUN dotnet restore "src/MyBg.csproj"
 COPY . .
 WORKDIR "/src/"
 RUN dotnet build "MyBg.csproj" -c Release -o /app/build
