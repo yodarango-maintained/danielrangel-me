@@ -21,10 +21,10 @@ namespace MyBg
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder/*.ConfigureKestrel(serverOptions =>
+                    webBuilder.ConfigureKestrel(serverOptions =>
                     {
                         serverOptions.Listen(IPAddress.Any, Convert.ToInt32(Environment.GetEnvironmentVariable("PORT")));
-                    })*/.UseStartup<Startup>();
+                    }).UseStartup<Startup>();
                 });
     }
 }
