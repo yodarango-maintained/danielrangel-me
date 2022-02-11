@@ -12,5 +12,6 @@
     <WebStackScaffolding_LayoutPageFile />
     <NameOfLastUsedPublishProfile>C:\Users\danielr\source\repos\MyBg\MyBg\Properties\PublishProfiles\danielrangelme - Zip Deploy.pubxml</NameOfLastUsedPublishProfile>
     <ActiveDebugProfile>Docker</ActiveDebugProfile>
+    <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
 </Project>
