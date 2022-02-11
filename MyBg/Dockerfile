@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["./MyBg.csproj", "src/"]
-RUN dotnet restore "src/MyBg.csproj"
+COPY ["./MyBg/MyBg.csproj", "src/"]
+RUN dotnet restore "src/MyBg/MyBg.csproj"
 COPY . .
-WORKDIR "/src/"
+WORKDIR "/src/MyBg"
 RUN dotnet build "MyBg.csproj" -c Release -o /app/build
 
 FROM build AS publish
