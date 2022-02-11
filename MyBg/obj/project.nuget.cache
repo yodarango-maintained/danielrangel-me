@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "08nyKO23h8wltSer23uQlabcSYU/b1UH0Z+rj7Z3qJ7XB1gOWzKfd8Ch7V6HKT5XUACrSNezOtm2ZP05FG7onA==",
+  "dgSpecHash": "5AF6d50tGQ7zEoZjv49mhM3bfD7N++K3owYNlf+CZDujivDN/f/Voh/Hc3dKRQ13rKTC/q5nSn5VcaAkqiENoA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danielr\\source\\repos\\MyBg\\MyBg\\MyBg.csproj",
+  "projectFilePath": "C:\\Users\\danielr\\source\\repos\\Mine\\MyBg\\MyBg\\MyBg.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danielr\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\danielr\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
@@ -26,6 +26,7 @@
     "C:\\Users\\danielr\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\danielr\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\danielr\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\danielr\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\5.0.2\\microsoft.visualstudio.web.codegeneration.5.0.2.nupkg.sha512",
     "C:\\Users\\danielr\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\5.0.2\\microsoft.visualstudio.web.codegeneration.contracts.5.0.2.nupkg.sha512",
     "C:\\Users\\danielr\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\5.0.2\\microsoft.visualstudio.web.codegeneration.core.5.0.2.nupkg.sha512",
