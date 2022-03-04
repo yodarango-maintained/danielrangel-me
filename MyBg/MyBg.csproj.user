@@ -11,9 +11,14 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
     <NameOfLastUsedPublishProfile>C:\Users\danielr\source\repos\MyBg\MyBg\Properties\PublishProfiles\danielrangelme - Zip Deploy.pubxml</NameOfLastUsedPublishProfile>
+<<<<<<< HEAD
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+=======
+    <ActiveDebugProfile>Docker</ActiveDebugProfile>
+    <ShowAllFiles>true</ShowAllFiles>
+>>>>>>> master
   </PropertyGroup>
 </Project>
