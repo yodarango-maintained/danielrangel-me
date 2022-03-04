@@ -19,6 +19,8 @@
     ViewData["Title"] = Model.Title;
 
     ViewData["MenuBtnTitle"] = "Article";
+
+    ViewData["Styles"] = Model.Styles;
 }
 
 <div class="main-wrapper_favorite-single">
@@ -61,5 +63,6 @@
 
 @section  Scripts {
 <script src="~/js/handlePostInteraction.js"></script>
+@Html.Raw(Model.JS);
 }
 

@@ -20,6 +20,8 @@
     ViewData["Title"] = Model.Title;
 
     ViewData["MenuBtnTitle"] = "Favorite";
+
+    ViewData["Styles"] = Model.Styles;
 }
 
 <div class="main-wrapper_favorite-single">
@@ -27,9 +29,9 @@
         <a asp-action="Index" asp-controller="Favorites" class="std-button back-to-all">👈 BACK TO ALL</a>
 
         @*<section class="main-title-wrapper">
-            <h1 class="std-h1 header-h1_favorite">@Model.Title</h1>
-            <p class="std-text-quiet quiet-post-info">@Model.DatePosted</p>
-        </section>*@
+                <h1 class="std-h1 header-h1_favorite">@Model.Title</h1>
+                <p class="std-text-quiet quiet-post-info">@Model.DatePosted</p>
+            </section>*@
 
         <div class="tag-footer">
             <div class="category-wrapper category-wrapper--single--post">
@@ -63,4 +65,6 @@
 
 @section Scripts {
     <script src="~/js/handlePostInteraction.js"></script>
+}
+@Html.Raw(Model.JS);
 }

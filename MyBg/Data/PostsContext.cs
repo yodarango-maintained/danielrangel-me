@@ -105,6 +105,8 @@ namespace MyBg.Data
                             favorite.PostType = reader.GetString(8);
                             favorite.Likes = reader.GetInt32(9);
                             favorite.Shares = reader.GetInt32(10);
+                            favorite.Styles = reader.GetString(11);
+                            favorite.JS = reader.GetString(12);
 
                             if (!reader.IsDBNull(6))
                             {
@@ -195,6 +197,9 @@ namespace MyBg.Data
                             blog.PostType = reader.GetString(7);
                             blog.Likes = reader.GetInt32(8);
                             blog.Shares = reader.GetInt32(9);
+                            blog.Styles = reader.GetString(11);
+                            blog.JS = reader.GetString(12);
+
 
                         }
                     }

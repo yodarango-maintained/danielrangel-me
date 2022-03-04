@@ -32,5 +32,9 @@ namespace MyBg.Models
         public int Likes { get; set; }
 
         public int Shares { get; set; }
+
+        public string Styles { get; set; }
+
+        public string JS { get; set; }
     }
 }
