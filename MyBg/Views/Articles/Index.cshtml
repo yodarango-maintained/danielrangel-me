@@ -20,6 +20,7 @@
     ViewData["Title"] = "Tools, Tips, Thoughts, and Tech to help your Christian walk";
 
     ViewData["MenuBtnTitle"] = "Article";
+
     IEnumerable<CategoryModel> allTags = ViewData["Tags"] as IEnumerable<CategoryModel>;
 }
 
@@ -48,7 +49,7 @@
             @foreach (ArticleModel post in Model)
             {
                 <div class="blog-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
-                    @await Html.PartialAsync("_Carrousel_Blog", post);
+                    @await Html.PartialAsync("_Carrousel_Blog", post)
                     <div class="std-blurr-layer blog-blurr-layer"></div>
                     <aside class="blog-post-info-wrapper">
                         <div>

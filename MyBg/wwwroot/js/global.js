@@ -76,7 +76,7 @@ const redirectToPost = (id, postType) => {
     if (postType == "Favorite") {
         window.location.href = `/favorites/${id}`
     } else if (postType == "Article") {
-        window.location.href = `/blogs/${id}`
+        window.location.href = `/articles/${id}`
     }
 
 }

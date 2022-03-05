@@ -20,9 +20,13 @@
 
     ViewData["MenuBtnTitle"] = "Article";
 
-    ViewData["Styles"] = Model.Styles;
+    string postTorender = ViewData["Post"].ToString();
+
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/sermons.css" />
+}
 <div class="main-wrapper_favorite-single">
     <div class="post-top-single-wrapper">
         <a asp-action="Index" asp-controller="Articles" class="std-button back-to-all">👈 BACK TO ALL</a>
@@ -39,7 +43,7 @@
                     string[] tags = Model.Categories.Split(" ");
                     foreach (string tag in tags)
                     {
-                        <span class="category-tag">@tag</span>
+                        <a asp-action="Index" asp-controller="Posts" asp-route-tag="@tag" class="category-tag">#@tag</a>
                     }
                 }
             </div>
@@ -57,12 +61,10 @@
         @*<a href="@Model.Link" class="std-link">Check It out</a>*@
     </div>
     <div class="std-medium-spacer" data-id="@Model.ID" data-route="article" id="post-wrapper"></div>
-    @Html.Raw(Model.HTML);
+    @await Html.PartialAsync("~/Views/Shared/Sermons/" + postTorender + ".cshtml")
 
 </div>
 
-@section  Scripts {
-<script src="~/js/handlePostInteraction.js"></script>
-@Html.Raw(Model.JS);
+@section Scripts {
+    <script src="~/js/handlePostInteraction.js"></script>
 }
-

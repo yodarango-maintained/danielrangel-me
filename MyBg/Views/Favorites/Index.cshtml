@@ -50,7 +50,7 @@
             @foreach (FavoriteModel post in Model)
             {
                 <div class="favorite-post-wrapper" onclick="redirectToPost('@post.ID', '@post.PostType')">
-                    @await Html.PartialAsync("_Carrousel", post);
+                    @await Html.PartialAsync("_Carrousel", post)
                     <div class="std-blurr-layer"></div>
                     <aside class="favorite-post-info-wrapper">
                         <div>

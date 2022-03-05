@@ -20,17 +20,12 @@ namespace MyBg.Models
 
         public DateTime DatePosted { get; set; }
 
-        [Required]
-        public string HTML { get; set; }
+        #nullable enable
+        public string? PostType { get; set; }
 
-        public string PostType { get; set; }
+        public int? Likes { get; set; }
 
-        public int Likes { get; set; }
+        public int? Shares { get; set; }
 
-        public int Shares { get; set; }
-
-        public string Styles { get; set; }
-
-        public string JS { get; set; }
     }
 }

@@ -208,10 +208,8 @@ body::-webkit-scrollbar-track {
     width: 80px;
     position: relative;
     top: 28%;
-    top: -webkit-calc(50% - 43px);
     top: calc(50% - 43px);
     left: 35%;
-    left: -webkit-calc(50% - 43px);
     left: calc(50% - 43px);
 }
 
@@ -671,7 +669,7 @@ body::-webkit-scrollbar-track {
 .main-wrapper {
     width: 90%;
     height: 100%;
-    max-width: 43.75rem;
+    max-width: 56.25rem;
     margin: var(--medium-spacing-mobile) auto;
 }
 /* --------------------------- INDEX PAGE ----------------------*/
@@ -1961,6 +1959,7 @@ main-wrapper_favorite-single {
         width: 90%;
         height: 100%;
         max-width: 56.25rem;
+        max-width: 68.75rem;
         margin: var(--medium-spacing-desktop) auto;
     }
 
@@ -2254,8 +2253,8 @@ main-wrapper_favorite-single {
 
     .post-top-single-wrapper {
         width: 90%;
-        max-width: 56.25rem;
-        margin: calc(var(--xlarge-spacing-desktop) + 3rem) auto var(--medium-spacing-desktop) 5%;
+        max-width: 68.75rem;
+        margin: calc(var(--xlarge-spacing-desktop) + 3rem) auto var(--medium-spacing-desktop);
     }
 
     .std-button.back-to-all {

@@ -272,3 +272,5 @@ C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\MyBg.dll
 C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\ref\MyBg.dll
 C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\MyBg.pdb
 C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\MyBg.genruntimeconfig.cache
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Sermons\1.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\sermon_chapters.cshtml.g.cs

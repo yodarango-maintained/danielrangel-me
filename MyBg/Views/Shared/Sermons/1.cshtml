@@ -1,0 +1,27 @@
+﻿<div class='main-wrapper main-wrapper-post'>
+    <h1 class='main-title std-h1'>DON'T PUT YOUR FEET UP YET</h1>
+    <div class='img-wrapper img-wrapper-post-intro'>
+        <img class='std-img'
+             alt='sermon thumbnail'
+             src='https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png' />
+        <button class='std-button start-reading-button'
+                onclick='renderSermonChapters()'>
+            Start Reading
+        </button>
+    </div>
+</div>
+
+@*---------------------- render the top layer comp ---------------------*@
+<div class='layer-slide' id="layer-slide">
+    @await Html.PartialAsync("~/Views/Shared/Components/dont_put_your_feet_up_yet/sermon_chapters.cshtml")
+</div>
+
+<script>
+    const layerSlide = document.querySelector("#layer-slide");
+
+    window.location.search.includes("?chapters=true") ? layerSlide.style.display = "block" : null;
+
+    const renderSermonChapters = () => {
+        layerSlide.style.display = "block";
+    }
+</script>

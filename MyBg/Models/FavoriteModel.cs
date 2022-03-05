@@ -9,6 +9,7 @@ namespace MyBg.Models
     public class FavoriteModel
     {
         public int ID { get; set; }
+
         [Required]
         public string Title { get; set; }
         [Required]
@@ -17,24 +18,14 @@ namespace MyBg.Models
         public string Tumbnails { get; set; }
         [Required]
         public string Categories { get; set; }
-
+        
         public DateTime DatePosted { get; set; }
 
         #nullable enable
-        public string? Link { get; set; }
-        [Required]
+        public string? PostType { get; set; }
 
-        #nullable disable
-        public string HTML { get; set; }
+        public int? Likes { get; set; }
 
-        public string PostType { get; set; }
-
-        public int Likes { get; set; }
-
-        public int Shares { get; set; }
-
-        public string Styles { get; set; }
-
-        public string JS { get; set; }
+        public int? Shares { get; set; }
     }
 }

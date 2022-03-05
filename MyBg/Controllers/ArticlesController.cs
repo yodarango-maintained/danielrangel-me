@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyBg.Data;
-using MyBg.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyBg.Controllers
 {
@@ -18,10 +13,12 @@ namespace MyBg.Controllers
             return View("Index", context.GetBlogs());
         }
 
-        [Route("Blogs/{id:int}")]
+        [Route("Articles/{id:int}")]
         public IActionResult Post(int id)
         {
             PostsContext context = HttpContext.RequestServices.GetService(typeof(MyBg.Data.PostsContext)) as PostsContext;
+
+            ViewData["Post"] = id.ToString();
             return View("Post", context.GetOneBlog(id));
         }
 

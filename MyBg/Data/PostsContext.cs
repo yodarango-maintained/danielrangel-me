@@ -47,17 +47,15 @@ namespace MyBg.Data
                             favorite.Tumbnails = reader.GetString(3);
                             favorite.Categories = reader.GetString(4);
                             favorite.DatePosted = reader.GetDateTime(5);
-                            favorite.Link = reader.GetString(6);
-                            favorite.HTML = reader.GetString(7);
-                            favorite.PostType = reader.GetString(8);
+                            favorite.PostType = reader.GetString(6);
 
 
-                            if (!reader.IsDBNull(6))
+                           /* if (!reader.IsDBNull(6))
                             {
                                 favorite.Link = reader.GetString(6);
-                            }
+                            }*/
 
-                            favorite.HTML = reader.GetString(7);
+                            //favorite.HTML = reader.GetString(7);
 
                             favorites.Add(favorite);
                         }
@@ -100,20 +98,10 @@ namespace MyBg.Data
                             favorite.Tumbnails = reader.GetString(3);
                             favorite.Categories = reader.GetString(4);
                             favorite.DatePosted = reader.GetDateTime(5);
-                            favorite.Link = reader.GetString(6);
-                            favorite.HTML = reader.GetString(7);
-                            favorite.PostType = reader.GetString(8);
-                            favorite.Likes = reader.GetInt32(9);
-                            favorite.Shares = reader.GetInt32(10);
-                            favorite.Styles = reader.GetString(11);
-                            favorite.JS = reader.GetString(12);
+                            favorite.PostType = reader.GetString(6);
+                            favorite.Likes = reader.GetInt32(7);
+                            favorite.Shares = reader.GetInt32(8);
 
-                            if (!reader.IsDBNull(6))
-                            {
-                                favorite.Link = reader.GetString(6);
-                            }
-
-                            favorite.HTML = reader.GetString(7);
                         }
                     }
                     reader.Close();
@@ -151,8 +139,7 @@ namespace MyBg.Data
                             blog.Tumbnails = reader.GetString(3);
                             blog.Categories = reader.GetString(4);
                             blog.DatePosted = reader.GetDateTime(5);
-                            blog.HTML = reader.GetString(6);
-                            blog.PostType = reader.GetString(7);
+                            blog.PostType = reader.GetString(6);
 
                             blogs.Add(blog);
                         }
@@ -193,13 +180,9 @@ namespace MyBg.Data
                             blog.Tumbnails = reader.GetString(3);
                             blog.Categories = reader.GetString(4);
                             blog.DatePosted = reader.GetDateTime(5);
-                            blog.HTML = reader.GetString(6);
-                            blog.PostType = reader.GetString(7);
-                            blog.Likes = reader.GetInt32(8);
-                            blog.Shares = reader.GetInt32(9);
-                            blog.Styles = reader.GetString(11);
-                            blog.JS = reader.GetString(12);
-
+                            blog.PostType = reader.GetString(6);
+                            blog.Likes = reader.GetInt32(7);
+                            blog.Shares = reader.GetInt32(8);
 
                         }
                     }

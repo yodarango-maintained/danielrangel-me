@@ -1,0 +1,335 @@
+﻿.main-title {
+    margin-top: 0;
+}
+
+@media (min-width: 800px) {
+    .main-wrapper-post {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .main-wrapper-post h1 {
+        width: 48%;
+    }
+
+    .main-wrapper-post .img-wrapper{
+         width: 48%;
+    }
+}
+
+@media (min-width: 800px) {
+    .main-title {
+        font-size: 4rem;
+    }
+}
+
+.post-intro-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.bible-verse-wrapper {
+    z-index: 17;
+    overflow-y: scroll;
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.img-wrapper-post-intro {
+    margin: var(--xlarge-spacing-mobile) auto;
+}
+
+@media (min-width: 1000px) {
+    .img-wrapper {
+        position: relative;
+        width: 47%;
+    }
+}
+
+.std-img {
+    width: 100%;
+}
+
+.start-reading-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0.8;
+    max-height: 4rem;
+    max-width: 15rem;
+}
+
+.article-intro {
+    width: 100%;
+}
+
+@media (min-width: 1000px) {
+    .article-intro {
+        position: relative;
+        width: 46%;
+    }
+}
+
+.sub-title {
+    margin: var(--medium-spacing-mobile) auto;
+    text-align: center;
+    font-family: filmotype-ace, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.underlined-text {
+    text-decoration: underline;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+.bible-verse-p {
+    font-size: 1.3rem;
+    margin: var(--small-spacing-mobile) auto;
+    text-decoration: none;
+}
+
+.bible-verse-popup-h4 {
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--second-accent-color);
+    text-align: left;
+    text-decoration: none;
+}
+
+.close-pop-up {
+    position: relative;
+    top: 0rem;
+    text-align: right;
+    display: block;
+    width: 100%;
+    text-decoration: underline;
+}
+
+.back-to-chapters {
+    max-width: 17rem;
+    margin-left: 5%;
+}
+
+/* --------------------- Chpaters Card Wrapper ------------------------------- */
+
+.chapters-card-wrapper {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.chapter-card {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
+    height: 20rem;
+    width: 30rem;
+    max-width: 100%;
+    margin: var(--medium-spacing-mobile) auto;
+    border-radius: var(--std-radius-mobile);
+    background-color: var(--third-color);
+    padding: 0;
+}
+
+    .chapter-card img {
+        object-fit: cover;
+        object-position: center;
+        -o-object-fit: cover;
+        -o-object-position: center;
+        grid-row: 1/2;
+        grid-column: 1/2;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+
+    .chapter-card h4 {
+        height: 100%;
+        width: 100%;
+        grid-row: 2/3;
+        grid-column: 1/2;
+        font-size: 1.3rem;
+        margin: 0;
+        background-color: var(--primary-color);
+        padding: 0 var(--small-spacing-mobile);
+        border: 2px solid var(--third-color);
+        border-radius: var(--std-radius-mobile);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+/* --------------------- layers slide ------------------------------- */
+.post-layer-main-wrapper {
+    width: 90%;
+    margin: var(--medium-spacing-mobile) auto;
+}
+
+.std-h1.layer-slide-h1 {
+    width: 90%;
+    margin: var(--medium-spacing-mobile) auto;
+}
+
+.layer-slide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 18;
+    display: none;
+}
+
+.list-wrapper {
+    width: 90%;
+    max-width: 56.25rem;
+    margin: auto;
+}
+
+.layer-slide h3 {
+    font-size: 2rem;
+}
+
+.std-list li {
+    display: inline-flex;
+    width: 100%;
+    border: 0.1rem solid var(--font-color);
+    padding: var(--xsmall-spacing-mobile);
+}
+
+.std-resources li {
+    border: none;
+    max-width: 100%;
+    padding: var(--small-spacing-mobile);
+    background-color: var(--third-color);
+    border-radius: var(--std-radius-mobile);
+    margin: var(--xsmall-spacing-mobile) auto;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto;
+    font: var(--main-parragraph);
+}
+
+    .std-resources li span {
+        grid-column: 1/2;
+        margin: auto;
+    }
+
+        .std-resources li span svg {
+            width: 2rem;
+        }
+
+@media (min-width: 800px) {
+    .std-resources li span svg {
+        width: 3rem;
+    }
+}
+
+.std-resources li a {
+    grid-column: 2/3;
+    text-align: left;
+}
+
+.large-spacer {
+    width: 100%;
+    height: 6rem;
+}
+
+/* ------------------------------- First Slide -------------------------- */
+#first-slide,
+#second-slide,
+#third-slide {
+    display: none;
+}
+
+/* ------------------------------- Second Slide -------------------------- */
+
+.back-forth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--third-color);
+    position: fixed;
+    color: var(--font-color);
+    top: calc(80vh - 1rem);
+}
+
+    .back-forth-button:hover {
+        opacity: 0.8;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    .back-forth-button.back {
+        left: 0.5em;
+    }
+
+    .back-forth-button.forth {
+        right: 0.5rem;
+    }
+
+.layer-p {
+    width: 100%;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+.layer-p-description {
+    display: none;
+}
+
+.layer-article-point {
+    width: 90%;
+    margin: auto;
+}
+
+.article-layer-desc {
+    margin: var(--medium-spacing-mobile) auto;
+}
+
+.open-article-point {
+    border: none;
+    max-width: 100%;
+    padding: var(--small-spacing-mobile);
+    background-color: var(--third-color);
+    border-radius: var(--std-radius-mobile);
+    margin: var(--xsmall-spacing-mobile) auto;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto;
+}
+
+    .open-article-point h3 {
+        font-size: 1.5rem;
+    }
+
+    .open-article-point span {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        margin: auto;
+    }
