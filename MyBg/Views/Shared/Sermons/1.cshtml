@@ -1,4 +1,5 @@
-﻿<div class='main-wrapper main-wrapper-post'>
+﻿
+<div class='main-wrapper main-wrapper-post'>
     <h1 class='main-title std-h1'>DON'T PUT YOUR FEET UP YET</h1>
     <div class='img-wrapper img-wrapper-post-intro'>
         <img class='std-img'
@@ -13,15 +14,22 @@
 
 @*---------------------- render the top layer comp ---------------------*@
 <div class='layer-slide' id="layer-slide">
+    <button class="std-button back-to-chapters" id="close-slide-layout-button" onclick="closeSlideLayout()">👈 BACK TO POST</button>
     @await Html.PartialAsync("~/Views/Shared/Components/dont_put_your_feet_up_yet/sermon_chapters.cshtml")
 </div>
 
 <script>
     const layerSlide = document.querySelector("#layer-slide");
+    const closeSlideLayoutButton = document.querySelector("#close-slide-layout-button");
 
     window.location.search.includes("?chapters=true") ? layerSlide.style.display = "block" : null;
 
     const renderSermonChapters = () => {
         layerSlide.style.display = "block";
     }
+
+    const closeSlideLayout = () => {
+        layerSlide.style.display = "none";
+    }
+
 </script>

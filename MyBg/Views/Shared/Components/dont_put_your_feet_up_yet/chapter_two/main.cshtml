@@ -1,0 +1,72 @@
+﻿<div class="sub-layout" id="layer-chapter-two">
+    <h2 class="std-h2 chapter-section-title">2 LIVING UP TO THE NAME</h2>
+    @await Html.PartialAsync("./section_one.cshtml")
+    @await Html.PartialAsync("./section_two.cshtml")
+    @await Html.PartialAsync("./section_three.cshtml")
+
+    <div class="spacer-from-chapter-section"></div>
+
+    <section class="chapter-sections-selector-wrapper">
+        <div style='background-image: url("https://cvws.icloud-content.com/B/AeU1Olc6D4efA1aMeN7qMIygfbPxAYyok1kzF6lIuRQMsGjaMECeG2r7/2.1.png?o=Atj4u83Q4g2O8GggnUXgmY-yJLVpd1PSWe-Em1es-tPx&v=1&x=3&a=CAogqRu6Loa6N8nVILr5YGOGLGzvXMhczjDxy8C9pwh6YIgSbRCIi56m9i8YqILVpvYvIgEAUgSgfbPxWgSeG2r7aiYhM0NWVmFVG0T2VR38stSdU9lxxuIaaifrOtqbocCx491-bdE7RnIme8FjckMxZ5yKnOyKltTiDTzFnxLg9bW8OTZzR2HWhL4Xp_iPUM8&e=1646664171&fl=&r=466dac8c-e3c0-4b88-b652-ad23024b0422-1&k=vJQmnepH7qFQvdIm6oOn5w&ckc=com.apple.clouddocs&ckz=com.apple.CloudDocs&p=110&s=M6-ZavGrdz0zkC9G3ybBkhDbX4s&cd=i")' id="chapter-two_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
+        <div style='background-image: url("https://cvws.icloud-content.com/B/Adwl6KZcHj8ujNIdkGxkfO3KmLfUAfMw9V1niaGFqlFr8_i80OUn6KPb/2.2.png?o=Akrgbnno8jkXf-AXSt4JO6IORWvi4jRpZT6kpRBFF635&v=1&x=3&a=CAogb406G19a57tvP1DckzZ2labCmvPmsu-fOTEuz5YfcGsSbRDcs5Om9i8Y_KrKpvYvIgEAUgTKmLfUWgQn6KPbaiZqpOT5C-0eH0-9RWQaYoaTTYzxAM1uUazvZy582QbqPevh3Ace-HImPmfAQ9DaAxI1aDz-tmitzoWrsy2OMblbP6fH4gE13I2z6wJg4aM&e=1646663996&fl=&r=7f458545-db3f-48f3-b9e1-457dda07d2f4-1&k=N-qUUQ7QFcGx0qew1lpBNg&ckc=com.apple.clouddocs&ckz=com.apple.CloudDocs&p=110&s=yXujLJKGqiQg7hT56ROcxssBaw0&cd=i")' id="chapter-two_section-two--trigger" class="chapter-section-card" data-section="2"></div>
+        <div style='background-image: url("https://cvws.icloud-content.com/B/Adt7Oojmf2OYFWom7Wu8f0fLePjkAYITUNQhUoljUdjNk0Msw1dDR7fe/2.3.png?o=AlDbo1e_LN7y_1AEGUhADsW2V1yEXi_xPWeXR204sNo8&v=1&x=3&a=CAogwnM3qYHgQQLKjt9L3NFEsUSEjUSC7Gbqlie0DzhVnpsSbRD4j6Cm9i8YmIfXpvYvIgEAUgTLePjkWgRDR7feaibT3wnSeIMFVQS2wRLxZ-A8TcrLFzoVJkh1tVVhjT_EpEiXrXqkh3Imf1DtDi87fTqiNff_WExWYSu-ii6AXreGA3rPZlzfsfdgi0r70jI&e=1646664205&fl=&r=e09d58cd-864a-412d-b129-6b22dbf9e998-1&k=NunBNbyIyKnxMPeQQ5zV1w&ckc=com.apple.clouddocs&ckz=com.apple.CloudDocs&p=110&s=gGrLFijEAB0jluIkJQLviWxpIiE&cd=i")' id="chapter-two_section-three--trigger" class="chapter-section-card" data-section="3"></div>
+    </section>
+</div>
+
+<script>
+
+    const chapterTwo_SectionOne = document.querySelector("#chapter-two_section-one");
+    const chapterTwo_SectionTwo = document.querySelector("#chapter-two_section-two");
+    const chapterTwo_SectionThree = document.querySelector("#chapter-two_section-three");
+
+    const chapterTwo_SectionOne_Trigger = document.querySelector("#chapter-two_section-one--trigger");
+    const chapterTwo_SectionTwo_Trigger = document.querySelector("#chapter-two_section-two--trigger");
+    const chapterTwo_SectionThree_Trigger = document.querySelector("#chapter-two_section-three--trigger");
+
+
+    const chooseSection_ChapterTwo = (e) => {
+        const section = e.target.dataset.section;
+        switch (section) {
+            case '1':
+                chapterTwo_SectionThree.style.display = "none"
+                chapterTwo_SectionTwo.style.display = "none"
+                chapterTwo_SectionOne.style.display = "block"
+
+                // add the shiny border class
+                chapterTwo_SectionThree_Trigger.classList.remove('focused-section')
+                chapterTwo_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterTwo_SectionOne_Trigger.classList.add('focused-section')
+                break;
+
+            case '2':
+                chapterTwo_SectionThree.style.display = "none"
+                chapterTwo_SectionOne.style.display = "none"
+                chapterTwo_SectionTwo.style.display = "block"
+
+                // add the shiny border class
+                chapterTwo_SectionThree_Trigger.classList.remove('focused-section')
+                chapterTwo_SectionOne_Trigger.classList.remove('focused-section')
+                chapterTwo_SectionTwo_Trigger.classList.add('focused-section')
+                break;
+
+            case '3':
+                chapterTwo_SectionOne.style.display = "none"
+                chapterTwo_SectionTwo.style.display = "none"
+                chapterTwo_SectionThree.style.display = "block"
+
+                // add the shiny border class
+                chapterTwo_SectionOne_Trigger.classList.remove('focused-section')
+                chapterTwo_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterTwo_SectionThree_Trigger.classList.add('focused-section')
+                break;
+
+        }
+    }
+
+    // assign click event to section card
+    const chapterTwo_Section_Cards = document.querySelectorAll(".chapter-section-card");
+    chapterTwo_Section_Cards.forEach(item => {
+        item.addEventListener('click', chooseSection_ChapterTwo)
+    })
+
+</script>

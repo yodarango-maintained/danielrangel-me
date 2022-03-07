@@ -1,0 +1,53 @@
+﻿<div class="sub-layout" id="layer-chapter-four">
+    <h2 class="std-h2 chapter-section-title">4 IN THE FAR COUNTRY</h2>
+    @await Html.PartialAsync("./section_one.cshtml")
+    @await Html.PartialAsync("./section_two.cshtml")
+
+    <div class="spacer-from-chapter-section"></div>
+
+    <section class="chapter-sections-selector-wrapper">
+        <div style='background-image: url("https://www.icloud.com/iclouddrive/0cd0K_rDqHeETCAgS_hDqBF3Q#1.1") ' id="chapter-four_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
+        <div style='background-image: url("https://www.icloud.com/iclouddrive/0adkt4E9qslDaI-wf8GF3jD5w#1.2") ' id="chapter-four_section-two--trigger" class="chapter-section-card" data-section="2"></div>
+    </section>
+</div>
+
+<script>
+
+    const chapterFour_SectionOne = document.querySelector("#chapter-four_section-one");
+    const chapterFour_SectionTwo = document.querySelector("#chapter-four_section-two");
+
+    const chapterFour_SectionOne_Trigger = document.querySelector("#chapter-four_section-one--trigger");
+    const chapterFour_SectionTwo_Trigger = document.querySelector("#chapter-four_section-two--trigger");
+
+    const chooseSection_chapterFour = (e) => {
+        const section = e.target.dataset.section;
+        switch (section) {
+            case '1':
+                chapterFour_SectionTwo.style.display = "none"
+                chapterFour_SectionOne.style.display = "block"
+
+                // add the shiny border class
+                chapterFour_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterFour_SectionOne_Trigger.classList.add('focused-section')
+                break;
+
+            case '2':
+                chapterFour_SectionTwo.style.display = "block"
+                chapterFour_SectionOne.style.display = "none"
+
+                // add the shiny border class
+                chapterFour_SectionTwo_Trigger.classList.add('focused-section')
+                chapterFour_SectionOne_Trigger.classList.remove('focused-section')
+                break;
+
+
+        }
+    }
+
+    // assign click event to section card
+    const chapterFour_SectionOne_Cards = document.querySelectorAll(".chapter-section-card");
+    chapterFour_SectionOne_Cards.forEach(item => {
+        item.addEventListener('click', chooseSection_chapterFour)
+    })
+
+</script>

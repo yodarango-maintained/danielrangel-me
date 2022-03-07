@@ -1,0 +1,71 @@
+﻿<div class="sub-layout" id="layer-chapter-three">
+    <h2 class="std-h2 chapter-section-title">3 JACOB GOES TO COLLEGE</h2>
+    @await Html.PartialAsync("./section_one.cshtml")
+    @await Html.PartialAsync("./section_two.cshtml")
+    @await Html.PartialAsync("./section_three.cshtml")
+
+    <div class="spacer-from-chapter-section"></div>
+
+    <section class="chapter-sections-selector-wrapper">
+        <div style='background-image: url("https://www.icloud.com/iclouddrive/0cd0K_rDqHeETCAgS_hDqBF3Q#1.1") ' id="chapter-three_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
+        <div style='background-image: url("https://www.icloud.com/iclouddrive/0adkt4E9qslDaI-wf8GF3jD5w#1.2") ' id="chapter-three_section-two--trigger" class="chapter-section-card" data-section="2"></div>
+        <div style='background-image: url("https://www.icloud.com/iclouddrive/00dbpYBHqiSntuUMH9-E4HFSw#1.3") ' id="chapter-three_section-three--trigger" class="chapter-section-card" data-section="3"></div>
+    </section>
+</div>
+
+<script>
+
+    const chapterThree_SectionOne = document.querySelector("#chapter-three_section-one");
+    const chapterThree_SectionTwo = document.querySelector("#chapter-three_section-two");
+    const chapterThree_SectionThree = document.querySelector("#chapter-three_section-three");
+
+    const chapterThree_SectionOne_Trigger = document.querySelector("#chapter-three_section-one--trigger");
+    const chapterThree_SectionTwo_Trigger = document.querySelector("#chapter-three_section-two--trigger");
+    const chapterThree_SectionThree_Trigger = document.querySelector("#chapter-three_section-three--trigger");
+
+    const chooseSection_chapterThree = (e) => {
+        const section = e.target.dataset.section;
+        switch (section) {
+            case '1':
+                chapterThree_SectionThree.style.display = "none"
+                chapterThree_SectionTwo.style.display = "none"
+                chapterThree_SectionOne.style.display = "block"
+
+                // add the shiny border class
+                chapterThree_SectionThree_Trigger.classList.remove('focused-section')
+                chapterThree_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterThree_SectionOne_Trigger.classList.add('focused-section')
+                break;
+
+            case '2':
+                chapterThree_SectionThree.style.display = "none"
+                chapterThree_SectionOne.style.display = "none"
+                chapterThree_SectionTwo.style.display = "block"
+
+                // add the shiny border class
+                chapterThree_SectionThree_Trigger.classList.remove('focused-section')
+                chapterThree_SectionOne_Trigger.classList.remove('focused-section')
+                chapterThree_SectionTwo_Trigger.classList.add('focused-section')
+                break;
+
+            case '3':
+                chapterThree_SectionOne.style.display = "none"
+                chapterThree_SectionTwo.style.display = "none"
+                chapterThree_SectionThree.style.display = "block"
+
+                // add the shiny border class
+                chapterThree_SectionOne_Trigger.classList.remove('focused-section')
+                chapterThree_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterThree_SectionThree_Trigger.classList.add('focused-section')
+                break;
+
+        }
+    }
+
+    // assign click event to section card
+    const chapterThree_SectionOne_Cards = document.querySelectorAll(".chapter-section-card");
+    chapterThree_SectionOne_Cards.forEach(item => {
+        item.addEventListener('click', chooseSection_chapterThree)
+    })
+
+</script>

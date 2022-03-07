@@ -1,67 +1,170 @@
 ﻿
-<div>
+<div id="layer-chapters">
     <h1 class="std-h1 layer-slide-h1">Sermon Chapters</h1>
     <div class='chapters-card-wrapper'>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+             onclick="openChapter(0)">
+            <img src="" />
             <h4 class='std-h3'>Intro & Sources</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+             onclick="openChapter(1)">
+            <img src="https://www.icloud.com/iclouddrive/0cd0K_rDqHeETCAgS_hDqBF3Q#1.1" />
             <h4 class='std-h3'>1. Begginings</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+             onclick="openChapter(2)">
+            <img src="https://www.icloud.com/iclouddrive/009REe5NELN21C1neqkv2EIfw#2.2" />
             <h4 class='std-h3'>2. Living Up To The Name</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+             onclick="openChapter(3)">
+            <img src="https://www.icloud.com/iclouddrive/0e5RXBFRojpl_Ybb-C397Y5Ig#3.3" />
             <h4 class='std-h3'>3. Jacob Goes To School</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+             onclick="openChapter(4)">
+            <img src="https://www.icloud.com/iclouddrive/0cdILaWzh52XNBEp6fZbt7u_Q#4.1" />
             <h4 class='std-h3'>4. In The Far Country</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+             onclick="openChapter(5)">
+            <img src="https://www.icloud.com/iclouddrive/0deH6_O8j3ac-IoPexA89ub0w#5.1" />
             <h4 class='std-h3'>5. Back To The Father's House</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+             onclick="openChapter(6)">
+            <img src="https://www.icloud.com/iclouddrive/0c6bnA1-77g9rikfFX6AbJEoA#6.3" />
             <h4 class='std-h3'>6. Living In The Middle</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
+             onclick="openChapter(7)">
             <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
             <h4 class='std-h3'>7. When Dreams Die</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
+             onclick="openChapter(8)">
             <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
             <h4 class='std-h3'>8. Living In The Bliss</h4>
         </div>
 
         <div class='chapter-card std-button'
-             onclick="openChapter()">
+             onclick="openChapter(9)">
             <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
             <h4 class='std-h3'>9. Finishing The Race</h4>
         </div>
-
     </div>
 </div>
+
+<div id="sub-layer-wrapper">
+    <button class="std-button back-to-chapters" onclick="closeChapterWrapper()">👈 BACK TO CHAPTERS</button>
+    @await Html.PartialAsync("./intro.cshtml")
+    @await Html.PartialAsync("./chapter_one/main.cshtml")
+    @await Html.PartialAsync("./chapter_two/main.cshtml")
+    @await Html.PartialAsync("./chapter_three/main.cshtml")
+    @await Html.PartialAsync("./chapter_four/main.cshtml")
+    @await Html.PartialAsync("./chapter_five/main.cshtml")
+    @await Html.PartialAsync("./chapter_six/main.cshtml")
+</div>
+
+<script>
+    const chaptersLayout = document.querySelector("#layer-chapters");
+
+    const subLayout = document.querySelector("#sub-layer-wrapper");
+
+    // chapter layouts
+    const introLayout = document.querySelector("#layer-intro");
+    const chapterOneLayout = document.querySelector("#layer-chapter-one");
+    const chapterTwoLayout = document.querySelector("#layer-chapter-two");
+    const chapterThreeLayout = document.querySelector("#layer-chapter-three");
+    const chapterFourLayout = document.querySelector("#layer-chapter-four");
+    const chapterFiveLayout = document.querySelector("#layer-chapter-five");
+    const chapterSixLayout = document.querySelector("#layer-chapter-six");
+
+    const openChapter = (layout) => {
+
+        subLayout.style.display = "block";
+        closeSlideLayoutButton.style.display = "none"
+        chaptersLayout.style.display = "none";
+
+        switch (layout) {
+            case 0:
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none";
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                introLayout.style.display = "block";
+                break;
+            case 1:
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                chapterTwoLayout.style.display = "none";
+                introLayout.style.display = "none";
+                chapterOneLayout.style.display = "block";
+                break;
+            case 2:
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "block";
+                chapterOneLayout.style.display = "none";
+                break;
+            case 3:
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "block"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                break;
+            case 4:
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "block";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                break;
+            case 5:
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "block"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                break;
+            case 6:
+                chapterSixLayout.style.display = "block";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+        }
+    }
+
+    // close chapters layouts
+    const closeChapterWrapper = () => {
+        subLayout.style.display = "none";
+        chaptersLayout.style.display = "block";
+        closeSlideLayoutButton.style.display = "block"
+    }
+</script>
