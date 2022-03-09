@@ -1,15 +1,17 @@
-﻿<div class="sub-layout" id="layer-chapter-three">
+﻿@model string[]
+
+<div class="sub-layout" id="layer-chapter-three">
     <h2 class="std-h2 chapter-section-title">3 JACOB GOES TO COLLEGE</h2>
-    @await Html.PartialAsync("./section_one.cshtml")
-    @await Html.PartialAsync("./section_two.cshtml")
-    @await Html.PartialAsync("./section_three.cshtml")
+    @await Html.PartialAsync("./section_one.cshtml", Model[0])
+    @await Html.PartialAsync("./section_two.cshtml", Model[1])
+    @await Html.PartialAsync("./section_three.cshtml", Model[2])
 
     <div class="spacer-from-chapter-section"></div>
 
     <section class="chapter-sections-selector-wrapper">
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/0cd0K_rDqHeETCAgS_hDqBF3Q#1.1") ' id="chapter-three_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/0adkt4E9qslDaI-wf8GF3jD5w#1.2") ' id="chapter-three_section-two--trigger" class="chapter-section-card" data-section="2"></div>
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/00dbpYBHqiSntuUMH9-E4HFSw#1.3") ' id="chapter-three_section-three--trigger" class="chapter-section-card" data-section="3"></div>
+        <div style='background-image: url("@Model[0]") ' id="chapter-three_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
+        <div style='background-image: url("@Model[1]") ' id="chapter-three_section-two--trigger" class="chapter-section-card" data-section="2"></div>
+        <div style='background-image: url("@Model[2]") ' id="chapter-three_section-three--trigger" class="chapter-section-card" data-section="3"></div>
     </section>
 </div>
 
@@ -29,7 +31,7 @@
             case '1':
                 chapterThree_SectionThree.style.display = "none"
                 chapterThree_SectionTwo.style.display = "none"
-                chapterThree_SectionOne.style.display = "block"
+                chapterThree_SectionOne.style.display = "flex"
 
                 // add the shiny border class
                 chapterThree_SectionThree_Trigger.classList.remove('focused-section')
@@ -40,7 +42,7 @@
             case '2':
                 chapterThree_SectionThree.style.display = "none"
                 chapterThree_SectionOne.style.display = "none"
-                chapterThree_SectionTwo.style.display = "block"
+                chapterThree_SectionTwo.style.display = "flex"
 
                 // add the shiny border class
                 chapterThree_SectionThree_Trigger.classList.remove('focused-section')
@@ -51,7 +53,7 @@
             case '3':
                 chapterThree_SectionOne.style.display = "none"
                 chapterThree_SectionTwo.style.display = "none"
-                chapterThree_SectionThree.style.display = "block"
+                chapterThree_SectionThree.style.display = "flex"
 
                 // add the shiny border class
                 chapterThree_SectionOne_Trigger.classList.remove('focused-section')

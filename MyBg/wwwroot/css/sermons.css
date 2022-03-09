@@ -1,37 +1,18 @@
 ﻿/*--------------------- general ------------------ */
+.main-wrapper-post {
+    max-width: 40.625rem;
+}
 
 .main-title {
     margin-top: 0;
 }
-
-@media (min-width: 800px) {
-    .main-wrapper-post {
-        display: flex;
-        align-content: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .main-wrapper-post h1 {
-        width: 48%;
-    }
-
-    .main-wrapper-post .img-wrapper{
-         width: 48%;
-    }
-}
-
-@media (min-width: 800px) {
-    .main-title {
-        font-size: 4rem;
-    }
-}
-
 .post-intro-wrapper {
-    display: flex;
+/*    display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: wrap;*/
+    max-width: 40.625rem;
+    margin: auto;
 }
 
 .bible-verse-wrapper {
@@ -42,17 +23,17 @@
 .img-wrapper {
     position: relative;
     width: 100%;
+    border-radius: var(--std-radius-desktop);
 }
 
 .img-wrapper-post-intro {
     margin: var(--xlarge-spacing-mobile) auto;
 }
 
-@media (min-width: 1000px) {
-    .img-wrapper {
-        position: relative;
-        width: 47%;
-    }
+.post-image {
+    height: 100%;
+    width: 100%;
+    border-radius: var(--std-radius-mobile);
 }
 
 .std-img {
@@ -73,13 +54,6 @@
 
 .article-intro {
     width: 100%;
-}
-
-@media (min-width: 1000px) {
-    .article-intro {
-        position: relative;
-        width: 46%;
-    }
 }
 
 .sub-title {
@@ -123,9 +97,7 @@
     max-width: 17rem;
     margin-left: 5%;
 }
-
 /* --------------------- Chpaters Card Wrapper ------------------------------- */
-
 .chapters-card-wrapper {
     width: 90%;
     margin: auto;
@@ -133,6 +105,7 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    max-width: 65rem;
 }
 
 .chapter-card {
@@ -148,43 +121,45 @@
     padding: 0;
 }
 
-    .chapter-card img {
-        object-fit: cover;
-        object-position: center;
-        -o-object-fit: cover;
-        -o-object-position: center;
-        grid-row: 1/2;
-        grid-column: 1/2;
-        height: 100%;
-        width: 100%;
-        margin: auto;
-        border-radius: var(--std-radius-mobile);
-    }
+.chapter-card img {
+    object-fit: cover;
+    object-position: center;
+    -o-object-fit: cover;
+    -o-object-position: center;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    border-radius: var(--std-radius-mobile);
+}
 
-    .chapter-card h4 {
-        height: 100%;
-        width: 100%;
-        grid-row: 2/3;
-        grid-column: 1/2;
-        font-size: 1.3rem;
-        margin: 0;
-        background-color: var(--primary-color);
-        padding: 0 var(--small-spacing-mobile);
-        border: 2px solid var(--third-color);
-        border-radius: var(--std-radius-mobile);
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
+.chapter-card h4 {
+    height: 100%;
+    width: 100%;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 1.3rem;
+    margin: 0;
+    background-color: var(--primary-color);
+    padding: 0 var(--small-spacing-mobile);
+    border: 2px solid var(--third-color);
+    border-radius: var(--std-radius-mobile);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 /* --------------------- layers slide ------------------------------- */
 .post-layer-main-wrapper {
     width: 90%;
     margin: var(--medium-spacing-mobile) auto;
+    max-width: 40.625rem;
 }
 
 .std-h1.layer-slide-h1 {
     width: 90%;
     margin: var(--medium-spacing-mobile) auto;
+    max-width: 65rem;
 }
 
 .layer-slide {
@@ -202,7 +177,7 @@
 
 .list-wrapper {
     width: 90%;
-    max-width: 56.25rem;
+    max-width: 75rem;
     margin: auto;
 }
 
@@ -230,19 +205,13 @@
     font: var(--main-parragraph);
 }
 
-    .std-resources li span {
-        grid-column: 1/2;
-        margin: auto;
-    }
+.std-resources li span {
+    grid-column: 1/2;
+    margin: auto;
+}
 
-        .std-resources li span svg {
-            width: 2rem;
-        }
-
-@media (min-width: 800px) {
-    .std-resources li span svg {
-        width: 3rem;
-    }
+.std-resources li span svg {
+    width: 2rem;
 }
 
 .std-resources li a {
@@ -260,6 +229,8 @@
 .sub-layout{
     display:none;
 }
+
+
 /* ------------------------------- First Slide -------------------------- */
 #first-slide,
 #second-slide,
@@ -282,19 +253,19 @@
     top: calc(80vh - 1rem);
 }
 
-    .back-forth-button:hover {
-        opacity: 0.8;
-        transform: scale(1.2);
-        cursor: pointer;
-    }
+.back-forth-button:hover {
+    opacity: 0.8;
+    transform: scale(1.2);
+    cursor: pointer;
+}
 
-    .back-forth-button.back {
-        left: 0.5em;
-    }
+.back-forth-button.back {
+    left: 0.5em;
+}
 
-    .back-forth-button.forth {
-        right: 0.5rem;
-    }
+.back-forth-button.forth {
+    right: 0.5rem;
+}
 
 .layer-p {
     width: 100%;
@@ -350,6 +321,9 @@
 .std-chapter-section {
     width: 90%;
     margin: var(--medium-spacing-mobile) auto;
+    max-width: 40.625rem;
+    flex-wrap: wrap;
+    display: flex;
 }
 
 .std-chapter-section--hidden{
@@ -358,13 +332,14 @@
 
 .chapter-section-title{
     width: 90%;
+    max-width: 40.625rem;
 }
 
 /*---------------- chapter section selector ------------------*/
-.img-wrapper.chapter-section-img{
+/*.img-wrapper.chapter-section-img{
     width: 100%;
     margin: var(--small-spacing-mobile) auto var(--medium-spacing-mobile)
-}
+}*/
 
 .chapter-section-image {
     object-fit: cover;
@@ -415,4 +390,369 @@
 .spacer-from-chapter-section {
     width: 100%;
     height: 8rem;
+}
+
+/* ---------------------------------------------- IPAD ---------------------------------*/
+
+@media (min-width: 800px) {
+
+    .main-wrapper-post{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 56.25rem;
+    }
+
+    .main-title {
+        margin-top: 0;
+        width: 48%;
+    }
+
+    .img-wrapper {
+        border-radius: var(--std-radius-desktop);
+    }
+
+    .img-wrapper-post-intro {
+        margin: var(--xlarge-spacing-desktop) auto;
+        width: 48%;
+    }
+
+    .post-image {
+        height: 100%;
+        width: 100%;
+        border-radius: var(--std-radius-desktop);
+    }
+
+    .sub-title {
+        margin: var(--medium-spacing-desktop) auto;
+    }
+
+
+    .bible-verse-p {
+        font-size: 1.5rem;
+        margin: var(--small-spacing-desktop) auto;
+    }
+
+    /* --------------------- Chpaters Card Wrapper ------------------------------- */
+
+    .chapter-card {
+        height: 17rem;
+        width: 20rem;
+        margin: var(--medium-spacing-desktop) auto;
+        border-radius: var(--std-radius-desktop);
+    }
+
+    .chapter-card img {
+        border-radius: var(--std-radius-desktop);
+    }
+
+    .chapter-card .std-h3 {
+        font-size: 1.3rem;
+        margin: 0;
+    }
+    /* --------------------- layers slide ------------------------------- */
+    .post-layer-main-wrapper {
+        width: 90%;
+        margin: var(--medium-spacing-mobile) auto;
+        max-width: 68.75rem;
+    }
+
+    .std-h1.layer-slide-h1 {
+        width: 90%;
+        margin: var(--medium-spacing-mobile) auto;
+    }
+
+    .layer-slide {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--primary-color);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        z-index: 18;
+        display: none;
+    }
+
+    .layer-slide h3 {
+        font-size: 2rem;
+    }
+
+    .std-list li {
+        display: inline-flex;
+        width: 100%;
+        border: 0.1rem solid var(--font-color);
+        padding: var(--xsmall-spacing-mobile);
+    }
+
+    .std-resources li {
+        border: none;
+        max-width: 100%;
+        padding: var(--small-spacing-mobile);
+        background-color: var(--third-color);
+        border-radius: var(--std-radius-mobile);
+        margin: var(--xsmall-spacing-mobile) auto;
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: auto;
+        font: var(--main-parragraph);
+    }
+
+        .std-resources li span {
+            grid-column: 1/2;
+            margin: auto;
+        }
+
+            .std-resources li span svg {
+                width: 2rem;
+            }
+
+    @media (min-width: 800px) {
+        .std-resources li span svg {
+            width: 3rem;
+        }
+    }
+
+    .std-resources li a {
+        grid-column: 2/3;
+        text-align: left;
+    }
+
+    .large-spacer {
+        width: 100%;
+        height: 6rem;
+    }
+
+    /* ------------------------------- First Slide -------------------------- */
+
+    .sub-layout {
+        display: none;
+    }
+
+    /* ------------------------------- First Slide -------------------------- */
+    #first-slide,
+    #second-slide,
+    #third-slide {
+        display: none;
+    }
+
+    /* ------------------------------- Second Slide -------------------------- */
+
+    .back-forth-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: var(--third-color);
+        position: fixed;
+        color: var(--font-color);
+        top: calc(80vh - 1rem);
+    }
+
+        .back-forth-button:hover {
+            opacity: 0.8;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .back-forth-button.back {
+            left: 0.5em;
+        }
+
+        .back-forth-button.forth {
+            right: 0.5rem;
+        }
+
+    .layer-p {
+        width: 100%;
+        margin: auto;
+        font-size: 1.5rem;
+    }
+
+    .layer-p-description {
+        display: none;
+    }
+
+    .layer-article-point {
+        width: 90%;
+        margin: auto;
+    }
+
+    .article-layer-desc {
+        margin: var(--medium-spacing-mobile) auto;
+    }
+
+    .open-article-point {
+        border: none;
+        max-width: 100%;
+        padding: var(--small-spacing-mobile);
+        background-color: var(--third-color);
+        border-radius: var(--std-radius-mobile);
+        margin: var(--xsmall-spacing-mobile) auto;
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: auto;
+    }
+
+        .open-article-point h3 {
+            font-size: 1.5rem;
+        }
+
+        .open-article-point span {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            margin: auto;
+        }
+
+    /*---------------- chapter sections -----------------*/
+    .chapter-section-image {
+        border-radius: var(--std-radius-mobile)
+    }
+
+/*    .std-chapter-section {
+        width: 90%;
+        margin: var(--medium-spacing-mobile) auto;
+        max-width: 70rem;
+        display:flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }*/
+
+    .std-chapter-section--hidden {
+        display: none;
+    }
+
+    /*---------------- chapter section selector ------------------*/
+/*    .img-wrapper.chapter-section-img {
+        width: 100%;
+        margin: var(--small-spacing-mobile) auto var(--medium-spacing-mobile)
+    }*/
+
+    .chapter-sections-selector-wrapper {
+        width: 100%;
+        height: 7rem;
+        padding: 1rem;
+        background-color: var(--third-color);
+        position: fixed;
+        bottom: 0;
+        z-index: 17;
+        overflow-x: scroll;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .chapter-sections-selector-wrapper div {
+        height: 100%;
+        width: 5rem;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0 var(--small-spacing-mobile) 0 0;
+        flex-shrink: 0;
+        transition: 300ms;
+        border-radius: .4rem;
+    }
+
+        .chapter-sections-selector-wrapper div:hover {
+            transform: scale(0.98);
+            cursor: pointer;
+            border: 0.2rem solid var(--font-color);
+            box-shadow: 0.1rem 0.1rem 1rem 0.1rem var(--font-color), -0.1rem -0.1rem 1rem 0.1rem var(--font-color);
+        }
+
+    .chapter-sections-selector-wrapper .focused-section {
+        transform: scale(0.98);
+        cursor: pointer;
+        border: 0.2rem solid var(--font-color);
+        box-shadow: 0.1rem 0.1rem 1rem 0.1rem var(--font-color), -0.1rem -0.1rem 1rem 0.1rem var(--font-color);
+    }
+
+    .spacer-from-chapter-section {
+        width: 100%;
+        height: 8rem;
+    }
+
+}
+
+@media (min-width: 1000px){
+/*    .post-layer-main-wrapper--flex{
+        max-width: 75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }*/
+
+    .post-intro-wrapper {
+        width: 100%;
+        margin: auto;
+        max-width: 75rem;
+    }
+
+    .post-itro-wrapper--flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    .post-itro-wrapper--flex .article-intro {
+        width: 48%;
+        flex-grow: 0;
+    }
+
+    .post-itro-wrapper--flex .img-wrapper {
+        width: 48%;
+         flex-grow: 0;
+    }
+
+    .chapters-card-wrapper {
+        justify-content: flex-start;
+    }
+    .post-layer-main-wrapper {
+        margin: var(--medium-spacing-desktop) auto;
+        max-width: 68.75rem;
+    }
+
+    .std-chapter-section {
+        width: 90%;
+        margin: var(--medium-spacing-mobile) auto;
+        max-width: 80rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .std-chapter-section--hidden{
+        display:none;
+    }
+
+    .chapter-section-img {
+        width: 38%;
+    }
+
+    .std-chapter-section .chapter-section-image {
+        width: 100%;
+    }
+
+    .chapter-section-title {
+        max-width: 70rem;
+    }
+
+    .std-chapter-section .chapter-section_wrapper {
+        width: 59%;
+    }
+
+    .chapter-section_wrapper {
+        width: 48%;
+    }
 }

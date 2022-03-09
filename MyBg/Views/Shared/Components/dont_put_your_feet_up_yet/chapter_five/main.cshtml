@@ -1,19 +1,21 @@
-﻿<div class="sub-layout" id="layer-chapter-five">
+﻿@model string[];
+
+<div class="sub-layout" id="layer-chapter-five">
     <h2 class="std-h2 chapter-section-title">5 BACK TO THE FATHER'S HOUSE</h2>
-    @await Html.PartialAsync("./section_one.cshtml")
-    @await Html.PartialAsync("./section_two.cshtml")
-    @await Html.PartialAsync("./section_three.cshtml")
-    @await Html.PartialAsync("./section_four.cshtml")
-    @await Html.PartialAsync("./section_five.cshtml")
+    @await Html.PartialAsync("./section_one.cshtml", Model[0])
+    @await Html.PartialAsync("./section_two.cshtml", Model[1])
+    @await Html.PartialAsync("./section_three.cshtml", Model[2])
+    @await Html.PartialAsync("./section_four.cshtml", Model[3])
+    @await Html.PartialAsync("./section_five.cshtml", Model[4])
 
     <div class="spacer-from-chapter-section"></div>
 
     <section class="chapter-sections-selector-wrapper">
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/0cd0K_rDqHeETCAgS_hDqBF3Q#1.1") ' id="chapter-five_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/0adkt4E9qslDaI-wf8GF3jD5w#1.2") ' id="chapter-five_section-two--trigger" class="chapter-section-card" data-section="2"></div>
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/00dbpYBHqiSntuUMH9-E4HFSw#1.3") ' id="chapter-five_section-three--trigger" class="chapter-section-card" data-section="3"></div>
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/085f7Oxc1XA8xwHjRmTgBOoPQ#1.4") ' id="chapter-five_section-four--trigger" class="chapter-section-card" data-section="4"></div>
-        <div style='background-image: url("https://www.icloud.com/iclouddrive/085f7Oxc1XA8xwHjRmTgBOoPQ#1.5") ' id="chapter-five_section-five--trigger" class="chapter-section-card" data-section="5"></div>
+        <div style='background-image: url("@Model[0]") ' id="chapter-five_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
+        <div style='background-image: url("@Model[1]") ' id="chapter-five_section-two--trigger" class="chapter-section-card" data-section="2"></div>
+        <div style='background-image: url("@Model[2]") ' id="chapter-five_section-three--trigger" class="chapter-section-card" data-section="3"></div>
+        <div style='background-image: url("@Model[3]") ' id="chapter-five_section-four--trigger" class="chapter-section-card" data-section="4"></div>
+        <div style='background-image: url("@Model[4]") ' id="chapter-five_section-five--trigger" class="chapter-section-card" data-section="5"></div>
     </section>
 </div>
 
@@ -39,7 +41,7 @@
                 chapterFive_SectionFour.style.display = "none"
                 chapterFive_SectionThree.style.display = "none"
                 chapterFive_SectionTwo.style.display = "none"
-                chapterFive_SectionOne.style.display = "block"
+                chapterFive_SectionOne.style.display = "flex"
 
                 // add the shiny border class
                 chapterFive_SectionFive_Trigger.classList.remove('focused-section')
@@ -54,7 +56,7 @@
                 chapterFive_SectionFour.style.display = "none"
                 chapterFive_SectionThree.style.display = "none"
                 chapterFive_SectionOne.style.display = "none"
-                chapterFive_SectionTwo.style.display = "block"
+                chapterFive_SectionTwo.style.display = "flex"
 
                 // add the shiny border class
                 chapterFive_SectionFive_Trigger.classList.remove('focused-section')
@@ -69,7 +71,7 @@
                 chapterFive_SectionFour.style.display = "none"
                 chapterFive_SectionOne.style.display = "none"
                 chapterFive_SectionTwo.style.display = "none"
-                chapterFive_SectionThree.style.display = "block"
+                chapterFive_SectionThree.style.display = "flex"
 
                 // add the shiny border class
                 chapterFive_SectionFive_Trigger.classList.remove('focused-section')
@@ -83,7 +85,7 @@
                 chapterFive_SectionOne.style.display = "none"
                 chapterFive_SectionTwo.style.display = "none"
                 chapterFive_SectionThree.style.display = "none"
-                chapterFive_SectionFour.style.display = "block"
+                chapterFive_SectionFour.style.display = "flex"
                 chapterFive_SectionFive.style.display = "none"
 
                 // add the shiny border class
@@ -99,7 +101,7 @@
                 chapterFive_SectionTwo.style.display = "none"
                 chapterFive_SectionThree.style.display = "none"
                 chapterFive_SectionFour.style.display = "none"
-                chapterFive_SectionFive.style.display = "block"
+                chapterFive_SectionFive.style.display = "flex"
 
                 // add the shiny border class
                 chapterFive_SectionOne_Trigger.classList.remove('focused-section')

@@ -1,0 +1,122 @@
+﻿@model string[];
+
+<div class="sub-layout" id="layer-chapter-seven">
+    <h2 class="std-h2 chapter-section-title">7 WHEN THE DREAM DIES </h2>
+    @await Html.PartialAsync("./section_one.cshtml", Model[0])
+    @await Html.PartialAsync("./section_two.cshtml", Model[1])
+    @await Html.PartialAsync("./section_three.cshtml", Model[2])
+    @await Html.PartialAsync("./section_four.cshtml", Model[3])
+    @await Html.PartialAsync("./section_five.cshtml", Model[4])
+
+    <div class="spacer-from-chapter-section"></div>
+
+    <section class="chapter-sections-selector-wrapper">
+        <div style='background-image: url("@Model[0]") ' id="chapter-seven_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
+        <div style='background-image: url("@Model[1]") ' id="chapter-seven_section-two--trigger" class="chapter-section-card" data-section="2"></div>
+        <div style='background-image: url("@Model[2]") ' id="chapter-seven_section-three--trigger" class="chapter-section-card" data-section="3"></div>
+        <div style='background-image: url("@Model[3]") ' id="chapter-seven_section-four--trigger" class="chapter-section-card" data-section="4"></div>
+        <div style='background-image: url("@Model[4]") ' id="chapter-seven_section-five--trigger" class="chapter-section-card" data-section="5"></div>
+    </section>
+</div>
+
+<script>
+
+    const chapterSeven_SectionOne = document.querySelector("#chapter-seven_section-one");
+    const chapterSeven_SectionTwo = document.querySelector("#chapter-seven_section-two");
+    const chapterSeven_SectionThree = document.querySelector("#chapter-seven_section-three");
+    const chapterSeven_SectionFour = document.querySelector("#chapter-seven_section-four");
+    const chapterSeven_SectionFive = document.querySelector("#chapter-seven_section-five");
+
+    const chapterSeven_SectionOne_Trigger = document.querySelector("#chapter-seven_section-one--trigger");
+    const chapterSeven_SectionTwo_Trigger = document.querySelector("#chapter-seven_section-two--trigger");
+    const chapterSeven_SectionThree_Trigger = document.querySelector("#chapter-seven_section-three--trigger");
+    const chapterSeven_SectionFour_Trigger = document.querySelector("#chapter-seven_section-four--trigger");
+    const chapterSeven_SectionFive_Trigger = document.querySelector("#chapter-seven_section-five--trigger");
+
+    const chooseSection_chapterSeven = (e) => {
+        const section = e.target.dataset.section;
+        switch (section) {
+            case '1':
+                chapterSeven_SectionFive.style.display = "none"
+                chapterSeven_SectionFour.style.display = "none"
+                chapterSeven_SectionThree.style.display = "none"
+                chapterSeven_SectionTwo.style.display = "none"
+                chapterSeven_SectionOne.style.display = "flex"
+
+                // add the shiny border class
+                chapterSeven_SectionFive_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionFour_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionThree_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionOne_Trigger.classList.add('focused-section')
+                break;
+
+            case '2':
+                chapterSeven_SectionFive.style.display = "none"
+                chapterSeven_SectionFour.style.display = "none"
+                chapterSeven_SectionThree.style.display = "none"
+                chapterSeven_SectionOne.style.display = "none"
+                chapterSeven_SectionTwo.style.display = "flex"
+
+                // add the shiny border class
+                chapterSeven_SectionFive_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionFour_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionThree_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionOne_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionTwo_Trigger.classList.add('focused-section')
+                break;
+
+            case '3':
+                chapterSeven_SectionFive.style.display = "none"
+                chapterSeven_SectionFour.style.display = "none"
+                chapterSeven_SectionOne.style.display = "none"
+                chapterSeven_SectionTwo.style.display = "none"
+                chapterSeven_SectionThree.style.display = "flex"
+
+                // add the shiny border class
+                chapterSeven_SectionFive_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionFour_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionOne_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionThree_Trigger.classList.add('focused-section')
+                break;
+
+            case '4':
+                chapterSeven_SectionOne.style.display = "none"
+                chapterSeven_SectionTwo.style.display = "none"
+                chapterSeven_SectionThree.style.display = "none"
+                chapterSeven_SectionFour.style.display = "flex"
+                chapterSeven_SectionFive.style.display = "none"
+
+                // add the shiny border class
+                chapterSeven_SectionOne_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionThree_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionFour_Trigger.classList.add('focused-section')
+                chapterSeven_SectionFive_Trigger.classList.remove('focused-section')
+                break;
+
+            case '5':
+                chapterSeven_SectionOne.style.display = "none"
+                chapterSeven_SectionTwo.style.display = "none"
+                chapterSeven_SectionThree.style.display = "none"
+                chapterSeven_SectionFour.style.display = "none"
+                chapterSeven_SectionFive.style.display = "flex"
+
+                // add the shiny border class
+                chapterSeven_SectionOne_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionThree_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionFour_Trigger.classList.remove('focused-section')
+                chapterSeven_SectionFive_Trigger.classList.add('focused-section')
+                break;
+        }
+    }
+
+    // assign click event to section card
+    const chapterSeven_SectionOne_Cards = document.querySelectorAll(".chapter-section-card");
+    chapterSeven_SectionOne_Cards.forEach(item => {
+        item.addEventListener('click', chooseSection_chapterSeven)
+    })
+
+</script>

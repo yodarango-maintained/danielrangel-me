@@ -1,0 +1,74 @@
+﻿@model string[];
+
+<div class="sub-layout" id="layer-chapter-nine">
+    <h2 class="std-h2 chapter-section-title">9 FINISHING THE RACE </h2>
+    @await Html.PartialAsync("./section_one.cshtml", Model[0])
+    @await Html.PartialAsync("./section_two.cshtml", Model[1])
+    @await Html.PartialAsync("./section_three.cshtml", Model[2])
+
+    <div class="spacer-from-chapter-section"></div>
+
+    <section class="chapter-sections-selector-wrapper">
+        <div style='background-image: url("@Model[0]")' id="chapter-nine_section-one--trigger" class="focused-section chapter-section-card" data-section="1"></div>
+        <div style='background-image: url("@Model[1]")' id="chapter-nine_section-two--trigger" class="chapter-section-card" data-section="2"></div>
+        <div style='background-image: url("@Model[2]")' id="chapter-nine_section-three--trigger" class="chapter-section-card" data-section="3"></div>
+    </section>
+</div>
+
+<script>
+
+    const chapterNine_SectionOne = document.querySelector("#chapter-nine_section-one");
+    const chapterNine_SectionTwo = document.querySelector("#chapter-nine_section-two");
+    const chapterNine_SectionThree = document.querySelector("#chapter-nine_section-three");
+
+    const chapterNine_SectionOne_Trigger = document.querySelector("#chapter-nine_section-one--trigger");
+    const chapterNine_SectionTwo_Trigger = document.querySelector("#chapter-nine_section-two--trigger");
+    const chapterNine_SectionThree_Trigger = document.querySelector("#chapter-nine_section-three--trigger");
+
+
+    const chooseSection_chapterNine = (e) => {
+        const section = e.target.dataset.section;
+        switch (section) {
+            case '1':
+                chapterNine_SectionThree.style.display = "none"
+                chapterNine_SectionTwo.style.display = "none"
+                chapterNine_SectionOne.style.display = "flex"
+
+                // add the shiny border class
+                chapterNine_SectionThree_Trigger.classList.remove('focused-section')
+                chapterNine_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterNine_SectionOne_Trigger.classList.add('focused-section')
+                break;
+
+            case '2':
+                chapterNine_SectionThree.style.display = "none"
+                chapterNine_SectionOne.style.display = "none"
+                chapterNine_SectionTwo.style.display = "flex"
+
+                // add the shiny border class
+                chapterNine_SectionThree_Trigger.classList.remove('focused-section')
+                chapterNine_SectionOne_Trigger.classList.remove('focused-section')
+                chapterNine_SectionTwo_Trigger.classList.add('focused-section')
+                break;
+
+            case '3':
+                chapterNine_SectionOne.style.display = "none"
+                chapterNine_SectionTwo.style.display = "none"
+                chapterNine_SectionThree.style.display = "flex"
+
+                // add the shiny border class
+                chapterNine_SectionOne_Trigger.classList.remove('focused-section')
+                chapterNine_SectionTwo_Trigger.classList.remove('focused-section')
+                chapterNine_SectionThree_Trigger.classList.add('focused-section')
+                break;
+
+        }
+    }
+
+    // assign click event to section card
+    const chapterNine_Section_Cards = document.querySelectorAll(".chapter-section-card");
+    chapterNine_Section_Cards.forEach(item => {
+        item.addEventListener('click', chooseSection_chapterNine)
+    })
+
+</script>

@@ -1,10 +1,12 @@
-﻿<div class="sub-layout" id="layer-intro">
+﻿@model string[];
+
+<div class="sub-layout" id="layer-intro">
     <div class="post-layer-main-wrapper">
-        <div class='post-intro-wrapper'>
+        <div class='post-intro-wrapper post-itro-wrapper--flex'>
             <div class='img-wrapper'>
-                <img class='std-img'
+                <img class='std-img chapter-section-image'
                      alt='sermon thumbnail'
-                     src='https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png' />
+                     src='@Model[0]' />
             </div>
             <div class='article-intro'>
                 <h3 class='sub-title std-h3'>Introduction</h3>
@@ -31,7 +33,7 @@
         </div>
 
 @*------------------------- bibliography ---------------------------- *@
-        <div>
+        <div class='post-intro-wrapper'>
             <h3 class='sub-title std-h3'>Bibliography</h3>
             <div class='list-wrapper'>
                 <ol class='std-resources std-list'>

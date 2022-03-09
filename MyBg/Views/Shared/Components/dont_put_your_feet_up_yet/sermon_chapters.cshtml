@@ -1,79 +1,167 @@
-﻿
+﻿@{
+    string[] introImages = { "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773368/danielrangel.me/Posts/resources_fcrnhg.png" };
+
+    string[] chapterOneImages =
+            {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/1.1_s55xi1.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/1.2_bsvxhv.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682116/danielrangel.me/Posts/1.3_ygovwp.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/1.4_xcw2an.png"
+            };
+
+    string[] chapterTwoImages =
+        {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/2.1_tk7hnd.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/2.2_qvs6as.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/2.3_ttke6x.png"
+            };
+
+    string[] chapterThreeImages =
+        {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/3.1_mf9vbx.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/3.2_j3wbkt.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682116/danielrangel.me/Posts/3.3_jniwpk.png"
+            };
+
+    string[] chapterFourImages =
+        {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/4.1_wpp0xb.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/4.2_csr75p.png"
+            };
+
+    string[] chapterFiveImages =
+    {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/5.1_kdxcwl.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/5.2_ghd9bv.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682116/danielrangel.me/Posts/5.3_xjn5zg.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/5.4_f63ibe.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/5.5_ihwrkd.png"
+
+            };
+
+    string[] chapterSixImages =
+    {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/6.1_sycrxa.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682114/danielrangel.me/Posts/6.2_o68nrf.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682116/danielrangel.me/Posts/6.3_kntj4r.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682115/danielrangel.me/Posts/6.4_byx6rb.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646682116/danielrangel.me/Posts/6.5_lr1qdl.png"
+            };
+
+    string[] chapterSevenImages =
+    {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/7.1_g6tmox.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/7.2_q4tlke.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/7.3_sqe58j.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/7.4_fv1kzj.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/7.5_tntdmw.png"
+            };
+
+
+    string[] chapterEightImages =
+    {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/8.1_lyrwel.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/8.2_vlncus.png"
+            };
+
+
+    string[] chapterNineImages =
+    {
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/9.1_urzdil.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/9.2_lwhczw.png",
+        "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773062/danielrangel.me/Posts/9.3_pnolth.png"
+            };
+    string[] conclusionImages = { "https://res.cloudinary.com/dq6prlmvh/image/upload/v1646773368/danielrangel.me/Posts/done_tkmpei.png" };
+}
+
+
+
 <div id="layer-chapters">
     <h1 class="std-h1 layer-slide-h1">Sermon Chapters</h1>
     <div class='chapters-card-wrapper'>
 
         <div class='chapter-card std-button'
              onclick="openChapter(0)">
-            <img src="" />
+            <img src="@introImages[0]" />
             <h4 class='std-h3'>Intro & Sources</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(1)">
-            <img src="https://www.icloud.com/iclouddrive/0cd0K_rDqHeETCAgS_hDqBF3Q#1.1" />
+            <img src="@chapterOneImages[0]" />
             <h4 class='std-h3'>1. Begginings</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(2)">
-            <img src="https://www.icloud.com/iclouddrive/009REe5NELN21C1neqkv2EIfw#2.2" />
+            <img src="@chapterTwoImages[1]" />
             <h4 class='std-h3'>2. Living Up To The Name</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(3)">
-            <img src="https://www.icloud.com/iclouddrive/0e5RXBFRojpl_Ybb-C397Y5Ig#3.3" />
+            <img src="@chapterThreeImages[2]" />
             <h4 class='std-h3'>3. Jacob Goes To School</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(4)">
-            <img src="https://www.icloud.com/iclouddrive/0cdILaWzh52XNBEp6fZbt7u_Q#4.1" />
+            <img src="@chapterFourImages[0]" />
             <h4 class='std-h3'>4. In The Far Country</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(5)">
-            <img src="https://www.icloud.com/iclouddrive/0deH6_O8j3ac-IoPexA89ub0w#5.1" />
+            <img src="@chapterFiveImages[1]" />
             <h4 class='std-h3'>5. Back To The Father's House</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(6)">
-            <img src="https://www.icloud.com/iclouddrive/0c6bnA1-77g9rikfFX6AbJEoA#6.3" />
+            <img src="@chapterSixImages[2]" />
             <h4 class='std-h3'>6. Living In The Middle</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(7)">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+            <img src="@chapterSevenImages[4]" />
             <h4 class='std-h3'>7. When Dreams Die</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(8)">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+            <img src="@chapterEightImages[1]" />
             <h4 class='std-h3'>8. Living In The Bliss</h4>
         </div>
 
         <div class='chapter-card std-button'
              onclick="openChapter(9)">
-            <img src="https://res.cloudinary.com/dq6prlmvh/image/upload/v1643996317/danielrangel.me/Email/logo_hbbtbu.png" />
+            <img src="@chapterNineImages[1]" />
             <h4 class='std-h3'>9. Finishing The Race</h4>
+        </div>
+
+
+        <div class='chapter-card std-button'
+             onclick="openChapter(10)">
+            <img src="@conclusionImages[0]" />
+            <h4 class='std-h3'>Conclusion</h4>
         </div>
     </div>
 </div>
 
 <div id="sub-layer-wrapper">
     <button class="std-button back-to-chapters" onclick="closeChapterWrapper()">👈 BACK TO CHAPTERS</button>
-    @await Html.PartialAsync("./intro.cshtml")
-    @await Html.PartialAsync("./chapter_one/main.cshtml")
-    @await Html.PartialAsync("./chapter_two/main.cshtml")
-    @await Html.PartialAsync("./chapter_three/main.cshtml")
-    @await Html.PartialAsync("./chapter_four/main.cshtml")
-    @await Html.PartialAsync("./chapter_five/main.cshtml")
-    @await Html.PartialAsync("./chapter_six/main.cshtml")
+    @await Html.PartialAsync("./intro.cshtml", introImages)
+    @await Html.PartialAsync("./chapter_one/main.cshtml", chapterOneImages)
+    @await Html.PartialAsync("./chapter_two/main.cshtml", chapterTwoImages)
+    @await Html.PartialAsync("./chapter_three/main.cshtml", chapterThreeImages)
+    @await Html.PartialAsync("./chapter_four/main.cshtml", chapterFourImages)
+    @await Html.PartialAsync("./chapter_five/main.cshtml", chapterFiveImages)
+    @await Html.PartialAsync("./chapter_six/main.cshtml", chapterSixImages)
+    @await Html.PartialAsync("./chapter_seven/main.cshtml", chapterSevenImages)
+    @await Html.PartialAsync("./chapter_eight/main.cshtml", chapterEightImages)
+    @await Html.PartialAsync("./chapter_nine/main.cshtml", chapterNineImages)
+    @await Html.PartialAsync("./conclution.cshtml", conclusionImages)
 </div>
 
 <script>
@@ -89,6 +177,10 @@
     const chapterFourLayout = document.querySelector("#layer-chapter-four");
     const chapterFiveLayout = document.querySelector("#layer-chapter-five");
     const chapterSixLayout = document.querySelector("#layer-chapter-six");
+    const chapterSevenLayout = document.querySelector("#layer-chapter-seven");
+    const chapterEightLayout = document.querySelector("#layer-chapter-eight");
+    const chapterNineLayout = document.querySelector("#layer-chapter-nine");
+    const conclution = document.querySelector("#layer-conclusion")
 
     const openChapter = (layout) => {
 
@@ -98,6 +190,10 @@
 
         switch (layout) {
             case 0:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
                 chapterSixLayout.style.display = "none";
                 chapterFiveLayout.style.display = "none";
                 chapterFourLayout.style.display = "none";
@@ -107,6 +203,10 @@
                 introLayout.style.display = "block";
                 break;
             case 1:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
                 chapterSixLayout.style.display = "none";
                 chapterFiveLayout.style.display = "none"
                 chapterFourLayout.style.display = "none";
@@ -116,6 +216,10 @@
                 chapterOneLayout.style.display = "block";
                 break;
             case 2:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
                 chapterFiveLayout.style.display = "none"
                 chapterFourLayout.style.display = "none";
                 chapterThreeLayout.style.display = "none"
@@ -124,6 +228,10 @@
                 chapterOneLayout.style.display = "none";
                 break;
             case 3:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
                 chapterSixLayout.style.display = "none";
                 chapterFiveLayout.style.display = "none"
                 chapterFourLayout.style.display = "none";
@@ -133,6 +241,10 @@
                 chapterOneLayout.style.display = "none";
                 break;
             case 4:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
                 chapterSixLayout.style.display = "none";
                 chapterFiveLayout.style.display = "none"
                 chapterFourLayout.style.display = "block";
@@ -142,6 +254,10 @@
                 chapterOneLayout.style.display = "none";
                 break;
             case 5:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
                 chapterSixLayout.style.display = "none";
                 chapterFiveLayout.style.display = "block"
                 chapterFourLayout.style.display = "none";
@@ -150,7 +266,12 @@
                 chapterTwoLayout.style.display = "none";
                 chapterOneLayout.style.display = "none";
                 break;
+
             case 6:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
                 chapterSixLayout.style.display = "block";
                 chapterFiveLayout.style.display = "none"
                 chapterFourLayout.style.display = "none";
@@ -158,6 +279,63 @@
                 introLayout.style.display = "none";
                 chapterTwoLayout.style.display = "none";
                 chapterOneLayout.style.display = "none";
+                break;
+
+            case 7:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "block"
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                break;
+
+            case 8:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "block"
+                chapterSevenLayout.style.display = "none"
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                break;
+
+            case 9:
+                conclution.style.display = "none"
+                chapterNineLayout.style.display = "block"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                break;
+
+            case 10:
+                conclution.style.display = "block"
+                chapterNineLayout.style.display = "none"
+                chapterEightLayout.style.display = "none"
+                chapterSevenLayout.style.display = "none"
+                chapterSixLayout.style.display = "none";
+                chapterFiveLayout.style.display = "none"
+                chapterFourLayout.style.display = "none";
+                chapterThreeLayout.style.display = "none"
+                introLayout.style.display = "none";
+                chapterTwoLayout.style.display = "none";
+                chapterOneLayout.style.display = "none";
+                break;
         }
     }
 

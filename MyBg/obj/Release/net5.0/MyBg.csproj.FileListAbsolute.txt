@@ -303,3 +303,17 @@ C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shar
 C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_six\section_one.cshtml.g.cs
 C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_six\section_three.cshtml.g.cs
 C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_six\section_two.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_seven\main.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_seven\section_five.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_seven\section_four.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_seven\section_one.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_seven\section_three.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_seven\section_two.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_eight\main.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_eight\section_one.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_eight\section_two.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_nine\main.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_nine\section_one.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_nine\section_three.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\chapter_nine\section_two.cshtml.g.cs
+C:\Users\danielr\source\repos\Mine\MyBg\MyBg\obj\Release\net5.0\Razor\Views\Shared\Components\dont_put_your_feet_up_yet\conclution.cshtml.g.cs
